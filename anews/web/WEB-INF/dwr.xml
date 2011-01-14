@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+<dwr>
+  <allow>
+<!--
+    <create creator="new" javascript="JavaDate" class="java.util.Date"/>
+-->
+    <!--新闻-->
+    <create creator="spring" javascript="NewsTagHelper">
+      <param name="beanName" value="newsTagHelper"/>
+    </create>
+    <convert converter="bean" match="anni.core.dao.support.Page">
+      <param name="include" value="totalCount, result"/>
+    </convert>
+    <convert converter="bean" match="anni.anews.domain.NewsTag">
+      <param name="include" value="id, name"/>
+    </convert>
+
+    <!--权限-->
+    <create creator="spring" javascript="ResourceHelper">
+      <param name="beanName" value="resourceHelper"/>
+    </create>
+    <create creator="spring" javascript="RoleHelper">
+      <param name="beanName" value="roleHelper"/>
+    </create>
+    <create creator="spring" javascript="UserHelper">
+      <param name="beanName" value="userHelper"/>
+    </create>
+    <create creator="spring" javascript="MenuHelper">
+      <param name="beanName" value="menuHelper"/>
+    </create>
+    <convert converter="bean" match="anni.core.dao.support.Page">
+      <param name="include" value="totalCount, result"/>
+    </convert>
+    <convert converter="bean" match="anni.asecurity.domain.Resource">
+      <param name="exclude" value="roles"/>
+    </convert>
+    <convert converter="bean" match="anni.asecurity.domain.Role">
+      <param name="exclude" value="users,menus,resources"/>
+    </convert>
+    <convert converter="bean" match="anni.asecurity.domain.User"/>
+    <convert converter="bean" match="anni.asecurity.domain.Dept">
+      <param name="exclude" value="users"/>
+    </convert>
+    <convert converter="bean" match="anni.asecurity.domain.Menu">
+      <param name="include" value="id,image,name,url,parent,children"/>
+    </convert>
+    <convert converter="bean" match="anni.asecurity.helper.MenuHelper$MenuItem"/>
+<!--
+    <create creator="spring" javascript="newsServiceClient">
+      <param name="beanName" value="newsServiceClient"/>
+      <include method="pagedQuery"/>
+      <exclude method="remove"/>
+    </create>
+    <convert converter="bean" match="anni.anews.domain.News">
+      <param name="include" value="id, name"/>
+      <param name="exclude" value="class, comments"/>
+    </convert>
+-->
+  </allow>
+</dwr>
