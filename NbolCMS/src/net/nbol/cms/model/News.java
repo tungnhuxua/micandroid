@@ -29,6 +29,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class News implements Serializable{
 	private static final long serialVersionUID = 6224944273947718411L;
 	
+	
 	/*** 正常状态. */
     public static final int STATUS_NORMAL = 0;
 
