@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!--
+  - Mapping file for the Hibernate implementation of the Clinic interface.
+ -->
+<hibernate-mapping auto-import="true" default-lazy="false">
+<class name="org.light.portlets.calendar.CalendarBean" table="light_calendar"  >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"     column="orgId"/> 
+   	<property name="userId"  type="long" 	column="userId"/>
+   	<property name="startTime"  type="integer"    	column="startTime"    />
+   	<property name="endTime"  type="integer"    	column="endTime"    />
+   	<property name="interval"  type="integer"    	column="intervalTime"    />
+   	<property name="type"  type="integer"    	column="type"    /> 
+   	<property name="state"  type="integer"    	column="state"    />
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+</class>
+ 
+<class name="org.light.portlets.calendar.CalendarEvent" table="light_calendar_event" >
+  	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id>    
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long" 	column="orgId"/>      
+   	<property name="name"  type="string" 	column="name"/>   
+   	<property name="location"  type="string" 	column="location"/>   
+   	<property name="desc"  type="string" 	column="description"/>  
+   	<property name="startDate"  type="date"    	column="startDate"    />   
+   	<property name="startTime"  type="integer"    	column="startTime"    />
+   	<property name="endDate"  type="date"    	column="endDate"    />  
+   	<property name="endTime"  type="integer"    	column="endTime"    />   
+   	<property name="state"  type="integer"    	column="state"    />
+   	<property name="link"  type="string" 	column="link"/>
+   	<property name="parentId"  type="long"    	column="parentId"    />
+   	<property name="userId"  type="long" 	column="userId"/>      	
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+   	<property
+     	name="type"
+     	formula=" (select cld.type from light_calendar cld where cld.userId = userId ) "
+     	type="int"
+    />
+</class>
+ 
+<class name="org.light.portlets.calendar.CalendarHoliday" table="light_calendar_holiday" >
+  	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id>     
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"     column="orgId"/> 
+   	<property name="holiday"  type="string"    	column="holiday"    />
+   	<property name="name"  type="string" 	column="name"/>   
+   	<property name="country"  type="string" 	column="country"/>   
+   	<property name="desc"  type="text" 	column="description"/>  
+   	<property name="link"  type="string" 	column="link"/>
+</class>
+
+</hibernate-mapping>

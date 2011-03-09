@@ -1,0 +1,34 @@
+<html>
+<body>
+<h3>Hi ${name}, ${poster} want to add a forum!</h3>
+<div>
+<table border='0' cellpadding='0' cellspacing='0'>
+<tr>
+<td>
+Forum : ${forum}
+</td>
+</tr>
+<tr>
+<td>
+Forum Description:  ${forumDesc}
+</td>
+</tr>
+<tr>
+<td>
+in Category: ${category}
+</td>
+</tr>
+<tr>
+<td>
+Category Description: ${categoryDesc}
+</td>
+</tr>
+<tr>
+<td>
+<a href='http://www.${webId}'>http://www.${webId}</a>.
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

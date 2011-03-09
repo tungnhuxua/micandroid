@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!--
+  - Application context containing business beans.
+  -
+  - Used by all artifacts.
+  -
+  - $Id: applicationContext.xml,v 0.8 2006/04/14 Jianmin Liu $org.apache.commons.dbcp.BasicDataSource
+  -->
+
+<beans>            
+  
+  	<bean id="baseDao" class="org.light.portal.core.dao.hibernate.BaseDaoImpl">   
+  		<property name="idGenereator"><ref local="idGenereator"/></property>
+	   	<property name="userDao"><ref local="userDao"/></property> 
+	   	<property name="permissionDao"><ref local="permissionDao"/></property> 
+	   	<property name="userPermissionDao"><ref local="userPermissionDao"/></property> 
+	   	<property name="afterTaskService"><ref local="afterTaskService"/></property>           	   
+  	</bean>
+  
+  	<bean id="portalDao" class="org.light.portal.core.dao.hibernate.PortalDaoImpl" parent="baseDao">  		           	   
+  	</bean>
+  	
+  	<bean id="portletDao" class="org.light.portal.core.dao.hibernate.PortletDaoImpl" parent="baseDao">
+  	</bean>
+  	
+  	<bean id="permissionDao" class="org.light.portal.core.permission.dao.hibernate.PermissionDaoImpl" parent="baseDao">
+  	</bean>
+  	
+  	<bean id="userDao" class="org.light.portal.user.dao.hibernate.UserDaoImpl" parent="baseDao">
+  	</bean>
+    
+    <bean id="userPermissionDao" class="org.light.portal.core.permission.dao.hibernate.UserPermissionDaoImpl" parent="baseDao">
+  	</bean>
+    
+  	<bean id="chatDao" class="org.light.portlets.chat.dao.hibernate.ChatDaoImpl" parent="baseDao">
+  	</bean>
+  
+  	<bean id="connectionDao" class="org.light.portlets.connection.dao.hibernate.ConnectionDaoImpl" parent="baseDao">
+  	</bean>
+  
+  	<bean id="groupDao" class="org.light.portlets.group.dao.hibernate.GroupDaoImpl" parent="baseDao">
+  	</bean>
+  
+  	<bean id="forumDao" class="org.light.portlets.forum.dao.hibernate.ForumDaoImpl" parent="baseDao">
+  	</bean>
+    
+  	<bean id="blogDao" class="org.light.portlets.blog.dao.hibernate.BlogDaoImpl" parent="baseDao">
+  	</bean>
+  
+   	<bean id="adDao" class="org.light.portlets.ad.dao.hibernate.AdDaoImpl" parent="baseDao">
+  	</bean>
+  
+  	<bean id="calendarDao" class="org.light.portlets.calendar.dao.hibernate.CalendarDaoImpl" parent="baseDao">
+  	</bean>
+  
+  	<bean id="microblogDao" class="org.light.portlets.microblog.dao.hibernate.MicroblogDaoImpl" parent="baseDao">
+  	</bean>
+  	
+  	<bean id="contentLibraryDao" class="org.light.portal.portlet.contentlibrary.dao.hibernate.ContentLibraryDaoImpl" parent="baseDao">
+   		<property name="contentLibrary"><ref local="contentLibrary"/></property>
+  	</bean>
+  
+  	<bean id="baseService" class="org.light.portal.core.service.impl.BaseServiceImpl">   
+   		<property name="baseDao"><ref local="baseDao"/></property>         
+   		<property name="cacheService"><ref local="cacheService"/></property>  
+  	</bean>
+  
+   	<bean id="portalService" class="org.light.portal.core.service.impl.PortalServiceImpl" parent="baseService">    
+    	<property name="portalDao"><ref local="portalDao"/></property>     
+   	</bean>  
+   
+   	<bean id="portletService" class="org.light.portal.core.service.impl.PortletServiceImpl"  parent="baseService">
+    	<property name="portletDao"><ref local="portletDao"/></property> 
+   	</bean>  
+      
+   	<bean id="userService" class="org.light.portal.user.service.impl.UserServiceImpl"  parent="baseService">
+    	<property name="portalService"><ref local="portalService"/></property> 
+	    <property name="connectionService"><ref local="connectionService"/></property>
+	    <property name="groupService"><ref local="groupService"/></property>
+	    <property name="userDao"><ref local="userDao"/></property> 
+	    <property name="userPermissionDao"><ref local="userPermissionDao"/></property> 
+	    <property name="indexer"><ref local="indexer"/></property>     
+	    <property name="searcher"><ref local="searcher"/></property>               
+   	</bean>
+   
+   	<bean id="chatService" class="org.light.portlets.chat.service.impl.ChatServiceImpl" parent="baseService"> 
+    	<property name="chatDao"><ref local="chatDao"/></property> 
+   	</bean>
+   
+   	<bean id="connectionService" class="org.light.portlets.connection.service.impl.ConnectionServiceImpl" parent="baseService">
+    	<property name="connectionDao"><ref local="connectionDao"/></property> 
+   	</bean>
+   
+   	<bean id="groupService" class="org.light.portlets.group.service.impl.GroupServiceImpl" parent="baseService">
+    	<property name="groupDao"><ref local="groupDao"/></property> 
+    	<property name="userService"><ref local="userService"/></property> 
+   	</bean>
+   
+   	<bean id="forumService" class="org.light.portlets.forum.service.impl.ForumServiceImpl" parent="baseService">
+    	<property name="forumDao"><ref local="forumDao"/></property> 
+   	</bean>
+      
+   	<bean id="blogService" class="org.light.portlets.blog.service.impl.BlogServiceImpl" parent="baseService">
+    	<property name="blogDao"><ref local="blogDao"/></property> 
+    	<property name="userService"><ref local="userService"/></property> 
+   	</bean>
+   
+   	<bean id="adService" class="org.light.portlets.ad.service.impl.AdServiceImpl" parent="baseService">
+    	<property name="adDao"><ref local="adDao"/></property> 
+   	</bean>
+   
+   	<bean id="calendarService" class="org.light.portlets.calendar.service.impl.CalendarServiceImpl" parent="baseService">
+    	<property name="calendarDao"><ref local="calendarDao"/></property> 
+   	</bean>
+
+	<bean id="microblogService" class="org.light.portlets.microblog.service.impl.MicroblogServiceImpl" parent="baseService">
+    	<property name="microblogDao"><ref local="microblogDao"/></property>     	
+    	<property name="connectionService"><ref local="connectionService"/></property>
+	</bean>
+	
+	<bean id="contentLibraryService" class="org.light.portal.portlet.contentlibrary.service.impl.ContentLibraryServiceImpl" parent="baseService">
+    	<property name="contentLibraryDao"><ref local="contentLibraryDao"/></property> 
+   	</bean>
+   	<bean id="contentLibrary" class="org.light.portal.portlet.contentlibrary.jcr.JCRContentLibraryImpl"/>
+	
+	<bean id="idGenereator" class="org.light.portal.core.dao.hibernate.IdGenereatorImpl" parent="baseDao" singleton="true">   	
+   	</bean>
+   	
+   	<bean id="cache" class="org.light.portal.cache.impl.MemoryCacheImpl" singleton="true">   	
+   	</bean>
+   	
+   	<bean id="cacheService" class="org.light.portal.cache.impl.CacheServiceImpl" singleton="true">  
+   		<property name="cache"><ref local="cache"/></property>  	
+   		<property name="userService"><ref local="userService"/></property> 
+   		<property name="connectionService"><ref local="connectionService"/></property> 
+   	</bean>
+   	
+   	<bean id="indexer" class="org.light.portal.search.impl.IndexerImpl" singleton="true"> 
+   		<property name="replicationPublisher"><ref local="replicationPublisher"/></property>    	
+   	</bean>
+   	
+   	<bean id="searcher" class="org.light.portal.search.impl.SearcherImpl" singleton="true">
+   	</bean>   
+   	
+   	<bean id="activityUpdater" class="org.light.portal.social.impl.ActivityUpdaterImpl" parent="baseDao" singleton="true">
+   		<property name="userService"><ref local="userService"/></property> 
+	   	<property name="groupService"><ref local="groupService"/></property>  	   
+   	</bean> 
+   	     
+   	<bean id="replicationServer" class="org.light.portal.distribute.impl.RMIReplicationServerImpl" singleton="true">
+   		<property name="replicationReceiver"><ref local="replicationReceiver"/></property>
+	   	<property name="replicationPublisher"><ref local="replicationPublisher"/></property>
+	   	<property name="portalDao"><ref local="portalDao"/></property>
+   	</bean>  
+   	
+   	<bean id="replicationReceiver" class="org.light.portal.distribute.impl.RMIReplicationReceiverImpl" singleton="true"> 
+		<property name="indexer"><ref local="indexer"/></property>        
+	   	<property name="cacheService"><ref local="cacheService"/></property>  
+	   	<property name="replicationPublisher"><ref local="replicationPublisher"/></property>
+		<property name="portalDao"><ref local="portalDao"/></property>
+   	</bean> 
+	
+	<bean id="replicationPublisher" class="org.light.portal.distribute.impl.RMIReplicationPublisherImpl" singleton="true"> 
+		<property name="portalDao"><ref local="portalDao"/></property>
+   	</bean>
+   	 
+   	<bean id="pingService" class="org.light.portal.core.service.impl.PingServiceImpl" parent="baseService" singleton="true">   		
+	   	<property name="replicationServer"><ref local="replicationServer"/></property>
+   	</bean>
+   	
+   	<bean id="statusService" class="org.light.portal.core.service.impl.StatusServiceImpl" parent="baseService" singleton="true">   		
+   	</bean>   
+   	
+   	<bean id="notificationService" class="org.light.portal.user.service.impl.NotificationServiceImpl">
+	    <property name="portalService"><ref local="portalService"/></property> 
+	    <property name="userService"><ref local="userService"/></property> 
+	    <property name="forumService"><ref local="forumService"/></property> 
+	    <property name="blogService"><ref local="blogService"/></property> 
+	    <property name="mailSender"><ref local="mailSender"/></property>	
+	    <property name="velocityEngine"><ref local="velocityEngine"/></property>      
+   	</bean>
+   	
+   	<bean id="afterTaskService" class="org.light.portal.core.task.AfterTaskServiceImpl" parent="baseService" singleton="true">   
+	   <property name="portalService"><ref local="portalService"/></property> 
+	   <property name="portletService"><ref local="portletService"/></property> 
+	   <property name="userService"><ref local="userService"/></property> 
+	   <property name="cacheService"><ref local="cacheService"/></property>  
+	   <property name="indexer"><ref local="indexer"/></property>        
+	   <property name="activityUpdater"><ref local="activityUpdater"/></property>  
+	   <property name="notificationService"><ref local="notificationService"/></property>  
+	   <property name="replicationPublisher"><ref local="replicationPublisher"/></property>  
+   	</bean>
+   	 	
+   	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host"><value>localhost</value></property>
+		<property name="port"><value>25</value></property>
+		<property name="username"><value>info@localhost</value></property>
+		<property name="password"><value></value></property>
+	</bean>
+	
+	<bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="velocityProperties">
+         	<value>
+            	resource.loader=class
+            	class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+         	</value>
+      	</property>
+	</bean>
+	
+	<bean id="scheduleTaskService" class="org.light.portal.core.task.ScheduleTaskServiceImpl">
+	    <property name="notificationService"><ref local="notificationService"/></property> 
+	    <property name="userService"><ref local="userService"/></property> 
+	    <property name="groupService"><ref local="groupService"/></property>
+	    <property name="forumService"><ref local="forumService"/></property> 
+	    <property name="blogService"><ref local="blogService"/></property>   
+   	</bean>
+   	
+   	<bean id="dailyJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	  	<property name="targetObject" ref="scheduleTaskService" />
+	  	<property name="targetMethod" value="runDailyTask" />
+    </bean>
+    
+    <bean id="dailyTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	    <property name="jobDetail" ref="dailyJob" />
+	    <!-- run every morning at 8 AM -->
+	    <property name="cronExpression" value="0 0 8 * * ?" />
+	</bean>
+	
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    	<property name="triggers">
+        	<list>
+            	<ref bean="dailyTrigger" />
+        	</list>
+    	</property>
+	</bean>			
+	   	
+</beans>

@@ -1,0 +1,823 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>Introduction to the Light Portal Framework</title>
+  <meta name="GENERATOR" content="OpenOffice.org 2.0 (Linux)">
+  <meta name="AUTHOR" content="Jack Liu">
+  <meta name="CREATED" content="20060629;15282800">
+  <meta name="CHANGEDBY" content="Jack Liu">
+  <meta name="CHANGED" content="20060630;10173000">
+  <style>
+<!--
+@page { size: 8.5in 11in; margin: 0.79in }
+P { margin-bottom: 0.08in }
+-->
+  </style>
+</head>
+<body style="direction: ltr;" lang="en-US">
+<h2 style="text-align: center;"><font size="5">Introduction
+to the Light Portal Framework</font></h2>
+<p style="margin-bottom: 0in;" align="center"> </p>
+<ul>
+  <p style="margin-bottom: 0in;" align="center">An
+ajax and java based
+open source portal framework<br>
+Feb 3, 2009 by <a href="http://www.lightportal.org/space/liujianmin"
+ target="_target">Jianmin Liu</a><br>
+  </p>
+</ul>
+<h3><font size="4">Abstract</font></h3>
+<br>
+Light Portal is an Ajax and Java based Open Source Portal and Social
+Collaboration Software which can be seamless plugged in to any Java Web
+Application or as an
+independent Portal Server.
+&nbsp;<br>
+<br>
+<h3>Why supports Plug in?</h3>
+Light Portal framework is designed for both as an independent Portal
+application and plugged in to any existing Java EE Web Application. On
+the current status, there are too many existing Java EE web
+applications, it's very
+hard to integrate existing applications with most portal product. So
+Light Portal could be one of your options to integrate existing web
+applications with a portal product.<br>
+<br>
+<h3>Why Ajax?<br>
+</h3>
+The reasons why Light Portal framework chose Ajax are:<br>
+<br>
+● Performance is good. As we all know, Ajax use asyn way to communicate
+with server. It's a real benefit when one page contain many portlets,
+each portlet use ajax individually communicate with server/third party
+resources, it doesn't
+need to refresh whole page.<br>
+<br>
+● Ajax also means rich user interface, Light Portal can support more
+interactive an rich user interface by adopting ajax.<br>
+<br>
+<h3><font size="4">Benefits of
+Light Portal framework</font></h3>
+<ol>
+  <p style="margin-bottom: 0in;">● Ajax and Java based
+Portal framework
+. </p>
+  <p style="margin-bottom: 0in;">● Support JSR 168 Portlet
+API
+programming model .</p>
+  <p style="margin-bottom: 0in;">● Built in with social network
+functions, includes user profile, connections, groups, plus over 50
+portlets pre-bundled.<br>
+  </p>
+  <p style="margin-bottom: 0in;">● Can be seamless plugged
+in to any
+Java EE Web Application or as an independent web application.</p>
+  <p style="margin-bottom: 0in;">● Integrated with Spring
+Portlet MVC, MyFaces, WebWork 2. </p>
+  <p style="margin-bottom: 0in;">● Supports turn on and
+turn off
+feature.<br>
+  </p>
+  <p style="margin-bottom: 0in;">● Supports multiple mobile browsers,
+such as iPhone, Opera mini etc. </p>
+  <p style="margin-bottom: 0in;">● Supports Personalized pages for all
+users, end users can easily add, edit or delete page or sub page. </p>
+  <p style="margin-bottom: 0in;">● Supports Portal Role
+based
+Authorization.</p>
+  <p style="margin-bottom: 0in;">● Supports
+Internationalizaiton (i18n).</p>
+  <p style="margin-bottom: 0in;">●Contains multiple pre-built themes
+and UI window appearances, also supports customization. </p>
+  <p style="margin-bottom: 0in;">● Portlet supports
+VIEW,EDIT and HELP
+mode, also supports custom portlet modes. </p>
+  <p style="margin-bottom: 0in;">● Portlet's Window states
+include
+NORMAL, MINIMIZED, MAXIMIZED, also supports custom portlet window
+state. </p>
+  <p style="margin-bottom: 0in;">● Portlet's Window
+supports functions
+include minimize, maximize, close, refresh, auto refresh, drag and
+drop. </p>
+  <p style="margin-bottom: 0in;">● Portlet can be
+configured to refresh
+other Portlets within the same page .<br>
+  <br>
+  </p>
+</ol>
+<h3><font><font size="4">Light Portal Screenshots<br>
+</font></font></h3>
+<ol>
+  <p style="margin-bottom: 0in;"> </p>
+</ol>
+<p style="margin-bottom: 0in;" align="left"><img alt=""
+ src="screenshots/lightPortal-overview.png" name="graphics1"
+ style="border: 0px solid ; width: 1268px; height: 1197px; float: left;"><br
+ clear="left">
+<br>
+</p>
+<p style="margin-bottom: 0in;" align="left"><br>
+</p>
+<p style="margin-bottom: 0in;" align="left"><br>
+</p>
+<p style="margin-bottom: 0in;" align="left"><img alt=""
+ src="screenshots/lightPortal-overview2.png" name="graphics2"
+ style="border: 0px solid ; width: 1280px; height: 994px; float: left;"><br
+ clear="left">
+<br>
+</p>
+<p style="margin-bottom: 0in;" align="left"><br>
+</p>
+<h3><font size="4">Technologies
+and Frameworks used by Light Portal framework<br>
+</font></h3>
+<br>
+Light Portal Framework
+isn't
+created from scratch, it is build based on many other open source
+frameworks. From Ajax part, Light used Prototype frameworks.
+On the Java part, Light used Jdk1.5, Servelt, Portlet, Rome, Castor,
+Spring, Hibernate
+technologies or frameworks.&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; <br>
+<ul>
+  <li><a href="http://prototype.conio.net/">Prototype</a>
+is a
+JavaScript framework that aims to ease development of dynamic web
+applications.</li>
+  <li><a href="https://rome.dev.java.net/">Rome</a>
+is an open source
+(Apache license) set of Atom/RSS Java utilities that make it easy to
+work in Java with most syndication formats.</li>
+  <li><a href="http://www.castor.org/">Castor</a> <span
+ class="bodyGrey">is an Open Source data binding
+framework for Java. It provides Java-to-XML binding.</span></li>
+  <li><a href="http://www.springframework.org/">Spring</a>
+is a leading
+full-stack Java/J2EE application framework.</li>
+  <li><a href="http://www.hibernate.org/">Hibernate</a>
+is an
+object/relational persistence and query service for Java.</li>
+</ul>
+<p style="margin-bottom: 0in;" align="left"><font size="4"><br>
+</font></p>
+<h3><font size="4">Setup Light Portal framework</font></h3>
+<p style="margin-bottom: 0in;" align="left"><br>
+See more details at <a href="GettingStartedLightPortal.html">Getting
+Started</a>.<br>
+</p>
+<p style="margin-bottom: 0in;" align="left"><br>
+</p>
+<h3><font size="4">Configuration Light
+Portal framework</font></h3>
+<h4>Security configuration</h4>
+<p style="margin-bottom: 0in;" align="left">Developers
+can configure
+Portal security using portal-security.xml. The following xml is a
+sample of portal-security.xml.<br>
+<br>
+</p>
+&lt;?xml
+version="1.0"
+encoding="UTF-8"?&gt;<br>
+&lt;portal-security
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="portal-security.xsd"&gt;<br>
+&nbsp;&nbsp; &lt;application&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;defaultLocale&gt;en&lt;/defaultLocale&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowChangeLocale&gt;true&lt;/allowChangeLocale&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;reCreateTable&gt;false&lt;/reCreateTable&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/application&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;role&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;role_guest&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowLookAndFeel&gt;false&lt;/allowLookAndFeel&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowLayout&gt;false&lt;/allowLayout&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowAddTab&gt;false&lt;/allowAddTab&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowAddContent&gt;false&lt;/allowAddContent&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowSignIn&gt;true&lt;/allowSignIn&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowTurnOff&gt;false&lt;/allowTurnOff&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;theme&gt;theme4&lt;/theme&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;users&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;user&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;name&gt;default@lightportal.org&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;password&gt;default&lt;/password&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;firstName&gt;default&lt;/firstName&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;middleName&gt;&lt;/middleName&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;lastName&gt;&lt;/lastName&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;email&gt;default@lightportal.org&lt;/email&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/user&gt;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/users&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/role&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;role&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;name&gt;role_user&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowLookAndFeel&gt;true&lt;/allowLookAndFeel&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowLayout&gt;true&lt;/allowLayout&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowAddTab&gt;true&lt;/allowAddTab&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowAddContent&gt;true&lt;/allowAddContent&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowSignIn&gt;true&lt;/allowSignIn&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowTurnOff&gt;false&lt;/allowTurnOff&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;Member's
+Portal&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;theme&gt;theme5&lt;/theme&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;users&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;user&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;name&gt;admin@lightportal.org&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;password&gt;admin&lt;/password&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;firstName&gt;admin&lt;/firstName&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;middleName&gt;&lt;/middleName&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;lastName&gt;&lt;/lastName&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;email&gt;admin@lightportal.org&lt;/email&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/user&gt;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/users&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/role&gt;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &lt;role&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;role_admin&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowLookAndFeel&gt;true&lt;/allowLookAndFeel&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowLayout&gt;true&lt;/allowLayout&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowAddTab&gt;true&lt;/allowAddTab&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowAddContent&gt;true&lt;/allowAddContent&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowSignIn&gt;true&lt;/allowSignIn&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowTurnOff&gt;false&lt;/allowTurnOff&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;Admin's
+Portal&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;theme&gt;theme5&lt;/theme&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;users&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;user&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;name&gt;admin@lightportal.org&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;password&gt;admin&lt;/password&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;firstName&gt;admin&lt;/firstName&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;middleName&gt;&lt;/middleName&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;lastName&gt;&lt;/lastName&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;email&gt;admin@lightportal.org&lt;/email&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/user&gt;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/users&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/role&gt;<br>
+&lt;/portal-security&gt;<br>
+<p style="margin-bottom: 0in;" align="left">Light
+Portal use
+role_guest as the default role and default@lightportal.org as default
+user, any user who didn't sign in will use user
+default@lightportal.org's
+authorization. User who signed in aready will use
+role_user's authorization. Developers can add new roles
+and initial
+users also.<br>
+</p>
+<h4>Portlet configuration</h4>
+Developers have to configure both portlet.xml and portlet-config.xml,
+portlet.xml is the JSR standard configuration file, portlet-config.xml
+is used by Light framework to configure portlet instance's UI's
+function and parameter, and the path 's prefix name should be same as
+portlet name configured in portlet.xml.<br>
+<br>
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;searchPortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;path&gt;/searchPortlet.lp&lt;/path&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;title&gt;portlet.title.search&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;icon&gt;/light/images/search.gif&lt;/icon&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;url/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;tag&gt;portlet.tag.title.search&lt;/tag&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;language&gt;all&lt;/language&gt;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;refreshMode&gt;true&lt;/refreshMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;editMode&gt;true&lt;/editMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;helpMode&gt;false&lt;/helpMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;configMode&gt;true&lt;/configMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;autoRefreshed&gt;false&lt;/autoRefreshed&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;periodTime&gt;0&lt;/periodTime&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowJS&gt;true&lt;/allowJS&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;pageRefreshed&gt;false&lt;/pageRefreshed&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;cnnTopStories&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;path&gt;/rssPortlet.lp&lt;/path&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;title&gt;CNN - Top
+Stories&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;icon&gt;http://i.cnn.net/cnn/.element/img/1.0/logo/cnn.logo.rss.gif&lt;/icon&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;url&gt;http://www.cnn.com/?section=cnn_topstories&lt;/url&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;tag&gt;portlet.tag.title.news&lt;/tag&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;subTag&gt;portlet.tag.title.popular&lt;/subTag&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;refreshMode&gt;true&lt;/refreshMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;editMode&gt;true&lt;/editMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;helpMode&gt;false&lt;/helpMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;configMode&gt;true&lt;/configMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;autoRefreshed&gt;false&lt;/autoRefreshed&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;periodTime&gt;0&lt;/periodTime&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowJS&gt;false&lt;/allowJS&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;pageRefreshed&gt;false&lt;/pageRefreshed&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;showNumber&gt;6&lt;/showNumber&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;parameter&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&lt;name&gt;feed&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&lt;value&gt;http://rss.cnn.com/rss/cnn_topstories.rss&lt;/value&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/parameter&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;<br>
+<br>
+<h4>Portal layout Configuration</h4>
+<p style="margin-bottom: 0in;" align="left">Developers
+can configure
+Portal layout using portal-layout.xml. The following xml is a sample
+of portal-layout.xml.<br>
+<br>
+</p>
+&lt;portalUser role="role_guest"&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;portalTab&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;title&gt;tab.title.home&lt;/title&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;defaulted&gt;true&lt;/defaulted&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;closeable&gt;false&lt;/closeable&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;editable&gt;false&lt;/editable&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;moveable&gt;false&lt;/moveable&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowAddContent&gt;false&lt;/allowAddContent&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;widths&gt;700,300&lt;/widths&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;between&gt;10&lt;/between&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;portletWindow&gt;PortletWindow2&lt;/portletWindow&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;portlets&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;infoPortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;column&gt;0&lt;/column&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;row&gt;0&lt;/row&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;notCloseable&gt;true&lt;/notCloseable&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;noEditMode&gt;true&lt;/noEditMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;noConfigMode&gt;true&lt;/noConfigMode&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;userPortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;column&gt;1&lt;/column&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;row&gt;0&lt;/row&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;notCloseable&gt;true&lt;/notCloseable&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;noEditMode&gt;true&lt;/noEditMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;noConfigMode&gt;true&lt;/noConfigMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;peopleDirectoryPortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;column&gt;1&lt;/column&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;row&gt;1&lt;/row&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;notCloseable&gt;true&lt;/notCloseable&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;noEditMode&gt;true&lt;/noEditMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;noConfigMode&gt;true&lt;/noConfigMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/portlets&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/portalTab&gt;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &lt;/portalUser&gt;<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &lt;portalUser role="role_user"&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &lt;portalTab&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;title&gt;tab.title.personal&lt;/title&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;defaulted&gt;true&lt;/defaulted&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;closeable&gt;false&lt;/closeable&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;editable&gt;true&lt;/editable&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;moveable&gt;true&lt;/moveable&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowAddContent&gt;true&lt;/allowAddContent&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;widths&gt;280,420,300&lt;/widths&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;between&gt;10&lt;/between&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;portletWindow&gt;PortletWindow2&lt;/portletWindow&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;portlets&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;profilePortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;column&gt;0&lt;/column&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;row&gt;0&lt;/row&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;myMessagePortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;column&gt;0&lt;/column&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;row&gt;1&lt;/row&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;friendsPortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;column&gt;0&lt;/column&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;row&gt;2&lt;/row&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;calendarPortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;column&gt;1&lt;/column&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;row&gt;0&lt;/row&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;blogPortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;column&gt;1&lt;/column&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;row&gt;1&lt;/row&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;todoListPortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;column&gt;1&lt;/column&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;row&gt;2&lt;/row&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;myPicturePortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;column&gt;2&lt;/column&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;row&gt;0&lt;/row&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;notePortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;column&gt;2&lt;/column&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;row&gt;1&lt;/row&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;bookmarkPortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;column&gt;2&lt;/column&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;row&gt;2&lt;/row&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/portlets&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/portalTab&gt;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &lt;/portalUser&gt;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &lt;portalUser
+role="role_admin"&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;portalTab&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+......<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/portalTab&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;
+&lt;/portalUser&gt;&nbsp;&nbsp;&nbsp; <br>
+<br>
+<h4>Personalized Look and Feel<font style="font-size: 13pt;" size="3"> </font></h4>
+<p style="margin-bottom: 0in;" align="left"><font size="3">Currently
+Light
+Portal framework supports many options to personalize look and feel, if
+you want to
+change it, click the options menu on the top right corner. The options
+portlet window will show on the top of regular page,
+you can configure the followings:<br>
+</font></p>
+<p style="margin-bottom: 0in;" align="left">&nbsp;&nbsp;&nbsp; ● <font
+ size="3">General setting, such as text font, text color, transparent
+backgroud etc.<br>
+&nbsp;&nbsp;&nbsp; </font>● Theme, Light Portal includes 8 built-in
+themes, developers can also add more customized themes.<br>
+&nbsp;&nbsp;&nbsp; ● Manage Page, such as edit title, configure page
+friendly URL, privacy setting etc.<font size="3"> </font></p>
+<p style="margin-bottom: 0in;" align="left">
+<br clear="left">
+<img alt="" src="screenshots/lightPortal-options1.png" name="graphics3"
+ style="border: 0px solid ; width: 1263px; height: 853px; float: left;">
+<br>
+<br>
+<br>
+</p>
+<p style="margin-bottom: 0in;" align="left">
+<br clear="left">
+<br>
+<br>
+<img alt="" src="screenshots/lightPortal-options2.png" name="graphics3"
+ style="border: 0px solid ; width: 1263px; height: 853px; float: left;"><br
+ clear="left">
+<br>
+</p>
+<p style="margin-bottom: 0in;" align="left">
+<br clear="left">
+<br>
+<br>
+<img alt="" src="screenshots/lightPortal-options3.png" name="graphics3"
+ style="border: 0px solid ; width: 1263px; height: 853px; float: left;"><br
+ clear="left">
+<br>
+</p>
+<p style="margin-bottom: 0in;" align="left"><br>
+</p>
+<h4><font style="font-size: 13pt;" size="3">Add Page/Sub Page</font></h4>
+<p style="margin-bottom: 0in;" align="left">Light
+portal support
+multiple pages/sub pages, you can click "Add Page" Icon on the right
+side of&nbsp; your
+page header&nbsp; to add your own page. After
+you add a new page, System will create a empty page, it contains 3
+columns by default,&nbsp; you can add contents in this
+page by click "Add Contents" mueu. You can change its title or other
+properies by click "Options/Manage Page" menu.</p>
+<p style="margin-bottom: 0in;" align="left"><br clear="left">
+<br>
+</p>
+<h4><font style="font-size: 13pt;" size="3">Add
+contents</font></h4>
+<p style="margin-bottom: 0in;" align="left">Light
+Portal support to be
+added contents easily. You can click Add content menu, first you
+choose which column you want to add at, then select one of
+pre-registered portlets or add your favourite RSS feed. When you want
+add your&nbsp;favourite RSS feed, you can click "Add My Feed" then
+input your Feed URL or import from OPML file.</p>
+<p style="margin-bottom: 0in;" align="left"><br>
+</p>
+<p style="margin-bottom: 0in;" align="left"><img alt=""
+ src="screenshots/lightPortal-addContent.png" name="graphics7"
+ style="border: 0px solid ; width: 1263px; height: 853px; float: left;"><br
+ clear="left">
+<br>
+</p>
+<h4><font style="font-size: 13pt;" size="3">Sign
+In/Sign Up<br>
+</font></h4>
+<p style="margin-bottom: 0in;" align="left">This
+function is for an
+independent application, if you want to integrate Light Portal with
+existing
+Java EE web application, please see <a
+ href="IntegratingLightPortal.html">this</a>
+document.&nbsp;</p>
+<p style="margin-bottom: 0in;" align="left">If you
+want to be able to
+access your personalized Light Portal page from any computer and also a
+public url for your profile, you can
+sign in (need sign up first) with your user id and a password. <br>
+</p>
+<p style="margin-bottom: 0in;" align="left"><img alt=""
+ src="screenshots/lightPortal-signin.png" name="graphics7"
+ style="border: 0px solid ; width: 1068px; height: 271px; float: left;"><br
+ clear="left">
+<br>
+</p>
+<p style="margin-bottom: 0in;" align="left"><img alt=""
+ src="screenshots/lightPortal-signup.png" name="graphics7"
+ style="border: 0px solid ; width: 1068px; height: 383px; float: left;"><br
+ clear="left">
+<br>
+</p>
+<h4><font><font style="font-size: 13pt;" size="3">Personalized Page</font></font></h4>
+<h4 style="font-weight: normal;">After sign up, system will create a
+default personalized page, end user can
+add/delete contents based on personal interests and also add more pages.</h4>
+<br>
+<h4><font><font style="font-size: 13pt;" size="3">Public profile <br>
+</font></font></h4>
+By default, every user has same layout for user's public profile, but
+user can configure any personalized page to be public profile page,
+user can also hide personal information by setting privacy.<br>
+<p style="margin-bottom: 0in;" align="left"><img alt=""
+ src="screenshots/lightPortal-profile.png" name="graphics7"
+ style="border: 0px solid ; width: 1280px; height: 870px; float: left;"><br
+ clear="left">
+<br>
+</p>
+<br>
+<br>
+<h4><font><font><font><font style="font-size: 13pt;" size="3">My Account</font></font></font></font></h4>
+users can maintain personal information throught "my account" menu,
+such as change display name, change password, basic informaiton,
+personal interests, privacy setting etc.<br>
+<br>
+<br>
+<br>
+<p style="margin-bottom: 0in;" align="left"><font size="4">About the
+author</font></p>
+<p style="margin-bottom: 0in;" align="left">Jianmin
+Liu is the founder and core developer of Light Portal project. He is a
+Sun
+Certified Enterprise Architect and holds several other certifications
+from Sun and Microsoft whose areas of interests include Web
+Application architecture design and development with new
+technologies. He works at Seattle, WA currently, you can contact
+him at <a href="mailto:liujianmin@gmail.com">liujianmin@gmail.com</a>
+or <a href="http://www.lightportal.org/space/liujianmin">http://www.lightportal.org/space/liujianmin</a>.<br>
+</p>
+</body>
+</html>

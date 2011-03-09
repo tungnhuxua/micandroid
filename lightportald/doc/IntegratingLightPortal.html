@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Integrating Light Portal with existing Java EE Web Application</title>
+</head>
+<body>
+<div style="text-align: center;">
+<h2>Integrating Light Portal with existing Java EE Web
+Application(Draft)<br>
+</h2>
+<div style="text-align: left;">
+<h3><br>
+</h3>
+<h3>Introduction</h3>
+This document describes how to integrate Light Portal with existing
+Java EE Web Application.<br>
+<br>
+<h3>Steps</h3>
+<h4>1 Add lightPortal.jar and all the dependent jar files.</h4>
+Before integrating Light Portal with existing Java EE Web Application,
+we need to add lightPortal.jar and all the dependent jar files into
+existing Java EE Web Application's WEB-INF/lib folder.
+</div>
+<div style="text-align: left;">
+<h4><br>
+</h4>
+<h4>2 Add WebContent sub folders to existing Web Application's
+WebContent folder.</h4>
+We need to copy all folders except WEB-INF under WebContent in the
+Light Portal
+to existing Java EE Web
+Application's as same level structure.<br>
+<br>
+<h4>3 Add portlets folder to existing Web Application's WebContent
+folder.</h4>
+The portelts folder under WebContent/WEB-INF in the Light Portal
+contains all the pre-built portlets' jsp files, such as search, weather
+bookmark. If we plan to use these pre-built portlets, we need copy the
+whole foler to existing Java EE Web Application's, as same level as
+WEB-INF.<span style="font-weight: bold;"><br>
+<br>
+</span>
+<h4>4 Add view folder to existing Web Application's WebContent
+folder.</h4>
+The view folder under WebContent/WEB-INF in the Light Portal
+contains all the portlets' cache content, we need copy the
+whole foler to existing Java EE Web Application's, as same level as
+WEB-INF.<span style="font-weight: bold;"><br>
+<br>
+</span>
+<h4>5 Copy config files to existing Web Application's WEB-INF folder.<br>
+</h4>
+All the xml, xsd and tld files under WebContent/WEB-INF foler in the
+Light Portal contains all the Light Portal's configuration
+information. We need copy all these files except web.xml to WEB-INF
+folder and add Light Portal's web.xml information to the existing
+web.xml file.<br>
+<h4>6 Copy index.jsp files.</h4>
+we need to copy index.jsp, m.jsp, group/index.jsp, visitor/index.jsp,
+visitor/m.jsp also.<br>
+<br>
+<h4>7 Authentication and Authorization part</h4>
+For authentication and authorization part, there are many ways to
+integrate Light Portal with exsiting application.<br>
+<br>
+<h4>6.1 Using&nbsp;existing Application's Authentication and
+Authorization.<br>
+</h4>
+Most existing application already contains authentication and
+authorization part, user can disable Light Portal's "Sign in" function,
+just share with existing application's "Sign in" function. For this
+purpose, user needs do following steps:<br>
+&nbsp; &nbsp; &nbsp; 1 In existing application' Sign in function, after
+user successfully logged in, set userId to&nbsp;Light Portal:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;call
+org.light.portal.core.PortalUtil.setUser(HttpServletRequest request,
+String userId) method and pass in 2 parameters.<br>
+&nbsp; &nbsp; &nbsp; 2 Configure user's role at portal-security.xml.<br>
+&nbsp; &nbsp; &nbsp; 3 Configure portal-security.xml to disable "Sign
+in" function, set all role's allowSignIn to false.<br>
+&nbsp; &nbsp; &nbsp; 4 Configure portal-layout.xml according existing
+user's role.<br>
+&nbsp; &nbsp; &nbsp; 5 See 6.2 for using existing user and user role
+data<br>
+<br>
+After user logged in, application can redirect to Light Portal page or
+put a portal turn on link at the main page. When user visit&nbsp;to the
+Light Portal &nbsp;page, all the Light Portal's munu ,tab pages and
+portlets will rendered according to that user's role.
+<h4>6.2 Using existing user and user role data.<br>
+</h4>
+For normal Java EE Web Application, it has its own user and user role
+data already. If we need using existing user and user role data, we
+have to reimplement some interface in the org.light.portal.model
+package
+or modify existing implementation.<br>
+<br>
+public interface User {<br>
+&nbsp;&nbsp;&nbsp; public long getId();<br>
+&nbsp;&nbsp;&nbsp; public long getOrgId();&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; public String getUserId();<br>
+&nbsp;&nbsp;&nbsp; public String getPassword();&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; public String getEmail();&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; public String getBirth();<br>
+&nbsp;&nbsp;&nbsp; public String getLanguage();<br>
+&nbsp;&nbsp;&nbsp; public String getCountry();<br>
+&nbsp;&nbsp;&nbsp; public String getProvince();<br>
+&nbsp;&nbsp;&nbsp; public String getCity();<br>
+&nbsp;&nbsp;&nbsp; public String getPostalCode();<br>
+&nbsp;&nbsp;&nbsp; public String getName();<br>
+&nbsp;&nbsp;&nbsp; public String getAge();<br>
+&nbsp;&nbsp;&nbsp; public String getAssignedUri();&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; public String getChosedUri();<br>
+&nbsp;&nbsp;&nbsp; public String getUri();<br>
+&nbsp;&nbsp;&nbsp; public Timestamp getLastLoginDate();<br>
+&nbsp;&nbsp;&nbsp; public Date getCreateDate();<br>
+&nbsp;&nbsp;&nbsp; public int getVisitCount();<br>
+&nbsp;&nbsp;&nbsp; public String getPhotoUrl();<br>
+&nbsp;&nbsp;&nbsp; public String getPhotoThumbUrl();<br>
+&nbsp;&nbsp;&nbsp; public String getLastDate();<br>
+&nbsp;&nbsp;&nbsp; public String getGender();<br>
+&nbsp;&nbsp;&nbsp; public String getGenderName();<br>
+&nbsp;&nbsp;&nbsp; public int getPhotoWidth();<br>
+&nbsp;&nbsp;&nbsp; public int getPhotoHeight();<br>
+&nbsp;&nbsp;&nbsp; public String getDisplayName();<br>
+&nbsp;&nbsp;&nbsp; public String getCaption();<br>
+&nbsp;&nbsp;&nbsp; public String getMusicUrl();<br>
+&nbsp;&nbsp;&nbsp; public int getOtherMusucAutoPlay();<br>
+&nbsp;&nbsp;&nbsp; public int getMyMusicAutoPlay();<br>
+&nbsp;&nbsp;&nbsp; public String getRingToneUrl();<br>
+&nbsp;&nbsp;&nbsp; public int getBlogCommentFriendOnly();<br>
+&nbsp;&nbsp;&nbsp; public int getCommentNeedApprove();<br>
+&nbsp;&nbsp;&nbsp; public int getFqNel();<br>
+&nbsp;&nbsp;&nbsp; public int getImprivacy();&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; public int getNewsLetter();<br>
+&nbsp;&nbsp;&nbsp; public int getNoPicForward();<br>
+&nbsp;&nbsp;&nbsp; public int getNotification();<br>
+&nbsp;&nbsp;&nbsp; public int getProfileFriendViewOnly();<br>
+&nbsp;&nbsp;&nbsp; public int getShowBirthToFriend();<br>
+&nbsp;&nbsp;&nbsp; public String getVideoUrl() ;<br>
+&nbsp;&nbsp;&nbsp; public String getRegion();<br>
+&nbsp;&nbsp;&nbsp; public String getBirthY();<br>
+&nbsp;&nbsp;&nbsp; public String getBirthM();<br>
+&nbsp;&nbsp;&nbsp; public String getBirthD();<br>
+&nbsp;&nbsp;&nbsp; public String getTimeZone();<br>
+&nbsp;&nbsp;&nbsp; public int getDefaultFileStatus();<br>
+&nbsp;&nbsp;&nbsp; public int getDefaultPictureStatus();<br>
+&nbsp;&nbsp;&nbsp; public int getDefaultMusicStatus();<br>
+&nbsp;&nbsp;&nbsp; public int getGrowKeyword();<br>
+&nbsp;&nbsp;&nbsp; public int getShowTitleToFriends();<br>
+&nbsp;&nbsp;&nbsp; public String getTitle();<br>
+&nbsp;&nbsp;&nbsp; public int getPhotoSmallWidth();<br>
+&nbsp;&nbsp;&nbsp; public int getPhotoSmallHeight();<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; public boolean userDisabled();<br>
+&nbsp;&nbsp;&nbsp; public boolean userLocked();<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; public void setId(long id);<br>
+&nbsp;&nbsp;&nbsp; public void setOrgId(long orgId);<br>
+&nbsp;&nbsp;&nbsp; public void setTitle(String title);<br>
+&nbsp;&nbsp;&nbsp; public void setShowTitleToFriends(int
+showTitleToFriends);<br>
+&nbsp;&nbsp;&nbsp; public void setGrowKeyword(int growKeyword);<br>
+&nbsp;&nbsp;&nbsp; public void setDefaultFileStatus(int
+defaultFileStatus);<br>
+&nbsp;&nbsp;&nbsp; public void setDefaultPictureStatus(int
+defaultPictureStatus);<br>
+&nbsp;&nbsp;&nbsp; public void setDefaultMusicStatus(int
+defaultMusicStatus);<br>
+&nbsp;&nbsp;&nbsp; public void setDisabled(int disabled);<br>
+&nbsp;&nbsp;&nbsp; public void setLocked(int locked);<br>
+&nbsp;&nbsp;&nbsp; public void setTimeZone(String timeZone);<br>
+&nbsp;&nbsp;&nbsp; public void setRegion(String region);<br>
+&nbsp;&nbsp;&nbsp; public void setBlogCommentFriendOnly(int
+blogCommentFriendOnly);<br>
+&nbsp;&nbsp;&nbsp; public void setCommentNeedApprove(int
+commentNeedApprove);<br>
+&nbsp;&nbsp;&nbsp; public void setFqNel(int fqNel);<br>
+&nbsp;&nbsp;&nbsp; public void setImprivacy(int imprivacy);<br>
+&nbsp;&nbsp;&nbsp; public void setNewsLetter(int newsLetter);<br>
+&nbsp;&nbsp;&nbsp; public void setNoPicForward(int noPicForward);<br>
+&nbsp;&nbsp;&nbsp; public void setNotification(int notification);<br>
+&nbsp;&nbsp;&nbsp; public void setProfileFriendViewOnly(int
+profileFriendViewOnly);&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; public void setShowBirthToFriend(int
+showBirthToFriend);<br>
+&nbsp;&nbsp;&nbsp; public void setVideoUrl(String videoUrl);<br>
+&nbsp;&nbsp;&nbsp; public void setRingToneUrl(String ringToneUrl);<br>
+&nbsp;&nbsp;&nbsp; public void setMyMusicAutoPlay(int myMusicAutoPlay);<br>
+&nbsp;&nbsp;&nbsp; public void setOtherMusucAutoPlay(int
+otherMusucAutoPlay);<br>
+&nbsp;&nbsp;&nbsp; public void setMusicUrl(String musicUrl);<br>
+&nbsp;&nbsp;&nbsp; public void setCaption(String caption);<br>
+&nbsp;&nbsp;&nbsp; public void setDisplayName(String displayName);<br>
+&nbsp;&nbsp;&nbsp; public void setPhotoHeight(int
+photoHeight);&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; public void setPhotoWidth(int photoWidth);<br>
+&nbsp;&nbsp;&nbsp; public void setGender(String gender);<br>
+&nbsp;&nbsp;&nbsp; public void setCreateDate(Date createDate);<br>
+&nbsp;&nbsp;&nbsp; public void setVisitCount(int visitCount);<br>
+&nbsp;&nbsp;&nbsp; public void setPhotoUrl(String photoUrl);<br>
+&nbsp;&nbsp;&nbsp; public void setLastLoginDate(Timestamp
+lastLoginDate);<br>
+&nbsp;&nbsp;&nbsp; public void setAssignedUri(String givenUri);<br>
+&nbsp;&nbsp;&nbsp; public void setChosedUri(String chosedUri);<br>
+&nbsp;&nbsp;&nbsp; public void setUserId(String userId);<br>
+&nbsp;&nbsp;&nbsp; public void setPassword(String
+password);&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; public void setEmail(String email);<br>
+&nbsp;&nbsp;&nbsp; public void setBirth(String birth);<br>
+&nbsp;&nbsp;&nbsp; public void setLanguage(String language);<br>
+&nbsp;&nbsp;&nbsp; public void setCountry(String country);<br>
+&nbsp;&nbsp;&nbsp; public void setProvince(String province);<br>
+&nbsp;&nbsp;&nbsp; public void setCity(String city);<br>
+&nbsp;&nbsp;&nbsp; public void setPostalCode(String postalCode);<br>
+&nbsp;&nbsp;&nbsp; <br>
+}<br>
+<br>
+<br>
+public interface UserRole {<br>
+&nbsp;&nbsp;&nbsp; public String getRoleId();<br>
+&nbsp;&nbsp;&nbsp; public String getUserId();<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; public void setRoleId(String
+roleId);&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; public void setUserId(String userId) ;<br>
+}<br>
+<br>
+<br>
+</div>
+</div>
+</body>
+</html>

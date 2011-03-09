@@ -1,0 +1,26 @@
+<html>
+<body>
+<h3>Hi ${name}, ${poster} add a post to the forum: ${forum}!</h3>
+<div>
+<table border='0' cellpadding='0' cellspacing='0'>
+<tr>
+<td>
+<h4>${topic}</h4>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+${content}					   
+<br/><br/>
+</td>
+</tr>
+<tr>
+<td>
+Please reply forum at <a href='http://www.${webId}/page/forum'>http://www.${webId}/page/forum</a>.
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

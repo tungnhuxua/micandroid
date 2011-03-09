@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>Getting Started with Light Portal Framework</title>
+  <style>
+<!--
+@page { size: 8.5in 11in; margin: 0.79in }
+P { margin-bottom: 0.08in }
+-->
+  </style>
+</head>
+<body style="direction: ltr;" lang="en-US">
+<h2 style="text-align: center;"><font size="5">Getting Started with
+Light Portal Framework</font></h2>
+<p style="margin-bottom: 0in;" align="center"> </p>
+<ul>
+  <p style="margin-bottom: 0in;" align="center">An
+ajax and java based
+open source portal framework</p>
+</ul>
+<h2>Requirements</h2>
+<ul>
+  <li>Java 1.5 or higher</li>
+  <li> Servlet 2.4 Engine:
+    <ul>
+      <li>Tomcat 5.5.26</li>
+      <li>Jetty</li>
+      <li>Websphere 6.0</li>
+      <li>Geronimo</li>
+      <li>JBoss</li>
+      <li>Weblogic</li>
+    </ul>
+  </li>
+</ul>
+<h2>1. Get Java 1.5 or higher Ready</h2>
+<p> If you have not already done so, download and install Java. <br>
+<br>
+</p>
+<div class="section">
+<h2>&nbsp;2. What Database do you want</h2>
+<p>Light Portal requires a database to persistent user information. The
+following databases are tested: </p>
+<ul>
+  <li>HSQLDB - Hypersonic SQL</li>
+  <li>MySQL</li>
+  <li>Oracle</li>
+  <li>Postgres</li>
+  <li>DB2</li>
+  <li>Sybase</li>
+  <li>SQL Server</li>
+</ul>
+</div>
+Light Portal is distributed with the HSQLDB database configured as the
+default, the database configuration can be configured at
+/WEB-INF/classes/hibernate.cfg.xml.<br>
+<p><br>
+</p>
+<h2>3. Servlet Engines</h2>
+<p> In theory, Light Portal can be run under any servlet
+container supporting the 2.4 specification or greater. Successful Light
+Portal applications have been deployed using: </p>
+<ul>
+  <li>Tomcat 5.5.26 or higher</li>
+  <li>Jetty</li>
+  <li>Websphere</li>
+  <li>Geronimo</li>
+  <li>JBoss</li>
+</ul>
+<br>
+<h2>4. Installing Light Portal from Source or Binary Distributions</h2>
+<p> Depending on what you want to do, you have the choice of installing
+Light Portal from a binary release or from the sources. If you want to
+modify the core functionality of Light Portal or contribute to the
+development of Light Portal, you need to work with the sources. If you
+are
+only interested in building your own custom enterprise portal, you can
+start with a binary release of Light Portal. Most people should start
+with
+the binary distribution.<br>
+</p>
+<p>You can deploy Light Portal binary to Tomcat according to the
+following steps:<br>
+&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<ul>
+  <li>download lightPortal.war<br>
+  </li>
+  <li>put lightPortal.war to tomcat/webapps/</li>
+  <li>start tomcat</li>
+  <li>access Light Portal at http://localhost:8080/lightPortal{version}/ (admin
+user name and password: admin@lightportal.org/admin)</li>
+</ul>
+Light Portal is distributed with the HSQLDB database configured as the
+default, the database configuration can be configured at
+/WEB-INF/classes/hibernate.cfg.xml. You can configure to connect to
+Mysql database according to the following steps:<br>
+<ul>
+  <li>create a database at Mysql : create database light;<br>
+  </li>
+  <li>configurer database connection at&nbsp;
+tomcat/webapps/lightPortal/classes/hibernate.cfg.xml</li>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;property
+name="dialect"&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;&nbsp;
+  <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;property
+name="connection.driver_class"&gt;com.mysql.jdbc.Driver&lt;/property&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;property
+name="connection.url"&gt;jdbc:mysql://localhost:3306/light&lt;/property&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;property
+name="connection.username"&gt;[user name]&lt;/property&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;property
+name="connection.password"&gt;[password]&lt;/property&gt; <br>
+</ul>
+<ul>
+  <li>restart tomcat<br>
+  </li>
+  <li>by default, Light Portal will recreate tables after every time
+start tomcat, if you want to disable this feature, configure it at
+/webapps/lightPortal/WEB-INF/portal-security.xml, set reCreateTable
+property to false.</li>
+  <li>import reference data to mysql: mysql -p -h [DBSERVER] [database name] &lt; lightData.sql, the file is located at /WEB-INF/dbscripts/lightData.sql.<br></li>
+  <li>restart tomcat<br></li>
+</ul>
+<p><br>
+</p>
+<ul>
+</ul>
+</body>
+</html>

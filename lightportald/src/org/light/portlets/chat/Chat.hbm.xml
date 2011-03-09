@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!--
+  - Mapping file for the Hibernate implementation of the Clinic interface.
+ -->
+<hibernate-mapping auto-import="true" default-lazy="false">
+ 
+<class name="org.light.portlets.chat.Chatting" table="light_chatting"  >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id>    
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"    	column="orgId"    />
+   	<property name="name"  type="string"    	column="chatName"    />
+   	<property name="desc"  type="string"    	column="chatDesc"    />
+   	<property name="userId"  type="long"    	column="userId"    />   	
+   	<property name="type"  type="integer"    	column="chatType"    />   
+   	<property name="status"  type="integer"    	column="status"    /> 
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property
+     	name="totalUsers"
+     	formula=" (select count(*) from light_chatting_user user where user.status = 1 and user.chattingId = id ) "
+     	type="int"
+    />
+    <property
+     	name="totalPosts"
+     	formula=" (select count(*) from light_chatting_record record where record.userId > 0 and record.chattingId = id ) "
+     	type="int"
+    />
+    <property
+		name="photoUrl"
+		formula=" (select lightuser.photoUrl from light_user lightuser where lightuser.id = userId ) "
+		type="java.lang.String"
+	/>	
+	<property
+		name="uri"
+		formula=" (select lightuser.userUri from light_user lightuser where lightuser.id = userId ) "
+		type="java.lang.String"
+	/>
+	<property
+		name="displayName"
+		formula=" (select lightuser.displayName from light_user lightuser where lightuser.id = userId ) "
+		type="java.lang.String"
+	/>
+</class>
+ 
+<class name="org.light.portlets.chat.ChattingUser" table="light_chatting_user"  >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id>   
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"    	column="orgId"    />
+   	<property name="chattingId"  type="long"    	column="chattingId"    />
+   	<property name="userId"  type="long"    	column="userId"    />
+   	<property name="status"  type="integer"    	column="status"    />   
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />     
+</class>
+ 
+<class name="org.light.portlets.chat.ChattingRecord" table="light_chatting_record"  >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id>   
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"    	column="orgId"    />
+   	<property name="chattingId"  type="long"    	column="chattingId"    />
+   	<property name="userId"  type="long"    	column="userId"    />
+   	<property name="name"  type="string"    	column="displayName"    />
+   	<property name="content"  type="text"    	column="content"    />   
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />     
+</class>
+  
+</hibernate-mapping>

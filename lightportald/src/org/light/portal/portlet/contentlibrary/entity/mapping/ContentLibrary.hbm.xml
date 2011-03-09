@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- $Id: ClientDataConfiguration.hbm.xml 264 2008-08-20 23:53:51Z dmitry $ -->
+<hibernate-mapping auto-import="true" default-access="property"
+	default-cascade="none" default-lazy="true">
+
+	<class name="org.light.portal.portlet.contentlibrary.entity.CLFolder"
+		optimistic-lock="version" polymorphism="implicit" table="clfolder">
+		<id name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="parentId" type="long" />
+		<property name="orgId" type="long" />
+		<property name="userId" type="long" />
+		<property name="createdByUserId" type="long" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" />
+		<property name="lastUpdatedByUserId" type="long" />
+		<property name="lastUpdated" type="org.hibernate.type.TimestampType" />	
+		<property name="name" type="string" />
+		<property name="relPath" type="string" />
+		<property name="description" type="string" />
+		<property name="privacy" type="long" />
+		<property name="deletedByUserId" type="long" />
+		<property name="deletedDate" type="org.hibernate.type.TimestampType" />
+		<property name="deleted" type="java.lang.Boolean" />
+	</class>
+	
+	<class name="org.light.portal.portlet.contentlibrary.entity.CLFile"
+		optimistic-lock="version" polymorphism="implicit" table="clfile">
+		<id name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="parentId" type="long" />
+		<property name="orgId" type="long" />
+		<property name="userId" type="long" />
+		<property name="createdByUserId" type="long" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" />
+		<property name="lastUpdatedByUserId" type="long" />
+		<property name="lastUpdated" type="org.hibernate.type.TimestampType" />	
+		<property name="name" type="string" />
+		<property name="title" type="string" />
+		<property name="relPath" type="string" />
+		<property name="description" type="string" />
+		<property name="mimeType" type="string" />
+		<property name="version" type="int" />
+		<property name="privacy" type="long" />
+		<property name="size" type="long"  column="fileSize"/>
+		<property name="accessCount" type="long" />
+		<property name="deletedByUserId" type="long" />
+		<property name="deletedDate" type="org.hibernate.type.TimestampType" />
+		<property name="deleted" type="java.lang.Boolean" />
+	</class>
+	
+</hibernate-mapping>
