@@ -1,0 +1,359 @@
+/***************************************
+ * author:可乐加糖
+ * email:black.angel.liu@gmail.com
+ ****************************************/
+
+@import url("base.css");
+@import url("adv.css");
+@import url("index.css");
+
+
+
+/*新闻的容器*/
+#news{
+	width:100%;
+	float:left;
+	border-bottom:1px solid #ccc;
+	border-top:1px solid #ccc;
+	padding-bottom:30px;
+	padding-top:30px;
+	margin-bottom:40px;
+}
+
+/*票数*/
+#news #newspiaoshu{
+	display:block;
+	width:80px;
+	height:80px;
+	background:url(../images/piaoshu2.gif) center center no-repeat;
+	margin-right:20px;
+}
+#news #newspiaoshu ul{
+	margin-top:26px;
+	margin-left:30px;
+}
+.newsbq{ width:480px; height:auto
+	float:left;
+}
+.countp{
+	font-weight:bold;
+	padding-left:4px;
+}
+
+#news p{
+	margin:5px;
+	color:#878787;
+}
+#news p a{
+	color:#878787;
+	text-decoration:underline;
+}
+#news img{
+	width:80px;
+	height:80px;
+	float:left;
+	margin-right:10px;
+}
+.titlep{
+	padding-bottom:10px;
+	font-size:14px;
+	font-weight:bold;
+}
+/*新闻内容*/
+#newsmaincontent{
+	width:550px;
+	margin-left:14px;
+	margin-top:0px;
+	
+}
+/*IE FF 中存在的差异*/
+div[rel="newscontent"]{
+	margin-left:25px!important;
+}
+#twoimage{
+	margin-top:40px;
+	float:left;
+	width:100%;
+}
+.thanks{
+	margin-left:260px;
+	margin-top:30px;
+	position:absolute;
+}
+
+#voteinfo{
+	float:left;
+	width:100%;
+	margin-top:32px;
+}
+#voteinfo dl dt{
+	font-size:14px;
+	color:#4E4B49;
+}
+#voteinfo dl dt span{
+	font-size:44px;
+	margin-right:5px;
+	color:#000000;
+}
+#voteinfo dl dd{
+	color:#4E4B49;
+}
+
+
+/*一个长的工具条，用于搜索的*/
+#seackbar{
+	margin-top:40px;
+	width:600px;
+	
+}
+#seackbar input{
+	width:400px;
+	float:left;
+	border:1px solid #9D9B9C;
+	color:#606060;
+	height:14px;
+	margin-right:4px
+}
+#seackbar a{
+	float:left;
+}
+#seackbar ul{
+	float:left;
+	width:110px;
+	text-align:left;
+	margin-left:4px;
+}
+.seafirst{
+	margin-right:0px;
+	width:60px!important;
+}
+#seackbar ul li{
+	float:left;
+	width:18px;
+}
+
+/* 推荐 */
+#listsugges{
+	width:600px;
+	margin-top:60px;
+}
+#listsugges ul{
+	float:left;
+	width:600px;
+}
+#listsugges ul li{
+	float:left;
+	width:80px;
+	height:80px;
+	margin:0 2px;
+}
+.suggesfist{
+	width:80px!important;
+}
+#listsugges ul li span{
+	text-align:center;
+	display:block;
+	margin-top:20px;
+}
+#listsugges ul li img{
+	width:80px;
+	height:80px;
+}
+
+
+/*-----------------------------------------------------------*/
+/*项目和素材*/
+ #projectscontent{
+ 	width:600px;
+	margin-top:60px;
+	margin-bottom:60px;
+ }
+ #projectscontent dl{
+ 	
+ }
+ #projectscontent dt{
+ 	color:#4E4B49;
+	font-size:14px;
+	font-weight:bold;
+	font-family:"Arial Black";
+	margin-bottom:25px;
+ }
+ #projectscontent dd{
+ 	margin-top:3px;
+ }
+ #projectscontent dd img{
+ 	width:80px;
+	height:80px;
+ }
+ #proleft{
+ 	width:295px;
+ 	float:left;
+ }
+ #proright{
+ 	width:295px;
+	float:right;
+ }
+ #proright dd{
+ 	float:left;
+	margin:0px 2px 0px 2px;
+ }
+ 
+ 
+ /*--------------------文章列表----------------------*/
+#articlelist{
+	width:600px;
+	margin:10px 0
+}
+
+#articlelist .articletop{
+	color:#4E4B49;
+	font-family:"Arial Black";
+	font-weight:normal;
+	width:600px;
+}
+#articlelist .articletop h2{
+	font-size:14px;
+	background:url(../images/smallLogo.gif) left top no-repeat;
+	padding-left:40px;
+	font-weight:bold;
+}
+#articlelist .articletop h3{
+	padding-left:40px;
+}
+#articlelist .articlecontent{
+	width:600px;
+	padding:15px 0;
+	line-height:17px
+}
+#articlelist .articlecontent .articleImage img{
+	width:50px;
+	height:50px;
+	margin-right:20px;
+	overflow:hidden;
+}
+.articlecontent dl{
+	width:500px;
+	height:50px; 
+	overflow:hidden;
+}
+
+/* ---------------------------分页 ul 居中问题-----------------------*/
+#pagecount{
+	width:600px;
+	text-align:center;
+	overflow:hidden;
+	margin-top:10px;
+}
+#pagecount ul{
+	float:left;
+	position:relative;
+	left:50%;
+}
+#pagecount ul li{
+	float:left;
+	position:relative;
+	right:50%;
+	width:20px;
+}
+#pagecount .pagepri{
+	width:60px!important;
+}
+#pagecount .pagenext{
+	width:60px!important;
+}
+
+/* ----------------google 提供的广告 --------------------*/
+#googleAdv{
+	margin-top:20px;
+	width:600px;
+}
+#googleAdv ul{
+	float:left;
+}
+#googleAdv ul li{
+	width: auto;
+	padding-left:2px;
+	text-align:center;
+	float:left;
+}
+#googleAdv ul li a{
+	padding-right:2px;
+
+}
+
+.yongfuming{
+	width:130px;
+	border:1px solid #9D9B9C;
+	color:#606060;
+	height:14px;
+}
+#googleAdv .goolfirst{
+	width:130px!important;
+}
+
+
+
+/* -------------------- 回复 ------------------------*/
+#replydiv{
+	margin-top:42px;
+	width:600px;
+}
+#replydiv .replylogin{
+	
+}
+#replydiv .replylogin ul{
+	margin:0;
+	padding:0;
+	float:left;
+	width:600px;
+}
+#replydiv .replylogin ul li{
+	padding:5px;
+	float:left;
+}
+#replydiv .replyconent{
+	width:560px;
+}
+#replydiv .replyconent h3{
+	background-color:#000;
+	color:#fff;
+	height:30px;
+	line-height:30px;
+}
+#replydiv .replyconent textarea{
+	width:558px;
+	height:100px;
+	overflow:hidden;
+	border:1px solid #ccc;
+}
+#replydiv .replyconent p{
+	margin:20px 0px 20px 0px;
+}
+#replydiv .replyface{
+	float:left;
+}
+#replydiv .replyface li{
+	width:39px;
+	height:39px;
+	float:left;
+	border:1px solid #000;
+}
+#replydiv .replyface li img{
+	width:39px;
+	height:39px;
+}
+#replydiv #advimg{
+	width:600px;
+	margin-top:40px;
+}
+#replydiv #advimg ul{
+	float:left;
+}
+#replydiv #advimg li{
+	float:left;
+	margin:5px;
+}
+#replydiv #advimg img{
+	width:121px;
+	height:121px;
+}

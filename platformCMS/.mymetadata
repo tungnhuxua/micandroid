@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="platformCMS"
+  id="myeclipse.1293713155890"
+  context-root="/platformCMS"
+  j2ee-spec="5.0"
+  archive="platformCMS.war">
+  <attributes>
+    <attribute name="webrootdir" value="web" />
+  </attributes>
+</project-module>
+

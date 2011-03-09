@@ -1,0 +1,42 @@
+body {
+background:#8B8E8F;
+font-family:寰蒋闆呴粦,瀹嬩綋,Verdana,Arial,Tahoma;
+font-size:12px;
+color:#626262;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:normal; 
+padding:0; margin:0;
+}
+dl,dt,dd,table,td,th,p,h1,h2,ul,li,html,h3,h4,h5,form,input,a,img{
+	margin:0;
+	padding:0;
+	list-style-type: none;
+	text-decoration:none; border:none;
+	color:#626262;
+}
+
+.qqcontainer{ width:100%; height:auto; margin:0; padding:0;background:#8B8E8F}
+.qqiuwkuang{ width:410px; height:410px; margin:0 auto; background:#525457; padding:10px; margin-top:100px}
+.qqiukuangb{ width:400px; height:400px; background:#1E1916; padding:5px}
+.qqiukuangc{width:400px; height:400px; background:#FFFFFF}
+.qqiutools{ width:150px; height:30px ; padding-top:10px; padding-left:250px}
+.qqiutools ul li{ width:auto; padding-left:2px; float:left}
+.request{ width:380px; height:auto; padding-left:20px; padding-top:10px}
+.request a{color:#83C325;; text-decoration:underline}
+.qqyonghuming{ width:380px; height:auto; padding-left:20px; padding-top:30px}
+.qqyonghuming dl{ width:320px; height:80px;}
+.qqyonghuming dl dt{ width:80px; height:80px; float:left}
+.qqyonghuming dl dd { width:200px; height:15px; float:left; padding-left:10px; padding-top:5px}
+.qqyonghuming dl dd a{color:#83C325; text-decoration:underline}
+.accept{ width:370px; height:20px;padding-left:20px; padding-top:30px}
+.accept ul li{ width:auto; float:left; padding-right:15px}
+.accept ul li a:hover{color:#83C325;}
+.fasong{ width:330px; height:110px;border:1px solid #A9A9A9; color:#626262 }
+.dlyx{ width:200px; height:15px;border:1px solid #A9A9A9;color:#626262   }
+.qrdenglu a{ text-decoration:none; color:#83C325;}
+.yhzc a{color:#626262; text-decoration:none}
+

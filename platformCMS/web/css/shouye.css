@@ -1,0 +1,309 @@
+@import url("base.css");
+@import url("adv.css");
+@import url("index.css");
+
+/*---------------------------------当前热门文章-------------------------*/
+#hot_essay{
+ width:600px;
+ margin:20px 0;
+}
+#hot_essay h2{
+padding-left:5px;
+}
+
+#hot_essay_content{
+float:left;
+}
+#hot_essay_content_detalied{
+padding:20px 0 0 5px;
+}
+
+/*-------------------------------------------精彩推荐---------------*/
+
+#recommend{
+width:600px;
+
+}
+
+
+#tablist{
+	
+}
+/*列表显示*/
+.news{
+	padding-left:45px;
+	margin-top:10px;
+	margin-bottom:20px;
+}
+.news .newsleft{
+	
+}
+.news .newsleft img{
+	width:80px;
+	height:80px;
+}
+.news .newsright{
+	margin-left:24px;
+	height:78px;
+	overflow:hidden;
+}
+.news .newsright h3{
+	color:#878787;
+}
+.news .newsright h4{
+	margin-top:5px;
+	color:#878787;
+}
+.news .newsright p{
+	margin-top:5px;
+	width:350px;
+	color:#878787;
+	height:35px;
+	line-height:16px
+}
+
+/*---------------------------------人物访谈列表-------------------------*/
+
+
+
+.userlist{
+	margin-bottom:45px;
+	margin-top:15px;
+	width:100%;
+}
+.userlist div{
+	
+}
+
+.userlist div ul{
+	float:left;
+}
+.userlist div ul li{
+	float:left;
+	margin-top:5px;
+	margin-right:5px;
+	width:110px;
+	height:110px;
+}
+.userlist div ul li img{
+	width:110px;
+	height:110px;
+}
+
+/*---------------------------------精彩博文-------------------------*/
+#blog{
+
+}
+/*---------------------------------群英会-------------------------*/
+#group{
+
+}
+
+/*---------------------------------专拦博客-------------------------*/
+#columns_bolg{}
+
+/*----------------------------------江湖大侠------------------------*/
+#star_bolg{}
+/*----------------------------------江湖大侠------------------------*/
+#new_join{}
+
+/*----------------------------------秀场 ------------------------*/
+#case_show{
+padding:0 0 0 5px;
+}
+
+#case_show_content{
+float:left;
+}
+
+#case_show_content_detalied{
+padding:20px 0 0 5px;
+}
+
+/*----------------------------------明星博客---------------------*/
+
+#right_star_blog{
+	float:right;
+	width:348px;
+	margin-top:30px;
+	padding:0 0;
+	margin-bottom:20px;
+}
+
+#right_star_blog h3{
+	text-align:left;
+	padding-left:50px;
+	color:#777474;
+	font-weight:normal;
+	font-size:14px;
+	padding-bottom:20px;
+	font-weight:bold
+}
+
+.star_blog_list{
+	
+	width:100%;
+}
+.star_blog_list div{
+	
+}
+
+
+
+.star_blog_list div ul{
+	float:right;
+}
+.star_blog_list div ul li{
+	float:right;
+	margin-top:5px;
+	margin-right:5px;
+	width:55px;
+	height:55px;
+}
+.star_blog_list div ul li img{
+	width:55px;
+	height:55px;
+}
+
+/*----------------------------------江湖动态---------------------*/
+#seecial{
+	float:right;
+	width:348px;
+	margin-top:30px;
+	padding:0 0;
+	margin-bottom:45px;
+
+}
+#seecial h3{
+	text-align:left;
+	padding-left:50px;
+	color:#777474;
+	font-weight:normal;
+	font-size:14px;
+	padding-bottom:20px;
+	font-weight:bold
+}
+
+#seecial ul{
+	text-align:left;
+	padding-left:50px;
+	color:#777474;
+	font-weight:normal;
+}
+/*---------------------------------右边广告列表-------------------------*/
+#banner_all_list{
+	float:right;
+	width:348px;
+	margin-top:10px;
+	padding:0 0;
+
+}
+.banner_list{
+	
+	width:100%;
+}
+.banner_list div ul{
+	float:left;
+}
+.banner_list div ul li{
+	float:left;
+	margin-top:5px;
+	margin-right:5px;
+	width:200px;
+	height:100px;
+	padding-left:105px;
+}
+.banner_list div ul li img{
+	width:200px;
+	height:100px;
+}
+/*---------------------------------右边圈网精选-------------------------*/
+#right_seecial{
+	float:right;
+	width:348px;
+	margin-top:30px;
+	padding:0 0;
+}
+
+#right_seecial_list{
+
+}
+#right_seecial_list div{
+width:225px;
+padding-left:105px;
+}
+#right_seecial h3{
+	text-align:left;
+	padding-left:105px;
+	color:#777474;
+	font-weight:normal;
+	font-size:14px;
+	padding-bottom:20px;
+}
+
+#right_seecial_list div ul{
+	float:left;
+}
+#right_seecial_list div ul li{
+	float:left;
+	margin-top:5px;
+	margin-right:5px;
+	width:50px;
+	height:50px;
+}
+#right_seecial_list div ul li img{
+	width:50px;
+	height:50px;
+}
+.bianji {
+height:70px;
+overflow:hidden;
+width:480px;
+}
+
+/*---------------------------------其它-------------------------*/
+/*中间广告*/
+#banner{
+	margin:20px 0;
+	height:100px;
+	width:100%;
+}
+/*所有标题*/
+#all_title{
+margin:15px 0;
+
+}
+
+#all_title a{
+
+}
+#all_title h2{
+width:500px;
+float:left;
+padding-left:5px;
+}
+.group_list{
+	margin-bottom:20px;
+	width:100%;
+}
+.group_list div{
+	
+}
+
+
+
+.group_list div ul{
+	float:left;
+}
+.group_list div ul li{
+	float:left;
+	margin-top:5px;
+	margin-right:5px;
+	width:90px;
+	height:90px;
+}
+.group_list div ul li img{
+	width:90px;
+	height:90px;
+}
+

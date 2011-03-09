@@ -1,0 +1,154 @@
+/***************************************
+ * author:可乐加糖
+ * email:black.angel.liu@gmail.com
+ ****************************************/
+
+@import url("base.css");
+@import url("adv.css");
+@import url("index.css");
+
+/*---------------------内容左边---------------------------*/
+#maincontent{
+float:left;
+margin:41px auto 0;
+width:960px;
+}
+
+#maincontent div{
+	float:left;
+	text-align:left;
+}
+
+#listleft{
+width:185px;
+}
+
+#listleft ul{
+	padding:1px;
+	padding-left:10px;
+}
+#listleft ul li{
+	height:10px;
+	margin-bottom:5px;
+}
+#listleft ul li span{
+	color:#605D5C;
+}
+
+
+
+
+/*---------------------中间秀场---------------------------*/
+#listcenter{
+width:760px;
+}
+
+
+#case_show{
+padding:0px 0 0 5px;
+}
+
+#case_show_content{
+float:left;
+}
+
+#case_show_content_detalied{
+padding:20px 0 0 5px;
+}
+
+#case_heroes{
+ padding-top: 40px;
+ width: 760px;
+}
+
+/*---------------------右边---------------------------*/
+
+#listright{
+width:160px;
+padding-top:35px;
+}
+
+#listright div{
+width:160px;
+background:#000000;
+height:600px;
+}
+
+
+
+
+#contentFoot_1{
+	width:600px;
+}
+#contentFoot_1 div{
+padding-left:5px;
+	
+}
+#contentFoot_nav_1{
+	width:754px;
+	margin-top:40px;
+}
+#contentFoot_nav_1 h3{
+	text-align:left;
+}
+#contentFoot_nav_1 h3 span{
+	font-weight:normal;
+	font-size:12px;
+}
+
+#contentFoot_nav_1 ul{
+	float:left;
+	list-style:none;
+	margin-top:5px;
+}
+#contentFoot_nav_1 ul li{
+	float:left;
+	text-align:left;
+}
+#contentFoot_nav_1 ul li span{
+	background:url(../images/nav2Bg.gif) left center no-repeat;
+}
+
+
+
+#contentFoot_seach_1{
+	margin-top:19px;
+	width:504px;
+}
+#contentFoot_seach_1 ul{
+	margin:0 0;
+	padding:0 0;
+	list-style:none;
+	float:left;
+	width:504px;
+	height:20px;
+}
+#contentFoot_seach_1 ul li{
+	height:15px;
+	float:left;
+	margin-left:5px;
+}
+#contentFoot_seach_1 ul .firstLi{
+	margin:0px;
+}
+#contentFoot_seach_1 div{
+	text-align:left;
+	width:504px;
+	padding:0 0;
+	margin-top:24px;
+}
+#contentFoot_seach_1 div span{
+	margin-left:3px;
+}
+
+#contentFoot_seach_1 p{
+	text-align:left;
+}
+
+.firstP_1{
+	margin-top:24px;
+}
+
+.shoucanglb dl{ width:140px; height: auto; float:left; margin-bottom:20px; margin-right:5px}
+.shoucanglb dl dt{ width:140px; height:75px; background:#9E9E9E; float:left; margin-bottom:10px}
+.shoucanglb dl dd{ width:140px; height:18px; float:left;}
