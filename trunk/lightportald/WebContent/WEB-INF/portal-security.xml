@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * Light Portal
+ *
+ * Copyright (c) 2009, Light Portal, Inc or third-party contributors as
+ * indicated by the @author tags or express copyright attribution
+ * statements applied by the authors.  All third-party contributions are
+ * distributed under license by Light Portal, Inc.
+ *
+ * This copyrighted material is made available to anyone wishing to use, modify,
+ * copy, or redistribute it subject to the terms and conditions of the GNU
+ * Lesser General Public License, as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this distribution; if not, write to:
+ * Free Software Foundation, Inc.
+ * 51 Franklin Street, Fifth Floor
+ * Boston, MA  02110-1301  USA
+ *
+ */
+-->
+<portal-security xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="portal-security.xsd">
+	<application>
+		<defaultLocale>en</defaultLocale>
+		<reCreateTable>true</reCreateTable>
+	</application>
+	<role>
+		<name>role_guest</name>		
+		<title>Unauthenticated users always have this role</title>
+		<theme>theme4</theme>
+		<permissions>
+			<permission>PORTAL_SIGN_IN</permission>
+			<permission>PORTAL_CHANGE_LANGUAGE</permission>
+		</permissions>
+		<users>
+			<user>
+				<name>default@lightportal.org</name>
+				<password>default</password>
+				<firstName>default</firstName>
+				<middleName></middleName>
+				<lastName></lastName>
+				<email>default@lightportal.org</email>
+			</user>			
+		</users>
+	</role>	
+	<role>
+		<name>role_user</name>
+		<title>Authenticated users should be assigned this role</title>
+		<theme>theme5</theme>
+		<permissions>
+			<permission>PORTAL_OPTIONS</permission>
+			<permission>PORTAL_ADD_TAB</permission>
+			<permission>PORTAL_ADD_CONTENT</permission>
+			<permission>PORTAL_SIGN_IN</permission>
+			<permission>PORTAL_CHANGE_LANGUAGE</permission>
+		</permissions>
+		<users>
+			<user>
+				<name>admin@lightportal.org</name>
+				<password>admin</password>
+				<firstName>admin</firstName>
+				<middleName></middleName>
+				<lastName></lastName>
+				<email>admin@lightportal.org</email>
+			</user>			
+		</users>
+	</role>
+	<role>
+		<name>role_member</name>
+		<title>All users who belong to a organization have this role within that organization</title>
+		<theme>theme5</theme>
+		<permissions>
+			
+		</permissions>
+		<users>
+			<user>
+				<name>admin@lightportal.org</name>
+				<password>admin</password>
+				<firstName>admin</firstName>
+				<middleName></middleName>
+				<lastName></lastName>
+				<email>admin@lightportal.org</email>
+			</user>			
+		</users>
+	</role>
+	<role>
+		<name>role_owner</name>
+		<title>This is an implied role with respect to the objects users create</title>
+		<theme>theme5</theme>
+		<permissions>			
+		</permissions>
+		<users>
+			<user>
+				<name>admin@lightportal.org</name>
+				<password>admin</password>
+				<firstName>admin</firstName>
+				<middleName></middleName>
+				<lastName></lastName>
+				<email>admin@lightportal.org</email>
+			</user>			
+		</users>
+	</role>
+	<role>
+		<name>role_admin</name>
+		<title>Administrators are super users who can do anything</title>
+		<theme>theme5</theme>
+		<permissions>
+			<permission>PORTAL_OPTIONS</permission>
+			<permission>PORTAL_ADD_TAB</permission>
+			<permission>PORTAL_ADD_CONTENT</permission>
+			<permission>PORTAL_SIGN_IN</permission>
+			<permission>PORTAL_CHANGE_LANGUAGE</permission>
+		</permissions>
+		<users>
+			<user>
+				<name>admin@lightportal.org</name>
+				<password>admin</password>
+				<firstName>admin</firstName>
+				<middleName></middleName>
+				<lastName></lastName>
+				<email>admin@lightportal.org</email>
+			</user>			
+		</users>
+	</role>
+	<role>
+		<name>role_group</name>
+		<title>when user go to group/sub org/network mode, will attach this role if this user belong to that group</title>
+		<theme>theme4</theme>
+		<permissions>
+			<permission>PORTAL_SIGN_IN</permission>
+		</permissions>
+	</role>	
+</portal-security>

@@ -1,0 +1,292 @@
+.theme-color {color: #489425;}
+.theme-bgcolor {background-color: #EEFAEE;}
+.portal-container {position: absolute; background:url("images/header.png") repeat-x right top;}
+.portal-header {}
+.portal-header-logo {margin:0 0 0 10px;}
+.portal-header-title {display:block; padding: 20 5 5 5; color: #489425; font-size:150%; width:100%;}
+.portal-header-title-view {color: #489425; padding : 20 5 5 5; font-size:150%;}
+.portal-header-title-edit {color: #489425; padding : 20 5 5 5; font-size:150%; border-color:#D5EECD; border-style: solid; border-width: 1px;}
+.portal-header-search {text-align:right; color: #83C2CD;}
+.portal-header-menu {text-align:right;float:right;margin:-40px 10px 0 0;}
+.portal-header-menu-item {text-align:right;}
+.portal-header-menu-item-separater {width:1; height:6; border-left: thin solid #D5EECD; font-size:80%; margin: 0 4px;}
+.portal-header-menu-item A:link {text-decoration: none; color:#000000; padding : 5 5 5 5; }
+.portal-header-menu-item A:visited {text-decoration: none; color:#000000;}
+.portal-header-menu-item A:active { text-decoration: none; color:#000000;}
+.portal-header-menu-item A:hover { text-decoration: underline; color:#ffffff;}
+.portal-body { margin: 0 0 0 0;}
+.portal-footer {position: absolute; display: block;  color: #489425; text-align:center;}
+.portal-footer A:link {text-decoration: none; color: #489425;}
+.portal-footer A:visited {text-decoration: none; color: #489425;}
+.portal-footer A:active { text-decoration: none; color: #489425;} 
+.portal-footer A:hover { text-decoration: underline; color: #7DBB9D;}
+.portal-footer span {}
+
+.portal-tab-container {width: 400px;}
+.portal-tabs1 {float:left; width:100%; }
+.portal-tabs1 ul {margin:0;	padding:4px 0px 0px 0px; list-style:none;}
+.portal-tabs1 li {float:left; border-top: thin solid #D5EECD; border-left: thin solid #D5EECD;  margin:0; padding:0 0 0 0px;}
+.portal-tabs1 span {float:left;	display:block; background:url("images/tab_bg.gif") no-repeat right top; padding:5px 10px 0px 6px; color:#321;}
+.portal-tabs1 .current span {color:black; padding-bottom:0px; font-weight: bold;}
+
+.portal-tabs {float:left; width:100%; }
+.portal-tabs ul {margin:0;	padding:4px 0px 0px 0px; list-style:none;}
+.portal-tabs li {float:left; border-top: thin solid #D5EECD; border-left: thin solid #D5EECD; margin:0; padding:0 0 0 0px;}
+.portal-tabs span {float:left;	display:block; padding:5px 10px 0px 6px; color:#321;}
+.portal-tabs .current span {color:#489425; padding-bottom:5px; font-weight: bold;}
+
+.portal-tab-handle {border: 0px;display: inline; vertical-align:top;}
+.portal-tab-button {border: 0px;display: inline;cursor:pointer;	cursor:hand;padding : 0 0 0 5px; height: 7; width: 7;}
+.portal-tab-panels {}
+.portal-tab-handle {border: 0px;display: inline;cursor:pointer;	cursor:hand;}
+.portal-tab-handle A:link {text-decoration: none; color: #489425;}
+.portal-tab-handle A:visited {text-decoration: none; color: #489425;}
+.portal-tab-handle A:active { text-decoration: none; color: #489425;} 
+.portal-tab-handle A:hover { text-decoration: underline; color: #7DBB9D;}
+
+.portlet {height:auto; border: thin solid #D5EECD; padding-top:15px;}
+.portlet-header { z-index: 2; visibility:visible; color: #489425; background-image:url("images/portlet_header.jpg"); background-repeat: repeat-x; padding : 2 25 2 5; text-align:left;   font-weight: bold;}
+.portlet-header A:link {text-decoration: none; color: #489425;}
+.portlet-header A:visited {text-decoration: none; color: #489425;}
+.portlet-header A:active { text-decoration: none; color: #489425;} 
+.portlet-header A:hover { text-decoration: underline; color: #7DBB9D;}
+.portlet-header-button {position: absolute;}
+.portlet-title { display: block; text-align:left; color: #489425; padding : 0 0 5 5; font-size:135%;}
+
+.portlet-body { }
+.portlet span.portlet { color: #000000; text-align:left;  padding : 10 0 0 5; display: block; }
+.portlet-popup { background-color: #ffffff; border-color: #D5EECD; border-style: solid; border-width: 1px; padding : 5 25 5 5; text-align:left;  }
+.portlet-popup2 { color: #000000; background-color: #ffffff; border-color: #83C2CD; border-style: solid; border-width: 1px; padding : 5 25 5 5; text-align:left;  }
+.portlet-popup3 { color: #000000; background-color: #F5F2DB; border-color: #83C2CD; border-style: solid; border-width: 1px; padding : 5 25 5 5; text-align:left;  }
+.portlet-popup4 { color: #000000; background-color: #EEF6FF; border-color: #489425; border-style: solid; border-width: 1px; padding : 0 0 0 0; text-align:center;  }
+
+.portlet-rss { color: #000000; text-align:left; padding : 5 0 0 5; display: block; }
+.portlet-rss A:link {text-decoration: none; color: #3169B5;}
+.portlet-rss A:visited {text-decoration: none; color: #3169B5;}
+.portlet-rss A:active { text-decoration: none; color: #3169B5;} 
+.portlet-rss A:hover { text-decoration: underline; color: #0088E4;}
+.portlet-item { color: #489425; text-align:left; padding : 0 3 0 3; }
+.portlet-item A:link {text-decoration: none; color: #3169B5;}
+.portlet-item A:visited {text-decoration: none; color: #3169B5;}
+.portlet-item A:active { text-decoration: none; color: #3169B5;} 
+.portlet-item A:hover { text-decoration: underline; color: #0088E4;}
+.portlet-itemEven { color: #83C2CD; text-align:left;  padding : 0 0 0 5; }
+.portlet-itemEven A:link {text-decoration: none; color: #83C2CD;}
+.portlet-itemEven A:visited {text-decoration: none; color: #83C2CD;}
+.portlet-itemEven A:active { text-decoration: none; color: #83C2CD;} 
+.portlet-itemEven A:hover { text-decoration: underline; color: #0088E4;}
+
+.portlet2 {border: thin solid #D5EECD; padding : 0 0 0 0; }
+.portlet2 span.portlet { text-align:left; padding : 0 0 10 5; display: block; }
+.portlet2-header {clear: both; background-image:url("images/portlet_header.jpg"); background-repeat: repeat-x; color: #489425; height: 20;  display: block; text-align:right;}
+.portlet2-header A:link {text-decoration: none; color: #489425;}
+.portlet2-header A:visited {text-decoration: none; color: #489425;}
+.portlet2-header A:active { text-decoration: none; color: #489425;} 
+.portlet2-header A:hover { text-decoration: underline; color: #7DBB9D;}
+
+.portlet2-header-min {clear: both; background-color: #EDF7E8; color: #BDDD94; height: 20;  display: block; text-align:right;}
+.portlet2-header-min A:link {text-decoration: none; color: #BDDD94;}
+.portlet2-header-min A:visited {text-decoration: none; color: #BDDD94;}
+.portlet2-header-min A:active { text-decoration: none; color: #BDDD94;} 
+.portlet2-header-min A:hover { text-decoration: underline; color: #489425;}
+
+.portlet2-header-button {text-align:right; padding : 0 0 0 0;}
+.portlet2-header-button A:link {text-decoration: none; color: #FFFFFF;}
+.portlet2-header-button A:visited {text-decoration: none; color: #FFFFFF;}
+.portlet2-header-button A:active { text-decoration: none; color: #FFFFFF;} 
+.portlet2-header-button A:hover { text-decoration: none; color: #7DBB9D;}
+
+.icons {background: url(images/icons.png) no-repeat top left;}
+.icons_addTab { background: url(images/icons.png) no-repeat top left;background-position: 0 -132px; float:right top;width:16px;height:16px;cursor: pointer; cursor: hand;}
+.icons_closeTab { background: url(images/icons.png) no-repeat top left;background-position: 0 -1076px; float:right top;width:16px;height:16px;cursor: pointer; cursor: hand;}
+.icons_search { background: url(images/icons.png) no-repeat top left;background-position: -300px -328px; float:none;width:16px;height:16px;cursor: pointer; cursor: hand;display: inline;border-style: none;border-width:0;}
+.icons_collapseAll{background:url(images/icons.png) no-repeat top left;background-position:0 -1202px;float:none;width:16px;height:16px;cursor:pointer;cursor:hand;display:inline;border-style:none;border-width:0;}
+.icons_expandAll{background:url(images/icons.png) no-repeat top left;background-position:-100px -66px;float:none;width:16px;height:16px;cursor:pointer;cursor:hand;display:inline;border-style:none;border-width:0;}
+.icons_world{background:url(images/icons.png) no-repeat top left;background-position:-300px -1515px;float:none;width:16px;height:16px;cursor:pointer;cursor:hand;display:inline;border-style:none;border-width:0;}
+.icons .about { background-position: 0 0; float:left;width:16px;height:16px;} 
+.icons .add { background-position: 0 -66px; float:left;width:16px;height:16px;} 
+.icons .addTab { background-position: 0 -132px; float:left;width:16px;height:16px;} 
+.icons .add_favorite { background-position: 0 -192px; float:left;width:16px;height:16px;} 
+.icons .addressbook { background-position: 0 -258px; float:left;width:16px;height:16px;} 
+.icons .application_add { background-position: 0 -324px; float:left;width:16px;height:16px;} 
+.icons .background { background-position: 0 -390px; float:left;width:16px;height:16px;} 
+.icons .block { background-position: 0 -456px; float:left;width:16px;height:16px;} 
+.icons .blog { background-position: 0 -522px; float:left;width:16px;height:16px;} 
+.icons .blurb { background-position: 0 -588px; float:left;width:16px;height:16px;} 
+.icons .bookmark { background-position: 0 -654px; float:left;width:16px;height:16px;} 
+.icons .bulletin { background-position: 0 -720px; float:left;width:16px;height:16px;} 
+.icons .business { background-position: 0 -782px; float:left;width:16px;height:16px;} 
+.icons .calendar { background-position: 0 -848px; float:left;width:16px;height:16px;} 
+.icons .chat { background-position: 0 -914px; float:left;width:16px;height:16px;} 
+.icons .chatroom { background-position: 0 -976px; float:left;width:50px;height:50px;} 
+.icons .closeTab { background-position: 0 -1076px; float:left;width:16px;height:16px;} 
+.icons .close_on { background-position: 0 -1136px; float:right;width:16px;height:16px;cursor: pointer; cursor: hand;border: 0px;-moz-opacity:0.5;filter:alpha(opacity=50);} 
+.icons .collapseAll { background-position: 0 -1202px; float:right;width:16px;height:16px;} 
+.icons .comments { background-position: 0 -1265px; float:left;width:16px;height:16px;} 
+.icons .config_on { background-position: 0 -1331px; float:right;width:16px;height:16px;cursor: pointer; cursor: hand;border: 0px;-moz-opacity:0.5;filter:alpha(opacity=50);} 
+.icons .cvs { background-position: 0 -1397px; float:left;width:16px;height:16px;} 
+.icons .deleteLink { background-position: 0 -1462px; float:left;width:16px;height:16px;} 
+.icons .delicious { background-position: 0 -1523px; float:left;width:16px;height:16px;} 
+.icons .dictionary { background-position: 0 -1589px; float:left;width:16px;height:16px;} 
+.icons .digg { background-position: 0 -1655px; float:left;width:16px;height:16px;} 
+.icons .document { background-position: 0 -1721px; float:left;width:16px;height:16px;} 
+.icons .download { background-position: 0 -1787px; float:left;width:16px;height:16px;} 
+.icons .draws { background-position: 0 -1853px; float:left;width:16px;height:16px;} 
+.icons .edit { background-position: 0 -1919px; float:left;width:16px;height:16px;} 
+.icons .edit_on { background-position: -100px 0; float:right;width:16px;height:16px;cursor: pointer; cursor: hand;border: 0px;-moz-opacity:0.5;filter:alpha(opacity=50);} 
+.icons .expandAll { background-position: -100px -66px; float:right;width:16px;height:16px;} 
+.icons .faq { background-position: -100px -129px; float:left;width:16px;height:16px;} 
+.icons .feed { background-position: -100px -197px; float:left;width:16px;height:16px;} 
+.icons .file { background-position: -100px -263px; float:left;width:16px;height:16px;} 
+.icons .find { background-position: -100px -328px; float:left;width:16px;height:16px;} 
+.icons .flickr { background-position: -100px -394px; float:left;width:16px;height:16px;} 
+.icons .folder { background-position: -100px -460px; float:left;width:34px;height:29px;} 
+.icons .forum { background-position: -100px -539px; float:left;width:16px;height:16px;} 
+.icons .forward { background-position: -100px -605px; float:left;width:16px;height:16px;} 
+.icons .friend { background-position: -100px -671px; float:left;width:16px;height:16px;} 
+.icons .friends { background-position: -100px -737px; float:left;width:16px;height:16px;} 
+.icons .gmail { background-position: -100px -803px; float:left;width:20px;height:15px;} 
+.icons .google { background-position: -100px -868px; float:left;width:16px;height:16px;} 
+.icons .group { background-position: -100px -934px; float:left;width:16px;height:16px;} 
+.icons .header { background-position: -100px -1000px; float:left;width:16px;height:16px;} 
+.icons .help_on { background-position: -100px -1066px; float:right;width:16px;height:16px;cursor: pointer; cursor: hand;border: 0px;-moz-opacity:0.5;filter:alpha(opacity=50);} 
+.icons .hideMod { background-position: -100px -1132px; float:left;width:16px;height:16px;} 
+.icons .horoscope { background-position: -100px -1197px; float:left;width:16px;height:16px;} 
+.icons .inbox { background-position: -100px -1263px; float:left;width:16px;height:16px;} 
+.icons .info { background-position: -100px -1329px; float:left;width:16px;height:16px;} 
+.icons .interests { background-position: -100px -1397px; float:left;width:16px;height:16px;} 
+.icons .internal { background-position: -100px -1463px; float:left;width:16px;height:16px;} 
+.icons .key { background-position: -100px -1533px; float:left;width:16px;height:16px;} 
+.icons .leave_config_on { background-position: -100px -1598px; float:right;width:16px;height:16px;cursor: pointer; cursor: hand;border: 0px;-moz-opacity:0.5;filter:alpha(opacity=50);} 
+.icons .leave_edit_on { background-position: -100px -1664px; float:right;width:16px;height:16px;cursor: pointer; cursor: hand;border: 0px;-moz-opacity:0.5;filter:alpha(opacity=50);} 
+.icons .leave_help_on { background-position: -100px -1730px; float:right;width:16px;height:16px;cursor: pointer; cursor: hand;border: 0px;-moz-opacity:0.5;filter:alpha(opacity=50);} 
+.icons .link { background-position: -100px -1796px; float:left;width:16px;height:16px;} 
+.icons .loading { background-position: -100px -1862px; float:left;width:16px;height:16px;} 
+.icons .logoSmall { background-position: -100px -1928px; float:left;width:16px;height:16px;} 
+.icons .losses { background-position: -200px 0; float:left;width:16px;height:16px;} 
+.icons .max_on { background-position: -200px -66px; float:right;width:16px;height:16px;cursor: pointer; cursor: hand;border: 0px;-moz-opacity:0.5;filter:alpha(opacity=50);} 
+.icons .message { background-position: -200px -132px; float:left;width:16px;height:16px;} 
+.icons .messenger { background-position: -200px -198px; float:left;width:16px;height:16px;} 
+.icons .min_on { background-position: -200px -267px; float:right;width:16px;height:16px;cursor: pointer; cursor: hand;border: 0px;-moz-opacity:0.5;filter:alpha(opacity=50);} 
+.icons .msnmessenger { background-position: -200px -333px; float:left;width:16px;height:16px;} 
+.icons .music { background-position: -200px -402px; float:left;width:16px;height:16px;} 
+.icons .new { background-position: -200px -468px; float:left;width:16px;height:16px;} 
+.icons .news { background-position: -200px -534px; float:left;width:16px;height:16px;} 
+.icons .next { background-position: -200px -600px; float:left;width:16px;height:16px;} 
+.icons .note { background-position: -200px -666px; float:left;width:16px;height:16px;} 
+.icons .online { background-position: -200px -732px; float:left;width:16px;height:16px;} 
+.icons .openid_small_logo { background-position: -200px -802px; float:left;width:16px;height:16px;} 
+.icons .opponent { background-position: -200px -868px; float:left;width:16px;height:16px;} 
+.icons .options { background-position: -200px -934px; float:left;width:16px;height:16px;} 
+.icons .org { background-position: -200px -1000px; float:left;width:16px;height:16px;} 
+.icons .outbox { background-position: -200px -1066px; float:left;width:16px;height:16px;} 
+.icons .people { background-position: -200px -1132px; float:left;width:16px;height:16px;} 
+.icons .picture { background-position: -200px -1198px; float:left;width:16px;height:16px;} 
+.icons .play { background-position: -200px -1264px; float:left;width:16px;height:16px;} 
+.icons .points { background-position: -200px -1330px; float:left;width:16px;height:16px;} 
+.icons .pop_in { background-position: -200px -1396px; float:right;width:16px;height:16px;cursor: pointer; cursor: hand;border: 0px;-moz-opacity:0.5;filter:alpha(opacity=50);} 
+.icons .pop_out { background-position: -200px -1460px; float:right;width:16px;height:16px;cursor: pointer; cursor: hand;border: 0px;-moz-opacity:0.5;filter:alpha(opacity=50);} 
+.icons .popular { background-position: -200px -1526px; float:left;width:16px;height:16px;} 
+.icons .portal { background-position: -200px -1592px; float:left;width:16px;height:16px;} 
+.icons .portlet { background-position: -200px -1658px; float:left;width:16px;height:16px;} 
+.icons .previous { background-position: -200px -1724px; float:left;width:16px;height:16px;} 
+.icons .privacy { background-position: -200px -1790px; float:left;width:16px;height:16px;} 
+.icons .private { background-position: -200px -1856px; float:left;width:16px;height:16px;} 
+.icons .rank { background-position: -200px -1918px; float:left;width:16px;height:16px;} 
+.icons .rating { background-position: -300px 0; float:left;width:16px;height:16px;} 
+.icons .recommended { background-position: -300px -66px; float:left;width:16px;height:16px;} 
+.icons .refresh_on { background-position: -300px -132px; float:right;width:16px;height:16px;cursor: pointer; cursor: hand;border: 0px;-moz-opacity:0.5;filter:alpha(opacity=50);} 
+.icons .restore_on { background-position: -300px -198px; float:right;width:16px;height:16px;cursor: pointer; cursor: hand;border: 0px;-moz-opacity:0.5;filter:alpha(opacity=50);} 
+.icons .rss { background-position: -300px -264px; float:left;width:16px;height:16px;} 
+.icons .search { background-position: -300px -328px; float:left;width:16px;height:16px;} 
+.icons .showMod { background-position: -300px -394px; float:left;width:16px;height:16px;} 
+.icons .slang { background-position: -300px -459px; float:left;width:16px;height:16px;} 
+.icons .stop { background-position: -300px -525px; float:left;width:16px;height:16px;} 
+.icons .store { background-position: -300px -591px; float:left;width:16px;height:16px;} 
+.icons .tag { background-position: -300px -657px; float:left;width:16px;height:16px;} 
+.icons .tag_blue { background-position: -300px -723px; float:left;width:16px;height:16px;} 
+.icons .tennis { background-position: -300px -789px; float:left;width:16px;height:16px;} 
+.icons .terms { background-position: -300px -855px; float:left;width:16px;height:16px;} 
+.icons .todolist { background-position: -300px -921px; float:left;width:16px;height:16px;} 
+.icons .training { background-position: -300px -987px; float:left;width:16px;height:16px;} 
+.icons .up_on { background-position: -300px -1053px; float:left;width:16px;height:16px;} 
+.icons .user { background-position: -300px -1117px; float:left;width:16px;height:16px;} 
+.icons .video { background-position: -300px -1183px; float:left;width:16px;height:16px;} 
+.icons .video { background-position: -300px -1251px; float:left;width:16px;height:16px;} 
+.icons .viewed { background-position: -300px -1317px; float:left;width:16px;height:16px;} 
+.icons .weather { background-position: -300px -1383px; float:left;width:16px;height:16px;} 
+.icons .wins { background-position: -300px -1449px; float:left;width:16px;height:16px;} 
+.icons .world { background-position: -300px -1515px; float:right;width:16px;height:16px;} 
+.icons .language { background-position: -300px -1515px; float:left;width:16px;height:16px;}
+
+.portlet-link { text-align:right; padding : 10 0 5 5;  }
+.portlet-link A:link {text-decoration: none; color: #489425;}
+.portlet-link A:visited {text-decoration: none; color: #489425;}
+.portlet-link A:active { text-decoration: none; color: #489425;} 
+.portlet-link A:hover { text-decoration: underline; color: #7DBB9D;}
+
+.portlet-link-left { text-align:left; padding : 10 0 5 5;  }
+.portlet-link-left A:link {text-decoration: none; color: #489425;}
+.portlet-link-left A:visited {text-decoration: none; color: #489425;}
+.portlet-link-left A:active { text-decoration: none; color: #489425;} 
+.portlet-link-left A:hover { text-decoration: underline; color: #7DBB9D;}
+
+.portlet-footer {color: #489425; text-align:left; font-size:80%; padding : 10 0 5 5;}
+.portlet-footer A:link {text-decoration: none; color: #489425;}
+.portlet-footer A:visited {text-decoration: none; color: #489425;}
+.portlet-footer A:active { text-decoration: none; color: #489425;} 
+.portlet-footer A:hover { text-decoration: underline; color: #7DBB9D;}
+
+.portlet-bgcolor { background-color: #EEFAEE; text-align:left; padding : 0 0 5 5; }
+.portlet-form-group {border: thin solid #D5EECD; background-color: #ffffff; margin : 5 5 5 5; width:98%;}
+.portlet-form-label { color: #000000; }
+.portlet-form-label-i { color: #000000; font-style: italic;  }
+.portlet-form-field { color: #D5EECD; width:98%; }
+.portlet-form-input-field { border-color: #D5EECD; border-style: solid; border-width: 1px;}
+.portlet-form-input-field-hint { color: #777777; border-color: #D5EECD; border-style: solid; border-width: 1px;}
+.portlet-form-input-field-color { border-color: #D5EECD; border-style: solid; border-width: 1px; color: #489425; background-color: #D5EECD;}
+.portlet-form-select { color: #000000;   border-color: #D5EECD; border-style: solid; border-width: 1px;}
+.portlet-form-radio { color: #000000;  border-color: #D5EECD; }
+.portlet-form-check { color: #000000;  border-color: #D5EECD; }
+.portlet-form-icon { border: 0px; }
+.portlet-form-field-label {width:98%;}
+.portlet-icon-label {width:98%;}
+.portlet-dlg-icon-label {width:98%;}
+.portlet-form-button { color: #489425; background-color: #D5EECD; border-color: #A47DA4; border-style: solid; border-width: 1px; margin: 0 0 0 4;}
+.portlet-form-button-disabled { color: #B5B1AC; background-color: #E6E6E6; border-color: #B5B1AC; border-style: solid; border-width: 1px; }
+.portlet-form-textarea-field { border-color: #D5EECD; border-style: solid; border-width: 1px; width:98%;}
+
+.portlet-table {border-width: 1px; border-spacing: 2px;	border-style: outset; border-color: #D5EECD; border-collapse: collapse; }
+.portlet-table th {border-width: 1px; padding: 3px; border-style: inset; border-color: #D5EECD;	-moz-border-radius: 0px ;}
+.portlet-table tr {border-width: 1px; padding: 3px;	border-style: inset; border-color: #D5EECD;	-moz-border-radius: 0px;}
+.portlet-table td {border-width: 1px; padding: 3px;	border-style: inset; border-color: #D5EECD;	-moz-border-radius: 0px;}
+.portlet-table-title {text-align:center; padding : 0 0 5 5;  color:#489425}
+.portlet-table-td-left {text-align:left; padding : 0 0 5 5; }
+.portlet-table-td-center {text-align:center;padding : 0 0 5 0; }
+.portlet-table-td-right {text-align:right; padding : 0 5 5 0; }
+
+.portlet-font{}
+.portlet-font-dim{}
+.portlet-msg-status {}
+.portlet-msg-info {text-align:left; padding : 0 0 5 5;  color:#3169B5}
+.portlet-msg-error {text-align:left; padding : 0 0 5 5;  color:#ff0000}
+.portlet-msg-alert {text-align:left; padding : 0 0 5 5;  color:#ff0000}
+.portlet-msg-success {text-align:left; padding : 0 0 5 5;  color:#3169B5}
+.portlet-section-header{}
+.portlet-section-body{}
+.portlet-section-alternate{}
+.portlet-section-selected{}
+.portlet-section-subheader{}
+.portlet-section-footer{}
+.portlet-section-text{}
+.portlet-menu {}
+.portlet-menu-item {}
+.portlet-menu-item-selected {}
+.portlet-menu-item-hover {}
+.portlet-menu-item-hover-selected {}
+.portlet-menu-cascade-item {}
+.portlet-menu-cascade-item-selected {}
+.portlet-menu-description {}
+.portlet-menu-caption {}
+
+.vote-container {background: transparent url("../../images/vote2.png") no-repeat scroll 0 0; text-align:center; list-style-type: none; width:55px; padding:0;}

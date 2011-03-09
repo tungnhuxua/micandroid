@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true" default-lazy="false">  
+
+<class name="org.light.portal.model.Subscriber" table="light_subscriber" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long" 	column="orgId"/>     
+   	<property name="email"  type="string"    	column="email"/>
+   	<property name="type"  type="integer"    	column="type"/>   
+   	<property name="status"  type="integer"    	column="status"/>
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />       	
+</class>
+
+<class name="org.light.portal.model.SocialActivity" table="light_social_activity" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long" 	column="orgId"/>   
+   	<property name="userId"  type="long"    	column="userId"/>  
+   	<property name="content"  type="string"    	column="content"/>
+   	<property name="type"  type="integer"    	column="type"/>   
+   	<property name="status"  type="integer"    	column="status"/>
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />    
+   	<property
+     	name="photoUrl"
+     	formula=" (select lightuser.photoUrl from light_user lightuser where lightuser.id = userId ) "
+     	type="java.lang.String"
+    />
+    <property
+		name="uri"
+		formula=" (select lightuser.userUri from light_user lightuser where lightuser.id = userId ) "
+		type="java.lang.String"
+	/>
+    <property
+     	name="displayName"
+     	formula=" (select lightuser.displayName from light_user lightuser where lightuser.id = userId ) "
+     	type="java.lang.String"
+    />
+</class>
+  
+<class name="org.light.portal.model.UserPicture" table="light_user_picture" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>   
+   	<property name="orgId"  type="long" 	column="orgId"/>   
+   	<property name="topOrgId"  type="long" 	column="topOrgId"/>   
+   	<property name="userId"  type="long"    	column="userId"/>  
+   	<property name="pictureUrl"  type="string" 	column="pictureUrl"/>   
+   	<property name="pictureWidth"  type="integer"    	column="pictureWidth"/>
+   	<property name="pictureHeight"  type="integer"    	column="pictureHeight"/>
+   	<property name="caption"  type="string" 	column="caption"/>   
+   	<property name="tag"  type="string" 	column="tag"/> 
+   	<property name="status"  type="integer"    	column="status"/>
+   	<property name="rankable"  type="integer"    	column="rankable"/>
+   	<property name="score"  type="integer"    	column="score"/>   
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+   	<property
+		name="uri"
+		formula=" (select lightuser.userUri from light_user lightuser where lightuser.id = userId ) "
+		type="java.lang.String"
+	/>
+    <property
+     	name="displayName"
+     	formula=" (select lightuser.displayName from light_user lightuser where lightuser.id = userId ) "
+     	type="java.lang.String"
+    /> 
+   	<set
+   		name="taggings"
+        lazy="false"
+        inverse="true"
+   		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="pictureId" />
+        </key>
+        <one-to-many 
+             class="org.light.portal.model.PicturePositionTag"
+        />
+   	</set>     
+</class>
+  
+<class name="org.light.portal.model.PicturePositionTag" table="light_pic_pos_tag" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long" 	column="orgId"/>   
+   	<property name="topOrgId"  type="long" 	column="topOrgId"/>   
+   	<property name="pictureId"  type="long"    	column="pictureId"/>  
+   	<property name="pictureUrl"  type="string" 	column="pictureUrl"/>  
+   	<property name="parentId"  type="long"    	column="parentId"/>
+   	<property name="userId"  type="long"    	column="userId"/>  
+   	<property name="positionX"  type="integer"    	column="positionX"/>
+   	<property name="positionY"  type="integer"    	column="positionY"/>
+   	<property name="tag"  type="string" 	column="tag"/> 
+   	<property name="type"  type="integer"    	column="type"/>
+   	<property name="objectId"  type="long" 	column="objectId"/>   
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+   	<set
+         name="items"
+         lazy="false"
+         inverse="true"
+   		 cascade="all-delete-orphan"
+   		 order-by="id"
+     >
+         <key>
+            <column name="tagId" />
+         </key>
+         <one-to-many 
+             class="org.light.portal.model.PicturePositionTagItem"
+         />
+  	</set>    
+</class>
+  
+<class name="org.light.portal.model.PicturePositionTagItem" table="light_pic_pos_tag_item" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long" 	column="orgId"/>   
+   	<property name="topOrgId"  type="long" 	column="topOrgId"/>   
+   	<property name="tagId"  type="long"    	column="tagId"/>  
+   	<property name="pictureId"  type="long"    	column="pictureId"/> 
+   	<property name="userId"  type="long"    	column="userId"/>     	
+   	<property name="name"  type="string" 	column="name"/> 
+   	<property name="description"  type="text"    	column="description"/>
+   	<property name="owner"  type="string" 	column="itemOwner"/> 
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+   	<property
+     	name="photoUrl"
+     	formula=" (select lightuser.photoUrl from light_user lightuser where lightuser.id = userId ) "
+     	type="java.lang.String"
+    />
+    <property
+		name="uri"
+		formula=" (select lightuser.userUri from light_user lightuser where lightuser.id = userId ) "
+		type="java.lang.String"
+	/>
+    <property
+     	name="displayName"
+     	formula=" (select lightuser.displayName from light_user lightuser where lightuser.id = userId ) "
+     	type="java.lang.String"
+    /> 
+</class>
+  
+<class name="org.light.portal.model.UserPictureRank" table="light_user_picture_rank" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"    	column="orgId"/>
+   	<property name="userId"  type="long"    	column="userId"/>  
+   	<property name="pictureId"  type="integer" 	column="pictureId"/>   
+   	<property name="rankScore"  type="integer"    	column="rankScore"/>
+   	<property name="rankById"  type="string" 	column="rankById"/>   
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+</class>
+  
+<class name="org.light.portal.model.UserMusic" table="light_user_music" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"    	column="orgId"/>
+   	<property name="userId"  type="long"    	column="userId"/>  
+   	<property name="musicUrl"  type="string" 	column="musicUrl"/>      
+   	<property name="caption"  type="string" 	column="caption"/>   
+   	<property name="status"  type="integer"    	column="status"/>
+   	<property name="rankable"  type="integer"    	column="rankable"/>
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+</class>
+  
+<class name="org.light.portal.model.UserFile" table="light_user_file" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"     column="orgId"/> 
+   	<property name="userId"  type="long"    	column="userId"/>  
+   	<property name="fileUrl"  type="string" 	column="fileUrl"/>      
+   	<property name="caption"  type="string" 	column="caption"/>  
+   	<property name="status"  type="integer"    	column="status"/>    
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+</class>
+  
+<class name="org.light.portal.model.UserComment" table="light_user_comment" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"     column="orgId"/> 
+   	<property name="userId"  type="long"    	column="userId"/>  
+   	<property name="objectId"  type="long" 	column="objectId"/>
+    <property name="objectType"  type="integer" 	column="objectType"/>
+   	<property name="comment"  type="text" 	column="content"/>
+   	<property name="status"  type="integer"    	column="status"/>
+   	<property name="parentId"  type="long"    	column="parentId"/> 
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />
+   	<property
+     	name="photoUrl"
+     	formula=" (select lightuser.photoUrl from light_user lightuser where lightuser.id = userId ) "
+     	type="java.lang.String"
+    />
+    <property
+		name="uri"
+		formula=" (select lightuser.userUri from light_user lightuser where lightuser.id = userId ) "
+		type="java.lang.String"
+	/>
+    <property
+     	name="displayName"
+     	formula=" (select lightuser.displayName from light_user lightuser where lightuser.id = userId ) "
+     	type="java.lang.String"
+    />
+</class> 
+ 
+<class name="org.light.portal.model.TagFilter" table="light_tag_filter" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"    	column="orgId"/>
+   	<property name="tag"  type="string" 	column="tag"/>
+   	<property name="regex"  type="string"    	column="regex"/>     	
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+</class>
+
+<class name="org.light.portal.model.UserTag" table="light_user_tag" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"    	column="orgId"/>
+   	<property name="userId"  type="long"    	column="userId"/>  
+   	<property name="objectId"  type="long" 	column="objectId"/>
+   	<property name="objectType"  type="integer" 	column="objectType"/>
+   	<property name="tag"  type="string" 	column="tag"/>
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property
+		name="score"
+		formula=" (select count(*) from light_user_tag tagging where tagging.tag = tag and tagging.orgId = orgId and tagging.objectType = objectType ) "
+		type="int"
+	/>
+</class>
+  
+<class name="org.light.portal.model.UserFavourite" table="light_user_favourite" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"     column="orgId"/> 
+   	<property name="userId"  type="long"    	column="userId"/> 
+   	<property name="favouriteId"  type="long" 	column="favouriteId"/>
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />
+   	<property
+     	name="photoUrl"
+     	formula=" (select lightuser.photoUrl from light_user lightuser where lightuser.id = favouriteId ) "
+     	type="java.lang.String"
+    />
+    <property
+		name="uri"
+		formula=" (select lightuser.userUri from light_user lightuser where lightuser.id = favouriteId ) "
+		type="java.lang.String"
+	/>
+    <property
+     	name="displayName"
+     	formula=" (select lightuser.displayName from light_user lightuser where lightuser.id = favouriteId ) "
+     	type="java.lang.String"
+    />
+</class> 
+ 
+<class name="org.light.portal.model.UserBlock" table="light_user_block" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"     column="orgId"/> 
+   	<property name="userId"  type="long"    	column="userId"/> 
+   	<property name="blockId"  type="long" 	column="blockId"/>
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />
+   	<property
+     	name="photoUrl"
+     	formula=" (select lightuser.photoUrl from light_user lightuser where lightuser.id = blockId ) "
+     	type="java.lang.String"
+    />
+    <property
+		name="uri"
+		formula=" (select lightuser.userUri from light_user lightuser where lightuser.id = blockId ) "
+		type="java.lang.String"
+	/>
+    <property
+     	name="displayName"
+     	formula=" (select lightuser.displayName from light_user lightuser where lightuser.id = blockId ) "
+     	type="java.lang.String"
+    />
+</class> 
+ 
+<class name="org.light.portal.model.UserInvite" table="light_user_invite" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"     column="orgId"/> 
+   	<property name="userId"  type="long"    	column="userId"/> 
+   	<property name="inviteEmail"  type="string" 	column="inviteEmail"/>
+   	<property name="content"  type="string" 	column="content"/>
+   	<property name="status"  type="integer" 	column="status"/>
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />
+</class> 
+  
+<class name="org.light.portlets.bulletin.Bulletin" table="light_bulletin" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long" 	column="orgId"/>
+   	<property name="userId"  type="long"    	column="userId"/> 
+   	<property name="postById"  type="long" 	column="postById"/>
+   	<property name="subject"  type="string" 	column="subject"/>
+   	<property name="content"  type="text" 	column="content"/>
+   	<property name="status"  type="integer" 	column="status"/>
+   	<property name="type"  type="integer" 	column="type"/>
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+   	<property
+     	name="photoUrl"
+     	formula=" (select lightuser.photoUrl from light_user lightuser where lightuser.id = postById ) "
+     	type="java.lang.String"
+    />
+    <property
+		name="uri"
+		formula=" (select lightuser.userUri from light_user lightuser where lightuser.id = postById ) "
+		type="java.lang.String"
+	/>
+    <property
+     	name="displayName"
+     	formula=" (select lightuser.displayName from light_user lightuser where lightuser.id = postById ) "
+     	type="java.lang.String"
+    />
+    <property
+     	name="currentStatusId"
+     	formula=" (select lightuser.currentStatus from light_user lightuser where lightuser.id = postById ) "
+     	type="int"
+    />
+</class> 
+
+<class name="org.light.portlets.message.Message" table="light_message" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"     column="orgId"/> 
+   	<property name="userId"  type="long"    	column="userId"/> 
+   	<property name="postById"  type="long" 	column="postById"/>
+   	<property name="subject"  type="string" 	column="subject"/>
+   	<property name="content"  type="text" 	column="content"/>
+   	<property name="format"  type="integer" 	column="contentFormat"/>
+   	<property name="direction"  type="integer" 	column="direction"/>
+   	<property name="status"  type="integer" 	column="status"/>
+   	<property name="event"  type="integer" 	column="event"/>
+   	<property name="type"  type="integer" 	column="type"/>
+   	<property name="eventId"  type="long" 	column="eventId"/>
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />   
+   	<property
+     	name="fromPhotoUrl"
+     	formula=" (select lightuser.photoUrl from light_user lightuser where lightuser.id = postById ) "
+     	type="java.lang.String"
+    />
+    <property
+		name="fromUri"
+		formula=" (select lightuser.userUri from light_user lightuser where lightuser.id = postById ) "
+		type="java.lang.String"
+	/>    
+    <property
+	    name="fromDisplayName"
+	    formula=" (select lightuser.displayName from light_user lightuser where lightuser.id = postById ) "
+	    type="java.lang.String"
+    />
+    <property
+     	name="fromCurrentStatusId" 
+     	formula=" (select lightuser.currentStatus from light_user lightuser where lightuser.id = postById ) "
+     	type="int"
+    />
+    <property
+     	name="toPhotoUrl"
+     	formula=" (select lightuser.photoUrl from light_user lightuser where lightuser.id = userId ) "
+     	type="java.lang.String"
+    />
+    <property
+		name="toUri"
+		formula=" (select lightuser.userUri from light_user lightuser where lightuser.id = userId ) "
+		type="java.lang.String"
+	/>
+   <property
+     	name="toDisplayName"
+     	formula=" (select lightuser.displayName from light_user lightuser where lightuser.id = userId ) "
+     	type="java.lang.String"
+    />
+    <property
+     	name="toCurrentStatusId"
+     	formula=" (select lightuser.currentStatus from light_user lightuser where lightuser.id = postById ) "
+     	type="int"
+    />
+</class>  
+
+<class name="org.light.portlets.addressbook.AddressBook" table="light_address_book" >
+    <id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+    </id> 
+    <version name="version" column="version"/>
+    <property name="orgId"  type="long"     column="orgId"/> 
+    <property name="userId"  type="long"    	column="userId"/> 
+    <property name="addressGroup"  type="string" 	column="addressGroup"/>
+    <property name="fullName"  type="string" 	column="fullName"/>     
+    <property name="homePhone"  type="string" 	column="homePhone"/>	
+	<property name="workPhone"  type="string" 	column="workPhone"/>
+	<property name="mobilePhone"  type="string" 	column="mobilePhone"/>
+	<property name="primaryPhone"  type="integer" 	column="primaryPhone"/>
+	<property name="workEmail"  type="string" 	column="workEmail"/>
+	<property name="personalEmail"  type="string" 	column="personalEmail"/>
+	<property name="primaryEmail"  type="integer" 	column="primaryEmail"/>
+	<property name="homePage"  type="string" 	column="homePage"/>
+	<property name="address"  type="string" 	column="address"/>
+	<property name="city"  type="string" 	column="city"/>	
+	<property name="province"  type="string" 	column="province"/>
+	<property name="country"  type="string" 	column="country"/>
+	<property name="postalCode"  type="string" 	column="postalCode"/>	
+	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+</class>
+
+<class name="org.light.portlets.internal.InternalNews" table="light_internal_news" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"     column="orgId"/> 
+   	<property name="postById"  type="long" 	column="postById"/>
+   	<property name="subject"  type="string" 	column="subject"/>
+   	<property name="content"  type="text" 	column="content"/>
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+</class>
+  
+<class name="org.light.portal.model.Keyword" table="light_keyword" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"    column="orgId"/>    	
+   	<property name="keyword"  type="string" 	column="keyword"/>
+   	<property name="weight"  type="integer" 	column="weight"/>
+   	<property name="type"  type="integer" 	column="type"/>
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+</class> 
+  
+<class name="org.light.portal.model.UserKeyword" table="light_user_keyword" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"    column="orgId"/>
+   	<property name="personId"  type="long"    	column="personId"/> 
+   	<property name="keywordId"  type="long" 	column="keywordId"/>
+   	<property name="weight"  type="integer" 	column="weight"/>
+   	<property name="type"  type="integer" 	column="type"/>
+   	<property name="status"  type="integer" 	column="status"/>
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+   	<property
+     	name="keyword"
+     	formula=" (select k.keyword from light_keyword k where k.id = keywordId ) "
+     	type="java.lang.String"
+    />
+</class>  
+   
+<class name="org.light.portal.model.PopularItem" table="light_popular_item" >
+  	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+    </id> 
+  	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"     column="orgId"/> 
+  	<property name="link"  type="string"     column="link"/>
+  	<property name="title"  type="string"     column="title"/>
+  	<property name="desc"  type="text"     column="itemDesc"/>
+  	<property name="tag"  type="string"     column="tag"/>
+  	<property name="locale"  type="string"     column="locale"/>
+  	<property name="postById"  type="long"     column="postById"/>
+  	<property name="popCount"  type="integer"     column="popCount"/>
+  	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+  	<property
+     	name="photoUrl"
+     	formula=" (select lightuser.photoUrl from light_user lightuser where lightuser.id = postById ) "
+     	type="java.lang.String"
+    />
+    <property
+     	name="photoWidth"
+     	formula=" (select lightuser.photoWidth from light_user lightuser where lightuser.id = postById ) "
+     	type="int"
+    />
+    <property
+     	name="photoHeight"
+     	formula=" (select lightuser.photoHeight from light_user lightuser where lightuser.id = postById ) "
+     	type="int"
+    />
+    <property
+		name="uri"
+		formula=" (select lightuser.userUri from light_user lightuser where lightuser.id = postById ) "
+		type="java.lang.String"
+	/>
+    <property
+     	name="displayName"
+     	formula=" (select lightuser.displayName from light_user lightuser where lightuser.id = postById ) "
+     	type="java.lang.String"
+    />    
+    <property
+     	name="currentStatusId"
+     	formula=" (select lightuser.currentStatus from light_user lightuser where lightuser.id = postById ) "
+     	type="int"
+    />   
+    <property
+     	name="commentCount"
+     	formula=" (select count(*) from light_user_comment comm where comm.objectType = 6 and comm.objectId = id ) "
+     	type="int"
+    />   
+</class>
+ 
+<class name="org.light.portal.model.ViewedItem" table="light_viewed_item" >
+ 	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+    </id> 
+  	<version name="version" column="version"/>
+  	<property name="orgId"  type="long"     column="orgId"/>  
+  	<property name="link"  type="string"     column="link"/>
+  	<property name="title"  type="string"     column="title"/>  
+  	<property name="desc"  type="text"     column="itemDesc"/>
+  	<property name="tag"  type="string"     column="tag"/>
+  	<property name="locale"  type="string"     column="locale"/>
+ 	<property name="popCount"  type="integer"     column="popCount"/>  
+  	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+</class>
+ 
+<class name="org.light.portal.model.ViewedItemUser" table="light_viewed_item_user" >
+ 	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+    </id> 
+  	<version name="version" column="version"/>
+  	<property name="orgId"  type="long"     column="orgId"/>  
+  	<property name="itemId"  type="long"     column="itemId"/> 
+  	<property name="personId"  type="long"     column="personId"/>
+  	<property name="popCount"  type="integer"     column="popCount"/>  
+  	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+</class> 
+ 
+<class name="org.light.portal.model.RecommendedItem" table="light_recommended_item" >
+ 	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+    </id> 
+  	<version name="version" column="version"/>
+  	<property name="orgId"  type="long"     column="orgId"/>  
+  	<property name="link"  type="string"     column="link"/>
+  	<property name="title"  type="string"     column="title"/>  
+  	<property name="desc"  type="text"     column="itemDesc"/>
+  	<property name="tag"  type="string"     column="tag"/>
+  	<property name="locale"  type="string"     column="locale"/>
+  	<property name="weight"  type="integer"     column="weight"/>
+  	<property name="read"  type="integer"     column="readStatus"/>
+  	<property name="personId"  type="long"     column="personId"/>  
+  	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />    
+</class>
+ 
+<class name="org.light.portal.model.NotKeyword" table="light_not_keyword" >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id>  
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"     column="orgId"/>  
+  	<property name="word"  type="string"     column="word"/>
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+</class>
+  
+<class name="org.light.portal.model.NotWord" table="light_not_word" >
+	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id>   
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"     column="orgId"/>  
+  	<property name="word"  type="string"     column="word"/>
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+</class>
+  
+<class name="org.light.portal.model.FlashGame" table="light_flash_game" >
+ 	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+    </id> 
+  	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"     column="orgId"/> 
+  	<property name="link"  type="string"     column="link"/>
+  	<property name="title"  type="string"     column="title"/>  
+  	<property name="desc"  type="text"     column="description"/>
+  	<property name="instructions"  type="text"     column="instructions"/>
+  	<property name="tag"  type="string"     column="tag"/>
+  	<property name="locale"  type="string"     column="locale"/>
+  	<property name="popCount"  type="integer"     column="popCount"/> 
+  	<property name="width"  type="integer"     column="width"/> 
+  	<property name="height"  type="integer"     column="height"/> 
+  	<property name="postById"  type="long"     column="postById"/>  
+  	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+</class>
+ 
+<class name="org.light.portlets.bookmark.Bookmark" table="light_bookmark"  >
+  	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+  	<version name="version" column="version"/>
+  	<property name="orgId"  type="long"     column="orgId"/>  
+  	<property name="name"  type="string"        column="name"    />
+  	<property name="url"  type="string"        column="url"    />
+  	<property name="tagId"  type="string"        column="tagId"    />
+  	<property name="tagName"  type="string"        column="tagName"    />
+  	<property name="desc"  type="text"        column="bookmarkDesc"    />
+  	<property name="userId"  type="long"        column="userId"    />
+  	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+</class>
+ 
+<class name="org.light.portlets.feedback.Feedback" table="light_feedback"  >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"     column="orgId"/>  
+   	<property name="userId"  type="long"        column="userId"    />
+   	<property name="subject"  type="string"    	column="subject"    />
+   	<property name="content"  type="string"    	column="content"    />  
+   	<property name="email"  type="string"    	column="email"    />  
+   	<property name="count"  type="integer"    	column="visitCount"/> 
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property
+		name="uri"
+		formula=" (select lightuser.userUri from light_user lightuser where lightuser.id = userId ) "
+		type="java.lang.String"
+	/>
+    <property
+     	name="displayName"
+     	formula=" (select lightuser.displayName from light_user lightuser where lightuser.id = userId ) "
+     	type="java.lang.String"
+    />
+    <property
+     	name="commentCount"
+     	formula=" (select count(bcomment.id) from light_user_comment bcomment where bcomment.objectType = 4 and bcomment.objectId = id ) "
+     	type="int"
+    />
+</class>
+ 
+<class name="org.light.portlets.todolist.ToDoBean" table="light_todo"  >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id>   
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"    	column="orgId"    />    
+   	<property name="name"  type="string"    	column="name"    />
+   	<property name="description"  type="string"    	column="description"    />
+   	<property name="userId"  type="long"    	column="userId"    /> 
+   	<property name="priority"  type="integer"    	column="priority"    />
+   	<property name="status"  type="integer"    	column="status"    />  
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+</class>
+ 
+<class name="org.light.portlets.horoscope.Horoscope" table="light_horoscope"  >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id>     
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"    	column="orgId"    />    
+   	<property name="name"  type="string"    	column="name"    />
+   	<property name="label"  type="string"    	column="title"    /> 
+   	<property name="description"  type="string"    	column="description"    />
+   	<property name="startDate"  type="string"    	column="startDate"    />
+   	<property name="endDate"  type="string"    	column="endDate"    />
+   	<property name="startMonth"  type="integer"    	column="startMonth"    />      
+   	<property name="startDay"  type="integer"    	column="startDay"    />
+   	<property name="endMonth"  type="integer"    	column="endMonth"    /> 
+   	<property name="endDay"  type="integer"    	column="endDay"    />
+</class>
+
+<class name="org.light.portlets.horoscope.HoroscopeWeekly" table="light_horoscope_weekly"  >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id>     
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"    	column="orgId"    />    
+   	<property name="horoscopeId"  type="long"    	column="horoscopeId"    />
+   	<property name="language"  type="string"    	column="language"    /> 
+   	<property name="description"  type="text"    	column="description"    />  
+   	<property name="weekNumber"  type="integer"    	column="weekNumber"    />        
+</class>
+  
+<class name="org.light.portlets.note.Note" table="light_note"  >
+   	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id> 
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"    	column="orgId"    />    
+   	<property name="userId"  type="long" 	column="userId"/> 
+   	<property name="color"  type="string"    	column="color"    />
+   	<property name="bgColor"  type="string"    	column="bgColor"    />
+   	<property name="content"  type="text"    	column="content"    />  
+   	<property name="width"  type="integer"    	column="width"    />
+   	<property name="height"  type="integer"    	column="height"    />
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />  
+   	<property name="modifiedDate"  type="java.sql.Timestamp"    	column="modifiedDate"    />  
+</class>
+  
+<class name="org.light.portlets.widget.Widget" table="light_widget" >
+  	<id name="id" column="id" type="long">
+	   	<generator class="assigned"/>
+   	</id>      
+   	<version name="version" column="version"/>
+   	<property name="orgId"  type="long"    	column="orgId"    />    
+   	<property name="userId"  type="long" 	column="userId"/>
+   	<property name="portletId"  type="long" 	column="portletId"/>   
+   	<property name="title"  type="string" 	column="title"/>
+   	<property name="summary"  type="string" 	column="summary"/>
+   	<property name="content"  type="text" 	column="content"/>
+   	<property name="width"  type="string" 	column="width"/>
+   	<property name="height"  type="string" 	column="height"/>
+   	<property name="maxHeight"  type="string" 	column="maxHeight"/>
+   	<property name="status"  type="integer"    	column="status"    />
+   	<property name="score"  type="integer"    	column="score"    />
+   	<property name="createDate"  type="java.sql.Timestamp"    	column="createDate"    />   
+    <property
+		name="uri"
+		formula=" (select lightuser.userUri from light_user lightuser where lightuser.id = userId ) "
+		type="java.lang.String"
+	/>
+    <property
+     	name="displayName"
+     	formula=" (select lightuser.displayName from light_user lightuser where lightuser.id = userId ) "
+     	type="java.lang.String"
+    />    
+</class>  
+
+</hibernate-mapping>

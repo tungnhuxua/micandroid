@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:custom="*"
+    layout="vertical"
+    width="300" height="200" 
+    initialize="onLoad()" viewSourceURL="srcview/index.html" color="#313DDE" backgroundGradientAlphas="[1.0, 1.0]" backgroundGradientColors="[#B9F8BD, #B9F8BD]">	
+    
+	<mx:Script><![CDATA[
+	    import com.adobe.serialization.json.JSON;
+		import flash.events.*;
+		import flash.media.Sound;
+		import flash.media.SoundChannel;
+		import flash.net.URLLoader;
+		import flash.net.URLRequest;
+		import mx.containers.Panel;
+
+		// Song List
+		private var songURLs:Array;
+		// Current Song to Play
+	    private var currentIndex:Number = 0;     
+	    // Sound Channel to monitor
+	    private var song:SoundChannel;     	
+	    // Request object for obtaining mp3
+	    private var request:URLRequest     	
+	    // Pause state management
+		private var paused:Boolean = true;     	
+		// Stopped state management
+		private var stopped:Boolean = false;     	
+		// Retains what position the song was in
+		// when it was paused, so we can go back to
+		// the same position when we hit play again.
+		private var position:Number;     	
+		// Sound... Factory for initializing our song.
+	    private var soundFactory:Sound;     
+						
+		private function onLoad():void{
+			try{
+				var requestSender:URLLoader = new URLLoader();
+				requestSender.addEventListener(Event.COMPLETE, completeHandler);
+				var urlRequest :URLRequest = new URLRequest("myMusicPlayerPortlet.lp?mode=view");
+				requestSender.load(urlRequest);
+				/*
+				songURLs=
+				    ["http://lightportal.org/user/3/musics/bless.mp3",
+				     "http://lightportal.org/user/3/musics/%E8%B5%A4%E8%A3%B8%E8%A3%B8.mp3",
+				     "http://lightportal.org/user/3/musics/%E6%88%92%E6%83%85%E4%BA%BA.mp3",
+				     "http://lightportal.org/user/3/musics/大哥.mp3"
+				     ];
+				if(songURLs.length>0) playMP3(currentIndex);  
+				*/    
+			}catch(error:Error){}
+		}
+	    private function completeHandler(event:Event):void{
+			var response:URLLoader = URLLoader(event.target);
+			var responseData:String = response.data;
+			var songList = JSON.decode(responseData);
+			songURLs = songList.songs as Array;
+			if(songURLs.length>0) playMP3(currentIndex); 			
+		}	
+	    
+		// Play MP3 at specified index in songURLs array.
+		public function playMP3(mp3Index:Number):void {
+			if(songURLs == null || songURLs.length <= 0){				
+				return;
+			}
+			try{
+			    stopped = false;
+			    paused = false;
+			    position = 0;
+			    var url:String = songURLs[mp3Index];
+			    var name:String = url.substring(url.lastIndexOf("/")+1, url.length);
+			    url = url.substring(0,url.lastIndexOf("/")+1)+encodeURIComponent(name);
+			    var request:URLRequest = new URLRequest(url);
+			    soundFactory = new Sound();
+			    soundFactory.addEventListener(Event.ID3, id3Handler);
+			    soundFactory.load(request);
+			    song = soundFactory.play();
+		        song.addEventListener(Event.SOUND_COMPLETE, soundCompleteHandler);
+		        title.text= this.songName;
+		 	}catch(error:Error){
+		 		next();
+		 	}
+		}     
+
+		public function get songName():String {
+			var name:String = "";
+			/*
+			if(soundFactory.id3.artist != null)
+				name = soundFactory.id3.artist;
+			if(soundFactory.id3.songName != null)
+				if(name.length > 0)
+					name = name + " - " + soundFactory.id3.songName;
+				else
+					name = soundFactory.id3.songName;
+			*/
+			if(name.length == 0){
+				name = songURLs[currentIndex];
+				name = name.substring(name.lastIndexOf("/")+1, name.length);
+			}
+			return name + "(" + (currentIndex+1) +"-" + songURLs.length + ")";
+			
+        }     
+        
+		// change song title when id3 information
+		// has been loaded.
+	    private function id3Handler(event:Event):void {
+	        title.text= this.songName;
+	    }     
+	
+		// Start the next song, once the current one has
+		// finished playing.
+		private function soundCompleteHandler(event:Event):void {
+		    position = 0;
+		    currentIndex++;
+		    if (currentIndex >= songURLs.length) {
+		        currentIndex = 0;
+		    }
+		    playMP3(currentIndex);
+	    }     
+		// Paly again after Pause or Stop
+		public function play():void {
+		    if (!stopped) {
+		        if (paused){
+				    paused = false;
+				    song = soundFactory.play(position);
+				    song.addEventListener(Event.SOUND_COMPLETE,	soundCompleteHandler);
+		        }
+		    } else {
+		        playMP3(currentIndex);
+		    }
+        }     
+		// Pause current song
+		public function pause():void {
+		    if (!stopped) {
+		        if (!paused) {
+		    	    paused = true;
+				    position = song.position;
+				    song.stop();
+		        }
+		    }
+        }     		
+		// Stop current song
+		public function stop():void {
+			if(songURLs == null || songURLs.length <= 0){				
+				return;
+			}
+			stopped = true;
+			paused = false;
+			song.stop();
+			position = 0;
+		}     	
+		// Switch to Next Song
+		public function next():void {
+		    currentIndex++;
+		    if (currentIndex >= songURLs.length) {
+		        currentIndex = 0;
+		    }     
+		    song.stop();
+		    position = 0;     
+	
+		    // Track if player was already playing,
+		    // paused, or stopped. If stopped or
+		    // paused, still "play" so we can start
+		    // streaming and obtain the id3 info.     	
+		    var wasStopped:Boolean = stopped;
+		    var wasPaused:Boolean = paused;     	
+		    playMP3(currentIndex);     	
+		    if (wasStopped) {
+		        stop();
+		        return;
+		    }     	
+		    if (wasPaused){
+				paused = true;
+				position = song.position;
+				song.stop();
+            }
+		}     	
+		// Switch to Previous Song
+		public function prev():void {
+		    currentIndex--;
+		    if (currentIndex < 0) {
+		        currentIndex = songURLs.length - 1;
+		    }    
+	
+		    song.stop();
+		    position = 0;    
+	
+		    // Track if player was already playing,
+		    // paused, or stopped. If stopped or
+		    // paused, still "play" so we can start
+		    // streaming and obtain the id3 info.    
+	
+		    var wasStopped:Boolean = stopped;
+		    var wasPaused:Boolean = paused;    
+	
+		    playMP3(currentIndex);    
+	
+		    if (wasStopped) {
+		    	stop();
+		    	return;
+		    }
+		    if (wasPaused) {
+				paused = true;
+				position = song.position;
+				song.stop();
+    	    }
+		}
+    ]]></mx:Script>
+    <mx:Image source="../images/player_refresh.png" useHandCursor="true" buttonMode="true" click="stop();onLoad();" horizontalAlign="right" width="100%"/>
+	<mx:Label id="title" text="{String(songName)}"/>
+    <mx:ControlBar horizontalAlign="center">
+      <mx:Spacer width="100%"/>
+      <mx:Image source="../images/player_rew.png" useHandCursor="true" buttonMode="true" click="prev()" />
+      <mx:Image source="../images/player_play.png" useHandCursor="true" buttonMode="true" click="play()" />
+      <mx:Image source="../images/player_pause.png" useHandCursor="true" buttonMode="true" click="pause()" />
+	  <mx:Image source="../images/player_stop.png" useHandCursor="true" buttonMode="true" click="stop()" />
+      <mx:Image source="../images/player_fwd.png" useHandCursor="true" buttonMode="true" click="next()" />
+      <mx:Spacer width="100%"/>
+    </mx:ControlBar>
+</mx:Application>

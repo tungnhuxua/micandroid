@@ -1,0 +1,29 @@
+<html>
+<body>
+<h3>Welcome to ${webId}!</h3>
+<div>
+<table border='0' cellpadding='0' cellspacing='0'>
+<tr>
+<td>
+Thanks for subscribing!
+</td>
+</tr>
+<tr>
+<td>					   
+<br/><br/>
+</td>
+</tr>
+<tr>
+<td>
+Click <a href='http://www.${webId}/unsubscribe.lp?email=${email}'>here</a> to unsubscribe.
+</td>
+</tr>
+<tr>
+<td>
+<a href='http://www.${webId}'>http://www.${webId}</a>.
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

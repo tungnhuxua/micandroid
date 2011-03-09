@@ -1,0 +1,29 @@
+<html>
+<body>
+<h3>Unsubscribe ${webId}!</h3>
+<div>
+<table border='0' cellpadding='0' cellspacing='0'>
+<tr>
+<td>
+You successfully unsubscribed ${webId}!
+</td>
+</tr>
+<tr>
+<td>					   
+<br/><br/>
+</td>
+</tr>
+<tr>
+<td>
+Click <a href='http://www.${webId}/subscribe.lp?email=${email}'>here</a> to subscribe again.
+</td>
+</tr>
+<tr>
+<td>
+<a href='http://www.${webId}'>http://www.${webId}</a>.
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

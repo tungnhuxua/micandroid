@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Develop portlet using Light Portal framework</title>
+</head>
+<body>
+<div style="text-align: center;">
+<h2>Develop portlet using Light Portal framework(Draft)</h2>
+<h2> </h2>
+<div style="text-align: left;">
+<h3><br>
+</h3>
+<h3>Introduction</h3>
+This document describes how to develop portlet and configure portlet
+using Light portal framewrok.<br>
+<br>
+<h3>Steps</h3>
+<h4>1 Create BookmarkPortlet java class.</h4>
+public class BookmarkPortlet extends LightGenericPortlet {<br>
+<br>
+&nbsp;&nbsp;&nbsp; public void processAction (ActionRequest request,
+ActionResponse response) <br>
+&nbsp;&nbsp;&nbsp; throws PortletException, java.io.IOException {<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; String action =
+request.getParameter("action");<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if("add".equals(action)){<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; String name =
+request.getParameter("name");<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; String url =
+request.getParameter("url");&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+request.getPreferences().setValue(name,url);&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+request.getPreferences().store();<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if("delete".equals(action)){<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; String name =
+request.getParameter("bookmarkName");&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+request.getPreferences().reset(name);<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+request.getPreferences().store();&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; &nbsp; }<br>
+&nbsp;&nbsp;&nbsp; &nbsp;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;protected void doView (RenderRequest request,
+RenderResponse response)<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; throws PortletException,
+java.io.IOException<br>
+&nbsp;&nbsp;&nbsp; &nbsp;{<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; List&lt;PortletPreference&gt;
+bookmarks = new ArrayList&lt;PortletPreference&gt;();<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Enumeration enumerator=
+request.getPreferences().getNames();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while
+(enumerator.hasMoreElements()){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String name = (String)enumerator.nextElement();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+bookmarks.add(new PortletPreference(name,
+request.getPreferences().getValue(name,"")));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; request.setAttribute("bookmarks",
+bookmarks);<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+this.getPortletContext().getRequestDispatcher("/portlets/bookmark/bookmarkPortletView.jsp").include(request,response);&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;}&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;protected void doEdit (RenderRequest request,
+RenderResponse response)<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; throws PortletException,
+java.io.IOException<br>
+&nbsp;&nbsp;&nbsp; &nbsp;{&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; List&lt;PortletPreference&gt;
+bookmarks = new ArrayList&lt;PortletPreference&gt;();<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Enumeration enumerator=
+request.getPreferences().getNames();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while
+(enumerator.hasMoreElements()){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String name = (String)enumerator.nextElement();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if(!request.getPreferences().isReadOnly(name))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; bookmarks.add(new PortletPreference(name,
+request.getPreferences().getValue(name,"")));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; request.setAttribute("bookmarks",
+bookmarks);<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+this.getPortletContext().getRequestDispatcher("/portlets/bookmark/bookmarkPortletEdit.jsp").include(request,response);&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;}&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;<br>
+}<br>
+<br>
+</div>
+<div style="text-align: left;">
+<h4>2 Create bookmarkPortletVew.jsp <br>
+</h4>
+&lt;%@ include file="/common/taglibs.jsp"%&gt;<br>
+&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&lt;form&gt;<br>
+&lt;table border='0' cellpadding='0' cellspacing='0'&gt;<br>
+&lt;c:forEach var="bookmark" items="${requestScope.bookmarks}" &gt;<br>
+&lt;tr&gt;<br>
+&lt;td class='portlet-table-td-left'&gt;<br>
+&lt;a href='&lt;c:out value="${bookmark.value}"/&gt;'
+target='_blank'&gt;&lt;c:out value="${bookmark.name}"/&gt;&lt;/a&gt;<br>
+&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;/c:forEach&gt;<br>
+&lt;/table&gt;<br>
+&lt;/form&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+<br>
+<h4>3 Create bookmarkPortletEdit.jsp</h4>
+&lt;%@ include file="/common/taglibs.jsp"%&gt;<br>
+&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&lt;form action="<span style="font-weight: bold;">&lt;portlet:actionURL
+portletMode='EDIT'/&gt;</span>"&gt;<br>
+&lt;table border='0' cellpadding='0' cellspacing='0'&gt;<br>
+&lt;tr&gt;<br>
+&lt;td class='portlet-table-td-left'&gt;<br>
+URL:<br>
+&lt;/td&gt;<br>
+&lt;td class='portlet-table-td-left'&gt;<br>
+&lt;input type='text' name='url' class='portlet-form-input-field'
+size='24' /&gt;<br>
+&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;tr&gt;<br>
+&lt;td class='portlet-table-td-left'&gt;<br>
+Name:<br>
+&lt;/td&gt;<br>
+&lt;td class='portlet-table-td-left'&gt;<br>
+&lt;input type='text' name='name' class='portlet-form-input-field'
+size='24'/&gt;<br>
+&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;tr&gt;<br>
+&lt;td class='portlet-table-td-right' colspan ='2'&gt;<br>
+&lt;input type='submit' name='action'<span style="font-weight: bold;">
+onClick="document.currentForm=this.form;document.pressed='add'"</span>
+value='Add' class='portlet-form-button' /&gt;<br>
+&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;/table&gt;<br>
+&lt;table border='0' cellpadding='0' cellspacing='0'&gt;<br>
+&lt;tr&gt;<br>
+&lt;td class='portlet-table-td-left'&gt;<br>
+&lt;select name='bookmarkName' size='5' class='portlet-form-select'&gt;<br>
+&lt;c:forEach var="bookmark" items="${requestScope.bookmarks}" &gt;<br>
+&lt;option value='&lt;c:out value="${bookmark.name}"/&gt;'&gt;&lt;c:out
+value="${bookmark.name}"/&gt;&lt;/option&gt;<br>
+&lt;/c:forEach&gt;<br>
+&lt;/select&gt;<br>
+&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;tr&gt;<br>
+&lt;td class='portlet-table-td-right'&gt;<br>
+&lt;input type='submit' name='action' <span style="font-weight: bold;">onClick="document.currentForm=this.form;document.pressed='delete'"</span>
+value='Delete' class='portlet-form-button' /&gt;<br>
+&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;/table&gt;<br>
+&lt;/form&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+<br>
+<h4>4 Configure Bookmark Portlet in portlet.xml</h4>
+&lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;description&gt;BookmarkPortletDescription&lt;/description&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;portlet-name&gt;bookmarkPortlet&lt;/portlet-name&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;display-name&gt;Bookmark
+Portlet&lt;/display-name&gt;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;portlet-class&gt;org.light.portlets.bookmark.BookmarkPortlet&lt;/portlet-class&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;expiration-cache&gt;-1&lt;/expiration-cache&gt;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;supports&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;mime-type&gt;text/html&lt;/mime-type&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;portlet-mode&gt;VIEW&lt;/portlet-mode&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;portlet-mode&gt;EDIT&lt;/portlet-mode&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;portlet-mode&gt;HELP&lt;/portlet-mode&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;portlet-mode&gt;CONFIG&lt;/portlet-mode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/supports&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;supported-locale&gt;en&lt;/supported-locale&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;supported-locale&gt;fr&lt;/supported-locale&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;resource-bundle&gt;resourceBundle&lt;/resource-bundle&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;portlet-info&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;title&gt;Bookmark Portlet&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;short-title&gt;Bookmark&lt;/short-title&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;keywords&gt;Bookmark&lt;/keywords&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/portlet-info&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;portlet-preferences&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;preference&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;name&gt;Java Sight&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;value&gt;http://www.javasight.com&lt;/value&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;read-only&gt;true&lt;/read-only&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/preference&gt;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;preference&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;name&gt;Java.net&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;value&gt;http://java.net&lt;/value&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;/preference&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;preference&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;name&gt;Java World&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;value&gt;http://www.javaworld.com&lt;/value&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;read-only&gt;false&lt;/read-only&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/preference&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/portlet-preferences&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;<br>
+<br>
+<h4>5 Add Bookmark Portlet into Light Portal framework</h4>
+<h4>5.1 configure Bookmark Portlet in portlet-config.xml</h4>
+&lt;portlets&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ......<br>
+&nbsp;&nbsp;&nbsp; &lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;bookmarkPortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;path&gt;/bookmarkPortlet.lp&lt;/path&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;title&gt;Bookmarks&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;icon&gt;/light/images/bookmark.gif&lt;/icon&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;url/&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;refreshMode&gt;false&lt;/refreshMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;editMode&gt;true&lt;/editMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;helpMode&gt;false&lt;/helpMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;configMode&gt;true&lt;/configMode&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;autoRefreshed&gt;false&lt;/autoRefreshed&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;periodTime&gt;0&lt;/periodTime&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;allowJS&gt;false&lt;/allowJS&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;pageRefreshed&gt;false&lt;/pageRefreshed&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt; <br>
+&nbsp;&nbsp;&nbsp; ......<br>
+&lt;/portlets&gt;<br>
+<br>
+<h4>5.1 configure Bookmark Portlet in portal-layout.xml<br>
+</h4>
+&nbsp;If you want set Bookmark Portlet in the default page, configure
+Bookmark Portlet in portal-layout.xml under default user's main tab. If
+not, users cann add Bookmark portlet from "add content" function later.<br>
+&lt;portalLayout&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;portalUser user="default"&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;portalTab&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;title&gt;Main&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+......<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;portlets&gt;<br>
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;portlet&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&lt;name&gt;bookmarkPortlet&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;column&gt;0&lt;/column&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;row&gt;2&lt;/row&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/portlet&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+......<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/portlets&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/portalTab&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/portalUser&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ......<br>
+&lt;/portalLayout&gt;<br>
+<br>
+</div>
+</div>
+</body>
+</html>

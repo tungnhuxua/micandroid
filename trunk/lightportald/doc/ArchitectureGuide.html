@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Architecture Guide</title>
+</head>
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td style="padding-top:10px;"><span style="font-size:20px;"><b>Architecture Guide</b></span></td>
+</tr>
+<tr>
+<td style="font-size: 12px;padding-top:10px;" class='portlet-table-td-left'>
+The following diagram shows the major components of the Light Portal. Each section is described in more detail below.
+</td>
+</tr>
+<tr>
+<td style="font-size: 12px;padding-top:10px;" class='portlet-table-td-left'>
+<img src="LightArchitecture.jpg" style="border: 0px none ; ">
+</td>
+</tr>
+<tr>
+<td style="font-size: 12px;padding-top:10px;" class='portlet-table-td-left'>
+<span style="font-size: 14px;"><b>HTML/JavaScript/AJAX Portal UI App</b></span></td>
+</tr>
+<tr>
+<td style="font-size: 12px;padding-top:10px;" class='portlet-table-td-left'>
+HTML/JavaScript/AJAX Portal UI App is a JavaScript library with a large bunch of view templates. Its responsibility includes rendering portal, portal tabs, portlet window, portlet content and communicate with portal server.
+</td>
+</tr>
+<tr>
+<td style="font-size: 12px;padding-top:10px;" class='portlet-table-td-left'>
+<span style="font-size: 14px;"><b>RIA App</b></span></td>
+</tr>
+<tr>
+<td style="font-size: 12px;padding-top:10px;" class='portlet-table-td-left'>
+RIA Apps are such as Flex application or Silverlight Applicaiton etc. Light Portal Server offers uniform server services API using JSON. Curently Light Portal project doesn't include this type App yet, plan to develop it in the future version, but it give developers uniform sever services API to develop their own type RIA right now.
+</td>
+</tr>
+<tr>
+<td style="font-size: 12px;padding-top:10px;" class='portlet-table-td-left'>
+<span style="font-size: 14px;"><b>Mobile App</b></span></td>
+</tr>
+<tr>
+<td style="font-size: 12px;padding-top:10px;" class='portlet-table-td-left'>
+Mobile Apps are such as iPhone app, Android app, Blackberry app etc. Light Portal Server offers uniform server services API using JSON. Curently Light Portal project doesn't include this type App yet, plan to develop it in the future version, but it give developers uniform sever services API to develop their own type Mobile Application right now.
+</td>
+</tr>
+<tr>
+<td style="font-size: 12px;padding-top:10px;" class='portlet-table-td-left'>
+<span style="font-size: 14px;"><b>Application Framework</b></span></td>
+</tr>
+<tr>
+<td style="font-size: 12px;padding-top:10px;" class='portlet-table-td-left'>
+Application Framework includes 2 parts, one is Portal Server, the other is Portlet container. Developers have full access to the same framework APIs used by the core applications. 
+</td>
+</tr>
+<tr>
+<td style="font-size: 12px;padding-top:10px;" class='portlet-table-td-left'>
+<ui>
+   <li style="margin:5px 0px 5px 20px"><strong>Portal Server</strong></li>
+   <span style="margin:5px 0px 5px 20px">Portal Server is a web based application.</span>
+   <li style="margin:5px 0px 5px 20px"><strong>Portlet container</strong></li>
+   <span style="margin:5px 0px 5px 20px">Portlet container is a JSR 168 Portlet container.</span>
+</ui>
+</td>
+</tr>
+<tr>
+<td style="font-size: 12px;padding-top:10px;" class='portlet-table-td-left'>
+<span style="font-size: 14px;"><b>Applications</b></span></td>
+</tr>
+<tr>
+<td style="font-size: 12px;padding-top:10px;" class='portlet-table-td-left'>
+Applications are JSR 168 portlets. Light Portal will ship a set of core applications and social network applications, such as user profile, connections, groups, calendar, email client, blog, forum, search, events, pictures, RSS news reader and others.
+</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
