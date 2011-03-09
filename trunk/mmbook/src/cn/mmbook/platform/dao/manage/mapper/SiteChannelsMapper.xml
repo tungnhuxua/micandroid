@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<mapper namespace="SiteChannels">
+
+	<resultMap id="SiteChannelsResult" type="cn.mmbook.platform.model.manage.SiteChannels">
+              <result property="id" column="id_" />				
+              <result property="channelsName" column="channels_name_" />				
+              <result property="showType" column="show_type_" />				
+              <result property="sortValue" column="sort_value_" />				
+              <result property="effective" column="effective_" />				
+              <result property="channelsNotes" column="channels_notes_" />				
+              <result property="insertTime" column="insert_time_" />
+              <result property="siteId" column="site_id_" />
+              <result property="logoUrl" column="logo_url_" />
+	</resultMap>
+
+	<resultMap id="SiteChannelsResultNew" type="cn.mmbook.platform.model.manage.SiteChannels">
+              <result property="id" column="id_" />				
+              <result property="channelsName" column="channels_name_" />				
+              <result property="showType" column="show_type_" />				
+              <result property="sortValue" column="sort_value_" />				
+              <result property="effective" column="effective_" />				
+              <result property="channelsNotes" column="channels_notes_" />				
+              <result property="insertTime" column="insert_time_" />
+              <result property="siteId" column="site_id_" />
+              <result property="logoUrl" column="logo_url_" />
+              <association property="sitePart" column="t2_id" resultMap="SitePartResultNew" />
+	</resultMap>
+
+	<resultMap id="SitePartResultNew" type="cn.mmbook.platform.model.manage.SitePart">
+              <result property="id" column="t2_id_" />				
+              <result property="partName" column="t2_part_name_" />				
+              <result property="lowerNode" column="t2_lower_node_" />				
+              <result property="partParentId" column="t2_part_parent_id_" />				
+              <result property="showType" column="t2_show_type_" />				
+              <result property="sortValue" column="t2_sort_value_" />				
+              <result property="effective" column="t2_effective_" />				
+              <result property="partNotes" column="t2_part_notes_" />				
+              <result property="insertTime" column="t2_insert_time_" />	
+	</resultMap>
+	
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="siteChannelsColumns">
+	    <![CDATA[
+        	id_ AS id,
+        	channels_name_ AS channelsName,
+        	show_type_ AS showType,
+        	sort_value_ AS sortValue,
+        	effective_ AS effective,
+        	channels_notes_ AS channelsNotes,
+        	insert_time_ AS insertTime,
+        	site_id_ AS siteId,
+        	logo_url_ AS logoUrl
+	    ]]>
+	</sql>
+	
+	
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert" parameterType="cn.mmbook.platform.model.manage.SiteChannels" >
+        INSERT INTO
+        tb_site_channels_info (
+        	channels_name_ ,
+        	show_type_ ,
+        	sort_value_ ,
+        	effective_ ,
+        	channels_notes_ ,
+        	insert_time_ ,
+        	site_id_
+        ) VALUES (
+        	#{channelsName,jdbcType=VARCHAR} ,
+        	#{showType,jdbcType=INTEGER} ,
+        	#{sortValue,jdbcType=INTEGER} ,
+        	#{effective,jdbcType=INTEGER} ,
+        	#{channelsNotes,jdbcType=VARCHAR} ,
+        	now() ,
+        	#{siteId,jdbcType=INTEGER}
+        )
+	</insert>
+    
+	<update id="update" parameterType="cn.mmbook.platform.model.manage.SiteChannels">
+    <![CDATA[
+        UPDATE tb_site_channels_info SET
+	        channels_name_ = #{channelsName,jdbcType=VARCHAR} ,
+	        show_type_ = #{showType,jdbcType=INTEGER} ,
+	        sort_value_ = #{sortValue,jdbcType=INTEGER} ,
+	        effective_ = #{effective,jdbcType=INTEGER} ,
+	        channels_notes_ = #{channelsNotes,jdbcType=VARCHAR} ,
+	        insert_time_ = #{insertTime,jdbcType=DATE},
+	        site_id_ = #{siteId,jdbcType=INTEGER} ,
+	        id_ = #{id} 
+        WHERE 
+	        id_ = #{id} 
+    ]]>
+	</update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+    <![CDATA[
+        DELETE FROM tb_site_channels_info WHERE
+        id_ = #{id} 
+    ]]>
+    </delete>
+    
+    <select id="getById" parameterType="java.lang.Integer" resultMap="SiteChannelsResult">
+		SELECT <include refid="siteChannelsColumns" />
+	    <![CDATA[
+		    FROM tb_site_channels_info 
+	        WHERE 
+		        id_ = #{id} 
+	    ]]>
+	</select>
+    <select id="findAll" resultMap="SiteChannelsResult">
+		SELECT <include refid="siteChannelsColumns" />
+		    FROM tb_site_channels_info
+	</select>
+	<sql id="siteChannelsDynamicWhere">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id_ = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(channelsName)">
+				AND channels_name_ = #{channelsName}
+			</if>
+	       <if test="@Ognl@isNotEmpty(showType)">
+				AND show_type_ = #{showType}
+			</if>
+	       <if test="@Ognl@isNotEmpty(sortValue)">
+				AND sort_value_ = #{sortValue}
+			</if>
+	       <if test="@Ognl@isNotEmpty(effective)">
+				AND effective_ = #{effective}
+			</if>
+	       <if test="@Ognl@isNotEmpty(channelsNotes)">
+				AND channels_notes_ = #{channelsNotes}
+			</if>
+	       <if test="@Ognl@isNotEmpty(insertTime)">
+				AND insert_time_ = #{insertTime}
+			</if>
+		</where>
+	</sql>
+		
+    <select id="count" resultType="long">
+        SELECT COUNT(1) FROM tb_site_channels_info 
+		<include refid="siteChannelsDynamicWhere"/>    
+    </select>
+    
+    <!--
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="pageSelect" resultMap="SiteChannelsResult">
+    	SELECT <include refid="siteChannelsColumns" />
+	    FROM tb_site_channels_info 
+		<include refid="siteChannelsDynamicWhere"/> 
+			ORDER BY id_ desc  
+    </select>
+
+
+    <!--
+    	多表关联分页查询
+    	处理处理实现
+    -->
+    <select id="anytablelist" resultMap="SiteChannelsResult">
+    	SELECT <include refid="siteChannelsColumns" />
+	    FROM tb_site_channels_info
+    </select>
+		
+    <select id="anytablecount" resultType="long">
+        SELECT COUNT(1) FROM tb_site_channels_info 
+		<include refid="siteChannelsDynamicWhere"/>    
+    </select>
+	
+	<!-- getList -->
+	<select id="getSiteChannelsList" resultMap="SiteChannelsResult">
+	  SELECT <include refid="siteChannelsColumns" />
+	  FROM tb_site_channels_info
+	  <include refid="siteChannelsDynamicWhere"/>
+	</select>
+
+	<!-- 门面类 arye -->
+	<select id="findSiteChannelsDoor" parameterType="java.util.HashMap" resultMap="SiteChannelsResult">
+		SELECT <include refid="siteChannelsColumns" />
+	  	FROM tb_site_channels_info
+	  	<where>
+	  	<if test="@Ognl@isNotEmpty(siteId)">
+	  		   site_id_ = #{siteId}  
+	  	</if>  
+		  	<if test="@Ognl@isNotEmpty(sortColums)">
+		  		 order by ${sortColumns}
+		  	</if> 
+		  	<if test="@Ognl@isNotEmpty(count)">
+		  		 limit #{start},#{count}
+		  	</if>
+	  	</where>
+	</select>
+	
+	<!-- 查询频道信息 arye -->
+	<select id="getChannelsByPartIdlist" resultMap="SiteChannelsResultNew"  parameterType="java.util.HashMap">
+		SELECT t1.*,t2.id_ as t2_id_,t2.part_name_ as t2_part_name_,t2.lower_node_ as t2_lower_node_,t2.part_parent_id_ as t2_part_parent_id_,t2.show_type_ as t2_show_type_,t2.sort_value_ as t2_sort_value_,t2.effective_ as t2_effective_,t2.part_notes_ as t2_part_notes_,t2.insert_time_ as t2_insert_time_ 
+		FROM tb_site_channels_info t1 inner join 
+		tb_site_channels_part_real t3 on t1.id_=t3.channels_id_ inner join 
+		tb_site_part_info t2 on t2.id_=t3.part_id_ 
+	    <if test="@Ognl@isNotEmpty(sitePartId)">
+			AND and t3.part_id_=#{sitePartId}
+		</if> 
+	  	<if test="@Ognl@isNotEmpty(sortColumns)">
+			order by ${sortColumns}
+		</if>
+    </select>
+		
+    <select id="getCannelsByPartIdcount" resultType="long"  parameterType="java.util.HashMap">
+		SELECT count(1) FROM tb_site_channels_info t1 inner join 
+		tb_site_channels_part_real t3 on t1.id_=t3.channels_id_ inner join 
+		tb_site_part_info t2 on t2.id_=t3.part_id_ 
+	    <if test="@Ognl@isNotEmpty(sitePartId)">
+			AND t3.part_id_=#{sitePartId}
+		</if>
+	</select>
+	
+	<!-- get max id -->
+	<select id="getMaxId" resultType="java.lang.String">
+       select id_ from tb_site_channels_info  order by convert(id_ ,signed )   desc  limit   0,1
+	</select>
+	
+</mapper>

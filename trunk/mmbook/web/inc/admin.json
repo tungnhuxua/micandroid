@@ -1,0 +1,29 @@
+[
+	{'id':'1110000','text':'测试菜单','children':
+	[
+		{'id':'1110100','text':'测试管理','children':
+		[
+			{'id':'1110101','text':'新增操作','leaf':true,'url':'admin/manage/Role/add.jsp','iconCls':'icon-nav-p1'},
+			{'id':'1110102','text':'列表操作','leaf':true,'url':'admin/manage/Role/index.jsp','iconCls':'icon-nav-p1'}
+		],'leaf':false,'iconCls':'icon-nav-1'},
+		
+		{'id':'1110200','text':'栏目管理','children':
+		[
+			{'id':'1110201','text':'新增栏目','leaf':true,'url':'admin/manage/TbSiteChannels/add.jsp','iconCls':'icon-nav-p1'},
+			{'id':'1110202','text':'列表栏目','leaf':true,'url':'admin/manage/TbSiteChannels/index.jsp','iconCls':'icon-nav-p1'},
+			{'id':'1110203','text':'详细栏目','leaf':true,'url':'admin/manage/TbSiteChannels/detail.jsp','iconCls':'icon-nav-p1'},
+			{'id':'1110204','text':'更新栏目','leaf':true,'url':'admin/manage/TbSiteChannels/update.jsp','iconCls':'icon-nav-p1'}
+		],'leaf':false,'iconCls':'icon-nav-1'},
+		
+		{'id':'1110300','text':'栏目内容关系','children':
+		[
+			{'id':'1110301','text':'新增操作','leaf':true,'url':'admin/manage/TbSiteChannelsPartReal/add.jsp','iconCls':'icon-nav-p1'},
+			{'id':'1110302','text':'列表操作','leaf':true,'url':'admin/manage/TbSiteChannelsPartReal/index.jsp','iconCls':'icon-nav-p1'},
+			{'id':'1110303','text':'详细操作','leaf':true,'url':'admin/manage/TbSiteChannelsPartReal/detail.jsp','iconCls':'icon-nav-p1'},
+			{'id':'1110304','text':'更新操作','leaf':true,'url':'admin/manage/TbSiteChannelsPartReal/update.jsp','iconCls':'icon-nav-p1'}
+		],'leaf':false,'iconCls':'icon-nav-1'}
+	
+	
+	],'leaf':false,'iconCls':'icon-nav-1'}
+	
+]

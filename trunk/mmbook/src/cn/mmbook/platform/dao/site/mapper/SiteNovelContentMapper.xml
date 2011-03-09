@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<mapper namespace="SiteNovelContent">
+
+	<resultMap id="SiteNovelContentResult" type="cn.mmbook.platform.model.site.SiteNovelContent">
+              <result property="id" column="id_" />				
+              <result property="noveId" column="nove_id_" />				
+              <result property="contentId" column="content_id_" />				
+              <result property="chapterParentId" column="chapter_parent_id_" />				
+              <result property="name" column="name_" />				
+              <result property="chapterNo" column="chapter_no_" />				
+              <result property="chapterModeNo" column="chapter_mode_no_" />				
+              <result property="createTime" column="create_time_" />				
+              <result property="creator" column="creator_" />				
+              <result property="modifyTime" column="modify_time_" />				
+              <result property="modifior" column="modifior_" />				
+              <result property="chapterCount" column="chapter_count_" />				
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="siteNovelContentColumns">
+	    <![CDATA[
+        	id_ AS id,
+        	nove_id_ AS noveId,
+        	content_id_ AS contentId,
+        	chapter_parent_id_ AS chapterParentId,
+        	name_ AS name,
+        	chapter_no_ AS chapterNo,
+        	chapter_mode_no_ AS chapterModeNo,
+        	create_time_ AS createTime,
+        	creator_ AS creator,
+        	modify_time_ AS modifyTime,
+        	modifior_ AS modifior,
+        	chapter_count_ AS chapterCount
+	    ]]>
+	</sql>
+	
+	
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert" parameterType="cn.mmbook.platform.model.site.SiteNovelContent" >
+        INSERT INTO
+        tb_site_novel_content_info (
+        	nove_id_ ,
+        	content_id_ ,
+        	chapter_parent_id_ ,
+        	name_ ,
+        	chapter_no_ ,
+        	chapter_mode_no_ ,
+        	create_time_ ,
+        	creator_ ,
+        	modify_time_ ,
+        	modifior_ ,
+        	chapter_count_ 
+        ) VALUES (
+        	#{noveId,jdbcType=VARCHAR} ,
+        	#{contentId,jdbcType=VARCHAR} ,
+        	#{chapterParentId,jdbcType=INTEGER} ,
+        	#{name,jdbcType=VARCHAR} ,
+        	#{chapterNo,jdbcType=VARCHAR} ,
+        	#{chapterModeNo,jdbcType=INTEGER} ,
+        	#{createTime,jdbcType=DATE} ,
+        	#{creator,jdbcType=VARCHAR} ,
+        	#{modifyTime,jdbcType=DATE} ,
+        	#{modifior,jdbcType=VARCHAR} ,
+        	#{chapterCount,jdbcType=INTEGER} 
+        )
+	</insert>
+    
+	<update id="update" parameterType="cn.mmbook.platform.model.site.SiteNovelContent">
+    <![CDATA[
+        UPDATE tb_site_novel_content_info SET
+	        nove_id_ = #{noveId,jdbcType=VARCHAR} ,
+	        content_id_ = #{contentId,jdbcType=VARCHAR} ,
+	        chapter_parent_id_ = #{chapterParentId,jdbcType=INTEGER} ,
+	        name_ = #{name,jdbcType=VARCHAR} ,
+	        chapter_no_ = #{chapterNo,jdbcType=VARCHAR} ,
+	        chapter_mode_no_ = #{chapterModeNo,jdbcType=INTEGER} ,
+	        create_time_ = #{createTime,jdbcType=DATE} ,
+	        creator_ = #{creator,jdbcType=VARCHAR} ,
+	        modify_time_ = #{modifyTime,jdbcType=DATE} ,
+	        modifior_ = #{modifior,jdbcType=VARCHAR} ,
+	        chapter_count_ = #{chapterCount,jdbcType=INTEGER} 
+        WHERE 
+	        id_ = #{id} 
+    ]]>
+	</update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+    <![CDATA[
+        DELETE FROM tb_site_novel_content_info WHERE
+        id_ = #{id} 
+    ]]>
+    </delete>
+    
+    <select id="getById" parameterType="java.lang.Integer" resultMap="SiteNovelContentResult">
+		SELECT <include refid="siteNovelContentColumns" />
+	    <![CDATA[
+		    FROM tb_site_novel_content_info 
+	        WHERE 
+		        id_ = #{id} 
+	    ]]>
+	</select>
+    <select id="findAll" resultMap="SiteNovelContentResult">
+		SELECT <include refid="siteNovelContentColumns" />
+	    <![CDATA[
+		    FROM tb_site_novel_content_info
+	    ]]>
+	</select>
+	<sql id="siteNovelContentDynamicWhere">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id_ = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(noveId)">
+				AND nove_id_ = #{noveId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(contentId)">
+				AND content_id_ = #{contentId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(chapterParentId)">
+				AND chapter_parent_id_ = #{chapterParentId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(name)">
+				AND name_ = #{name}
+			</if>
+	       <if test="@Ognl@isNotEmpty(chapterNo)">
+				AND chapter_no_ = #{chapterNo}
+			</if>
+	       <if test="@Ognl@isNotEmpty(chapterModeNo)">
+				AND chapter_mode_no_ = #{chapterModeNo}
+			</if>
+	       <if test="@Ognl@isNotEmpty(createTime)">
+				AND create_time_ = #{createTime}
+			</if>
+	       <if test="@Ognl@isNotEmpty(creator)">
+				AND creator_ = #{creator}
+			</if>
+	       <if test="@Ognl@isNotEmpty(modifyTime)">
+				AND modify_time_ = #{modifyTime}
+			</if>
+	       <if test="@Ognl@isNotEmpty(modifior)">
+				AND modifior_ = #{modifior}
+			</if>
+	       <if test="@Ognl@isNotEmpty(chapterCount)">
+				AND chapter_count_ = #{chapterCount}
+			</if>
+		</where>
+	</sql>
+		
+    <select id="count" resultType="long">
+        SELECT COUNT(1) FROM tb_site_novel_content_info 
+		<include refid="siteNovelContentDynamicWhere"/>    
+    </select>
+    
+    <!--
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="pageSelect" resultMap="SiteNovelContentResult">
+    	SELECT <include refid="siteNovelContentColumns" />
+	    FROM tb_site_novel_content_info 
+		<include refid="siteNovelContentDynamicWhere"/>
+		<if test="@Ognl@isNotEmpty(sortColumns)">
+			ORDER BY ${sortColumns}
+		</if>
+    </select>
+
+
+    <!--
+    	多表关联分页查询
+    	处理处理实现
+    -->
+    <select id="anytablelist" resultMap="SiteNovelContentResult">
+    	SELECT <include refid="siteNovelContentColumns" />
+	    FROM tb_site_novel_content_info
+    </select>
+		
+    <select id="anytablecount" resultType="long">
+        SELECT COUNT(1) FROM tb_site_novel_content_info 
+		<include refid="siteNovelContentDynamicWhere"/>    
+    </select>
+	
+	<!-- getList -->
+	<select id="getSiteNovelContentList" resultMap="SiteNovelContentResult">
+	  SELECT <include refid="siteNovelContentColumns" />
+	  FROM tb_site_novel_content_info
+	  <include refid="siteNovelContentDynamicWhere"/>
+	</select>
+
+
+</mapper>

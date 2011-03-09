@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<mapper namespace="BaseKeywords">
+
+	<resultMap id="BaseKeywordsResult" type="cn.mmbook.platform.model.base.BaseKeywords">
+              <result property="id" column="id_" />				
+              <result property="parentId" column="parent_id_" />				
+              <result property="keywordsValue" column="keywords_value_" />				
+              <result property="keywordsNotes" column="keywords_notes_" />				
+              <result property="lowerNode" column="lower_node_" />				
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="baseKeywordsColumns">
+	    <![CDATA[
+        	id_ AS id,
+        	parent_id_ AS parentId,
+        	keywords_value_ AS keywordsValue,
+        	keywords_notes_ AS keywordsNotes,
+        	lower_node_ AS lowerNode
+	    ]]>
+	</sql>
+	
+	
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert" parameterType="cn.mmbook.platform.model.base.BaseKeywords" >
+        INSERT INTO
+        tb_base_keywords_info (
+        	id_ ,
+        	parent_id_ ,
+        	keywords_value_ ,
+        	keywords_notes_ ,
+        	lower_node_ 
+        ) VALUES (
+        	#{id,jdbcType=INTEGER} ,
+        	#{parentId,jdbcType=INTEGER} ,
+        	#{keywordsValue,jdbcType=VARCHAR} ,
+        	#{keywordsNotes,jdbcType=VARCHAR} ,
+        	#{lowerNode,jdbcType=INTEGER} 
+        )
+	</insert>
+    
+	<update id="update" parameterType="cn.mmbook.platform.model.base.BaseKeywords">
+    <![CDATA[
+        UPDATE tb_base_keywords_info SET
+	        parent_id_ = #{parentId,jdbcType=INTEGER} ,
+	        keywords_value_ = #{keywordsValue,jdbcType=VARCHAR} ,
+	        keywords_notes_ = #{keywordsNotes,jdbcType=VARCHAR} ,
+	        lower_node_ = #{lowerNode,jdbcType=INTEGER} 
+        WHERE 
+	        id_ = #{id} 
+    ]]>
+	</update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+    <![CDATA[
+        DELETE FROM tb_base_keywords_info WHERE
+        id_ = #{id} 
+    ]]>
+    </delete>
+    
+    <select id="getById" parameterType="java.lang.Integer" resultMap="BaseKeywordsResult">
+		SELECT <include refid="baseKeywordsColumns" />
+	    <![CDATA[
+		    FROM tb_base_keywords_info 
+	        WHERE 
+		        id_ = #{id} 
+	    ]]>
+	</select>
+    <select id="findAll" resultMap="BaseKeywordsResult">
+		SELECT <include refid="baseKeywordsColumns" />
+	    <![CDATA[
+		    FROM tb_base_keywords_info
+	    ]]>
+	</select>
+	<sql id="baseKeywordsDynamicWhere">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id_ = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(parentId)">
+				AND parent_id_ = #{parentId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(keywordsValue)">
+				AND keywords_value_ = #{keywordsValue}
+			</if>
+	       <if test="@Ognl@isNotEmpty(keywordsNotes)">
+				AND keywords_notes_ = #{keywordsNotes}
+			</if>
+	       <if test="@Ognl@isNotEmpty(lowerNode)">
+				AND lower_node_ = #{lowerNode}
+			</if>
+		</where>
+	</sql>
+		
+    <select id="count" resultType="long">
+        SELECT COUNT(1) FROM tb_base_keywords_info 
+		<include refid="baseKeywordsDynamicWhere"/>    
+    </select>
+    
+    <!--
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="pageSelect" resultMap="BaseKeywordsResult">
+    	SELECT <include refid="baseKeywordsColumns" />
+	    FROM tb_base_keywords_info 
+		<include refid="baseKeywordsDynamicWhere"/>
+		<if test="@Ognl@isNotEmpty(sortColumns)">
+			ORDER BY ${sortColumns}
+		</if>
+    </select>
+
+
+    <!--
+    	多表关联分页查询
+    	处理处理实现
+    -->
+    <select id="anytablelist" resultMap="BaseKeywordsResult">
+    	SELECT <include refid="baseKeywordsColumns" />
+	    FROM tb_base_keywords_info
+    </select>
+		
+    <select id="anytablecount" resultType="long">
+        SELECT COUNT(1) FROM tb_base_keywords_info 
+		<include refid="baseKeywordsDynamicWhere"/>    
+    </select>
+	
+	<!-- getList -->
+	<select id="getBaseKeywordsList" resultMap="BaseKeywordsResult">
+	  SELECT <include refid="baseKeywordsColumns" />
+	  FROM tb_base_keywords_info
+	  <include refid="baseKeywordsDynamicWhere"/>
+	</select>
+
+	<select id="getListByMap" resultMap="BaseKeywordsResult"  parameterType="java.util.HashMap">
+	  SELECT <include refid="baseKeywordsColumns" />
+	  FROM tb_base_keywords_info
+	  where parent_id_=#{id}
+	</select>
+	
+</mapper>

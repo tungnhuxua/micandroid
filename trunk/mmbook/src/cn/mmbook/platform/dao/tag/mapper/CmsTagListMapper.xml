@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<mapper namespace="CmsTagList">
+
+	<resultMap id="CmsTagListResult" type="cn.mmbook.platform.model.tag.CmsTagList">
+              <result property="id" column="ID_" />				
+              <result property="templetId" column="TEMPLET_ID_" />				
+              <result property="sortId" column="sort_ID_" />				
+              <result property="tagName" column="TAG_NAME_" />				
+              <result property="ifPage" column="IF_PAGE_" />				
+              <result property="rowNums" column="ROW_NUM_" />				
+              <result property="insertTime" column="INSERT_TIME_" />				
+              <result property="listDestroy" column="list_destroy_" />
+              <result property="modelId" column="MODEL_ID_" />				
+              <result property="updateTime" column="UPDATE_TIME_" />				
+              <result property="tagExp" column="TAG_EXP_" />				
+              <result property="orderType" column="ORDER_TYPE_" />				
+              <result property="versionId" column="VERSION_ID_" />				
+              <result property="companyId" column="COMPANY_ID_" />				
+              <result property="makePeople" column="MAKE_PEOPLE_" />				
+              <result property="makeTime" column="MAKE_TIME_" />
+              <result property="continueModeNo" column="CONTINUE_MODE_NO_" />							
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="cmsTagListColumns">
+	    <![CDATA[
+        	id_ AS id,
+        	templet_id_ AS templetId,
+        	sort_id_ AS sortId,
+        	tag_name_ AS tagName,
+        	if_page_ AS ifPage,
+        	row_num_ AS rowNums,
+        	insert_time_ AS insertTime,
+        	model_id_ AS modelId,
+        	update_time_ AS updateTime,
+        	tag_exp_ AS tagExp,
+        	order_type_ AS orderType,
+        	version_id_ AS versionId,
+        	company_id_ AS companyId,
+        	list_destroy_ AS listDestroy,
+        	make_people_ AS makePeople,
+        	make_time_ AS makeTime,
+        	continue_mode_no_ AS continueModeNo
+	    ]]>
+	</sql>
+	
+	
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert" parameterType="cn.mmbook.platform.model.tag.CmsTagList" >
+        INSERT INTO
+        tc_tag_list_info (
+        	id_ ,
+        	templet_id_ ,
+        	sort_id_ ,
+        	tag_name_ ,
+        	if_page_ ,
+        	row_num_ ,
+        	insert_time_ ,
+        	model_id_ ,
+        	update_time_ ,
+        	tag_exp_ ,
+        	order_type_ ,
+        	version_id_ ,
+        	company_id_ ,
+        	list_destroy_ ,
+        	make_people_ ,
+        	make_time_ ,
+        	continue_mode_no_
+        ) VALUES (
+        	#{id,jdbcType=VARCHAR} ,
+        	#{templetId,jdbcType=VARCHAR} ,
+        	#{sortId,jdbcType=VARCHAR} ,
+        	#{tagName,jdbcType=VARCHAR} ,
+        	#{ifPage,jdbcType=CHAR} ,
+        	#{rowNums,jdbcType=INTEGER} ,
+        	#{insertTime,jdbcType=DATE} ,
+        	#{modelId,jdbcType=VARCHAR} ,
+        	now() ,
+        	#{tagExp,jdbcType=VARCHAR} ,
+        	#{orderType,jdbcType=VARCHAR} ,
+        	#{versionId,jdbcType=VARCHAR} ,
+        	#{companyId,jdbcType=VARCHAR} ,
+        	#{listDestroy,jdbcType=VARCHAR} ,
+        	#{makePeople,jdbcType=VARCHAR} ,
+        	now() ,
+        	#{continueModeNo,jdbcType=CHAR} 
+        )
+	</insert>
+    
+	<update id="update" parameterType="cn.mmbook.platform.model.tag.CmsTagList" >
+        UPDATE tc_tag_list_info
+        <set> 
+			update_time_ = now() ,
+			order_type_ = #{orderType,jdbcType=VARCHAR} ,
+			continue_mode_no_ = #{continueModeNo,jdbcType=CHAR} ,
+	        <if test="@Ognl@isNotEmpty(templetId)">
+				templet_id_ = #{templetId,jdbcType=VARCHAR} ,
+			</if>
+	        <if test="@Ognl@isNotEmpty(sortId)">
+				sort_id_ = #{sortId,jdbcType=VARCHAR} ,
+			</if>
+	        <if test="@Ognl@isNotEmpty(tagName)">
+				tag_name_ = #{tagName,jdbcType=VARCHAR} ,
+			</if>
+	        <if test="@Ognl@isNotEmpty(ifPage)">
+				if_page_ = #{ifPage,jdbcType=CHAR} ,
+			</if>
+	        <if test="@Ognl@isNotEmpty(rowNums)">
+				row_num_ = #{rowNums,jdbcType=INTEGER} ,
+			</if>
+	        <if test="@Ognl@isNotEmpty(modelId)">
+				model_id_ = #{modelId,jdbcType=VARCHAR} ,
+			</if>
+	        <if test="@Ognl@isNotEmpty(tagExp)">
+				tag_exp_ = #{tagExp,jdbcType=VARCHAR} ,
+			</if>
+	        <if test="@Ognl@isNotEmpty(versionId)">
+				version_id_ = #{versionId,jdbcType=VARCHAR} ,
+			</if>
+	        <if test="@Ognl@isNotEmpty(companyId)">
+				company_id_ = #{companyId,jdbcType=VARCHAR} ,
+			</if>
+	        <if test="@Ognl@isNotEmpty(listDestroy)">
+				list_destroy_ = #{listDestroy,jdbcType=VARCHAR} ,
+			</if>
+	        <if test="@Ognl@isNotEmpty(makePeople)">
+				make_people_ = #{makePeople,jdbcType=VARCHAR} ,
+			</if>
+	        <if test="@Ognl@isNotEmpty(makeTime)">
+				make_time_ = #{makeTime,jdbcType=DATE} ,
+			</if>
+		</set>
+        WHERE id_ = #{id} 
+	</update>
+
+    <delete id="delete" parameterType="java.lang.String">
+    <![CDATA[
+        DELETE FROM tc_tag_list_info WHERE
+        id_ = #{id} 
+    ]]>
+    </delete>
+    
+    <select id="getById" parameterType="java.lang.String" resultMap="CmsTagListResult">
+		SELECT <include refid="cmsTagListColumns" />
+	    <![CDATA[
+		    FROM tc_tag_list_info 
+	        WHERE 
+		        id_ = #{id} 
+	    ]]>
+	</select>
+	
+	<!-- qiongguo update like  -->
+	<sql id="cmsTagListDynamicWhere">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id_ = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(templetId)">
+				AND templet_id_ = #{templetId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(sortId)">
+				AND sort_id_ = #{sortId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(tagName)">
+	            AND tag_name_ like '%${tagName}%'
+			</if>
+	       <if test="@Ognl@isNotEmpty(ifPage)">
+				AND if_page_ = #{ifPage}
+			</if>
+	       <if test="@Ognl@isNotEmpty(rowNums)">
+				AND row_num_ = #{rowNums}
+			</if>
+	       <if test="@Ognl@isNotEmpty(insertTime)">
+				AND insert_time_ = #{insertTime}
+			</if>
+	       <if test="@Ognl@isNotEmpty(modelId)">
+				AND model_id_ = #{modelId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(updateTime)">
+				AND update_time_ = #{updateTime}
+			</if>
+	       <if test="@Ognl@isNotEmpty(tagExp)">
+				AND tag_exp_ like '%${tagExp}%'
+			</if>
+	       <if test="@Ognl@isNotEmpty(orderType)">
+				AND order_type_ = #{orderType}
+			</if>
+	       <if test="@Ognl@isNotEmpty(versionId)">
+				AND version_id_ = #{versionId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(companyId)">
+				AND company_id_ = #{companyId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(listDestroy)">
+				AND list_destroy_ = #{listDestroy}
+			</if>
+	       <if test="@Ognl@isNotEmpty(makePeople)">
+				AND make_people_ = #{makePeople}
+			</if>
+	       <if test="@Ognl@isNotEmpty(makeTime)">
+				AND make_time_ = #{makeTime}
+			</if>
+			<if test="@Ognl@isNotEmpty(continueModeNo)">
+				AND continue_mode_no_ = #{continueModeNo} 
+			</if>
+		</where>
+	</sql>
+		
+    <select id="count" resultType="long">
+        SELECT COUNT(1) FROM tc_tag_list_info 
+		<include refid="cmsTagListDynamicWhere"/>    
+    </select>
+    
+    <!--
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="pageSelect" resultMap="CmsTagListResult">
+    	SELECT <include refid="cmsTagListColumns" />
+	    FROM tc_tag_list_info 
+		<include refid="cmsTagListDynamicWhere"/>
+		<if test="@Ognl@isNotEmpty(sortColumns)">
+			ORDER BY ${sortColumns}
+		</if>
+    </select>
+    
+    <sql id="cmsTagListDynamicListWhere">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id_ = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(templetId)">
+				AND templet_id_ = #{templetId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(sortId)">
+				AND sort_id_ = #{sortId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(tagName)">
+	            AND tag_name_ = #{tagName}
+			</if>
+	       <if test="@Ognl@isNotEmpty(ifPage)">
+				AND if_page_ = #{ifPage}
+			</if>
+	       <if test="@Ognl@isNotEmpty(rowNums)">
+				AND row_num_ = #{rowNums}
+			</if>
+	       <if test="@Ognl@isNotEmpty(insertTime)">
+				AND insert_time_ = #{insertTime}
+			</if>
+	       <if test="@Ognl@isNotEmpty(modelId)">
+				AND model_id_ = #{modelId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(updateTime)">
+				AND update_time_ = #{updateTime}
+			</if>
+	       <if test="@Ognl@isNotEmpty(tagExp)">
+				AND tag_exp_ = #{tagExp}
+			</if>
+	       <if test="@Ognl@isNotEmpty(orderType)">
+				AND order_type_ = #{orderType}
+			</if>
+	       <if test="@Ognl@isNotEmpty(versionId)">
+				AND version_id_ = #{versionId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(companyId)">
+				AND company_id_ = #{companyId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(listDestroy)">
+				AND list_destroy_ = #{listDestroy}
+			</if>
+	       <if test="@Ognl@isNotEmpty(makePeople)">
+				AND make_people_ = #{makePeople}
+			</if>
+	       <if test="@Ognl@isNotEmpty(makeTime)">
+				AND make_time_ = #{makeTime}
+			</if>
+			<if test="@Ognl@isNotEmpty(continueModeNo)">
+				AND continue_mode_no_ = #{continueModeNo} 
+			</if>
+		</where>
+	</sql>
+
+    <select id="getList"  resultMap="CmsTagListResult">
+		SELECT <include refid="cmsTagListColumns" /> 
+		    FROM tc_tag_list_info 
+	        <include refid="cmsTagListDynamicListWhere"/> 
+	</select>
+
+	<!-- get max id -->
+	<select id="getMaxId" resultType="java.lang.String">
+          select id_ from tc_tag_list_info  order by convert(id_ ,signed )   desc  limit   0,1
+	</select>
+
+</mapper>

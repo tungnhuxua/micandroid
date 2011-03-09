@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<mapper namespace="TagModel">
+
+	<resultMap id="TagModelResult" type="cn.mmbook.platform.model.tag.TagModel">
+              <result property="id" column="id_" />				
+              <result property="modelName" column="model_name_" />				
+              <result property="modelNotes" column="model_notes_" />				
+              <result property="aurl" column="a_url_" />				
+              <result property="modelUrl" column="model_url_" />				
+              <result property="isDef" column="is_def" />				
+              <result property="effective" column="effective_" />				
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="tagModelColumns">
+	    <![CDATA[
+        	id_ AS id,
+        	model_name_ AS modelName,
+        	model_notes_ AS modelNotes,
+        	a_url_ AS aurl,
+        	model_url_ AS modelUrl,
+        	is_def AS isDef,
+        	effective_ AS effective
+	    ]]>
+	</sql>
+	
+	
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert" parameterType="cn.mmbook.platform.model.tag.TagModel" >
+        INSERT INTO
+        tb_tag_model_info (
+        	id_ ,
+        	model_name_ ,
+        	model_notes_ ,
+        	a_url_ ,
+        	model_url_ ,
+        	is_def ,
+        	effective_ 
+        ) VALUES (
+        	#{id,jdbcType=VARCHAR} ,
+        	#{modelName,jdbcType=VARCHAR} ,
+        	#{modelNotes,jdbcType=VARCHAR} ,
+        	#{aurl,jdbcType=VARCHAR} ,
+        	#{modelUrl,jdbcType=VARCHAR} ,
+        	#{isDef,jdbcType=INTEGER} ,
+        	#{effective,jdbcType=INTEGER} 
+        )
+	</insert>
+    
+	<update id="update" parameterType="cn.mmbook.platform.model.tag.TagModel">
+    <![CDATA[
+        UPDATE tb_tag_model_info SET
+	        model_name_ = #{modelName,jdbcType=VARCHAR} ,
+	        model_notes_ = #{modelNotes,jdbcType=VARCHAR} ,
+	        a_url_ = #{aurl,jdbcType=VARCHAR} ,
+	        model_url_ = #{modelUrl,jdbcType=VARCHAR} ,
+	        is_def = #{isDef,jdbcType=INTEGER} ,
+	        effective_ = #{effective,jdbcType=INTEGER} 
+        WHERE 
+	        id_ = #{id} 
+    ]]>
+	</update>
+
+    <delete id="delete" parameterType="java.lang.String">
+    <![CDATA[
+        DELETE FROM tb_tag_model_info WHERE
+        id_ = #{id} 
+    ]]>
+    </delete>
+    
+    <select id="getById" parameterType="java.lang.String" resultMap="TagModelResult">
+		SELECT <include refid="tagModelColumns" />
+	    <![CDATA[
+		    FROM tb_tag_model_info 
+	        WHERE 
+		        id_ = #{id} 
+	    ]]>
+	</select>
+    <select id="findAll" resultMap="TagModelResult">
+		SELECT <include refid="tagModelColumns" />
+	    <![CDATA[
+		    FROM tb_tag_model_info
+	    ]]>
+	</select>
+	<sql id="tagModelDynamicWhere">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id_ = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(modelName)">
+				AND model_name_ = #{modelName}
+			</if>
+	       <if test="@Ognl@isNotEmpty(modelNotes)">
+				AND model_notes_ = #{modelNotes}
+			</if>
+	       <if test="@Ognl@isNotEmpty(aurl)">
+				AND a_url_ = #{aurl}
+			</if>
+	       <if test="@Ognl@isNotEmpty(modelUrl)">
+				AND model_url_ = #{modelUrl}
+			</if>
+	       <if test="@Ognl@isNotEmpty(isDef)">
+				AND is_def = #{isDef}
+			</if>
+	       <if test="@Ognl@isNotEmpty(effective)">
+				AND effective_ = #{effective}
+			</if>
+		</where>
+	</sql>
+		
+    <select id="count" resultType="long">
+        SELECT COUNT(1) FROM tb_tag_model_info 
+		<include refid="tagModelDynamicWhere"/>    
+    </select>
+    
+    <!--
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="pageSelect" resultMap="TagModelResult">
+    	SELECT <include refid="tagModelColumns" />
+	    FROM tb_tag_model_info 
+		<include refid="tagModelDynamicWhere"/>
+		<if test="@Ognl@isNotEmpty(sortColumns)">
+			ORDER BY ${sortColumns}
+		</if>
+    </select>
+
+
+    <!--
+    	多表关联分页查询
+    	处理处理实现
+    -->
+    <select id="anytablelist" resultMap="TagModelResult">
+    	SELECT <include refid="tagModelColumns" />
+	    FROM tb_tag_model_info
+    </select>
+		
+    <select id="anytablecount" resultType="long">
+        SELECT COUNT(1) FROM tb_tag_model_info 
+		<include refid="tagModelDynamicWhere"/>    
+    </select>
+	
+	<!-- getList -->
+	<select id="getTagModelList" resultMap="TagModelResult">
+	  SELECT <include refid="tagModelColumns" />
+	  FROM tb_tag_model_info
+	  <include refid="tagModelDynamicWhere"/>
+	</select>
+
+
+</mapper>
