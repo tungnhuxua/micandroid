@@ -1,0 +1,3 @@
+smtp.host=localhost
+smtp.login=john
+smtp.password=doe
