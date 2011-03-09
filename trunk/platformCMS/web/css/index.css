@@ -1,0 +1,554 @@
+/***************************************
+ * author:可乐加糖
+ * email:black.angel.liu@gmail.com
+ ****************************************/
+
+@import url("base.css");
+@import url("adv.css");
+
+body{
+	text-align:center; color:#626262;font-family:微软雅黑,宋体,Verdana,Arial,Tahoma;
+font-size:12px;
+}
+/* 顶部 */
+#top{
+	width:100%;
+	text-align:center;
+}
+#top div{
+	
+}
+
+/*-----------------------------------------------------*/
+
+/*顶部三个DIV的容器*/
+#head{
+	text-align:left;
+	margin:0 auto;
+	width:960px;
+	height:80px;
+}
+#head div{
+	float:left;
+}
+
+/*-----------------------------------------------------*/
+
+
+/*放logo的地方*/
+#log{
+	width:112px;
+	height:64px;
+}
+#log img{
+	padding-top:20px;
+}
+/*-----------------------------------------------------*/
+
+/*放时间的导航的容器*/
+#subContent{
+	width:540px;
+	font-size:12px;
+	height:64px;
+	margin:0 0;
+	padding:0 0;
+	padding-left:27px;
+}
+#subContent h4{
+	width:540px;
+	font-size:9px;
+	line-height:42px;
+}
+#subContent h4 span{
+	font-weight:normal;
+	color:#636363;
+	font-size:12px;
+}
+#subContent ul{
+	width:540px;
+	float:left;
+	list-style:none;
+}
+#subContent ul li{
+	float:left;
+	width: auto;
+	padding-right:5px;
+}
+#subContent ul li span{
+	font-size:12px;
+	font-weight:700; 
+	color:#0C0C0E;
+}
+
+
+/*-----------------------------------------------------*/
+
+#seachContent{
+	width:262px;
+	height:64px;
+	margin:0 0;
+	padding:0 0;
+	margin-top:15px;
+	float:right;
+}
+#seachContent ul{
+	list-style:none;
+	float:right;
+	color:#000;
+	width:100%;
+}
+#seachContent ul li{
+	float:right;
+	margin-left:5px;
+}
+#seachContent ul li a{
+	color:#626262;
+	margin-left:8px;
+}
+#seachContent ul li a span{
+	font-size:12px;
+}
+#seachContent div{
+	float:right;
+	width:100%;
+	position:relative;
+}
+#seachContent div input{
+	width:220px;
+	height:17px;
+}
+.shurukuang{
+	width:220px;
+	height:14px;
+}
+#seachTr{
+	height:25px;
+}
+#seachTr img{
+	margin-top:3px;
+}
+#seachinput{
+	margin-top:10px;
+}
+/*-----------------------------------------------------*/
+
+/*导航栏*/
+#nav{
+	background-color:#000;
+	width:100%;
+	height:30px;
+	line-height:30px;
+	float:left;
+	text-align:center;
+}
+#navContent{
+margin:0 auto;
+	width:960px;
+	
+	
+}
+#navContent ul{
+	width:800px;
+	padding-left:163px;
+	*padding-left:160px!important;
+	*padding-left:155px;
+	list-style:none;
+	float:left;
+}
+#navContent ul li{
+	float:left;
+	width: auto;
+	padding-left:1px;
+	display:inline;
+}
+#navContent ul li a{
+	padding-right:1px;
+
+}
+#navContent .lilaster{
+	background:none!important;
+}
+#navContent ul li a{
+	color:#fff;
+}
+#navContent ul li a span{
+	font-size:12px;
+	color:#fff;
+}
+
+/*------------------------------------------顶部结束---------------------------------------------*/
+
+#content{
+	width:960px;
+	margin:0 auto;
+	padding:0 0;
+}
+#content div{
+	float:left;
+}
+/*中间的容器*/
+#topBanner{
+	
+	height:100px;
+	margin-top:6px;	
+	width:960px;
+	background:#000000;
+}
+
+/*当前位置*/
+#postion{
+	height:32px;
+	line-height:32px;
+	width:100%;
+	text-align:left;
+}
+#postion p{
+	margin-left:140px;
+}
+#postion p span{
+	color:#5C5C5C;
+}
+/*------------------------------------------------------------------*/
+
+
+/*左边的内容*/
+#contentLeft{
+	float:left;
+	width:600px;
+	border-right:5px solid #000;
+	position:relative;
+	display:block;
+	text-align:left;
+}
+
+/*------------------------------------------------------------------*/
+
+
+/*滚动的广告*/
+#advertisement{
+	width:600px;
+	height:350px;
+	background-color:#71706E;
+	margin-bottom:20px;
+}
+
+/*------------------------------------------------------------------*/
+
+/*第二个banner*/
+#bannerTwo{
+	margin-top:20px;
+	height:100px;
+	width:100%;
+	background-color:#000;
+}
+
+
+/*-----------------------------------------------------*/
+/*主题内容底部的搜索，导航，重复的一个功能*/
+#contentFoot{
+	width:600px;
+}
+#contentFoot div{
+}
+#contentFoot_nav{
+	width:504px;
+	margin-top:60px;
+}
+#contentFoot_nav h3{
+	text-align:left;
+}
+#contentFoot_nav h3 span{
+	font-weight:normal;
+	font-size:12px;
+}
+
+#contentFoot_nav ul{
+	float:left;
+	list-style:none;
+	margin-top:5px;
+}
+#contentFoot_nav ul li{
+	float:left;
+	text-align:left;
+	padding:0 2px
+}
+#contentFoot_nav ul li span{
+	background:url(../images/nav2Bg.gif) left center no-repeat;
+}
+
+
+
+#contentFoot_seach{
+	margin-top:30px;
+	width:600px;
+}
+#contentFoot_seach ul{
+	margin:0 0;
+	padding:0 0;
+	list-style:none;
+	float:left;
+	width:504px;
+	height:20px;
+}
+#contentFoot_seach ul li{
+	height:15px;
+	float:left;
+	margin-left:2px;
+}
+#contentFoot_seach ul .firstLi{
+	margin:0px;
+}
+#contentFoot_seach div{
+	text-align:left;
+	width:504px;
+	padding:0 0;
+	margin-top:14px;
+}
+#contentFoot_seach div span{
+	margin-left:3px;
+}
+
+/*--------------------------------------------------------*/
+#contentFoot_seach p{
+	text-align:left;
+}
+.firstP{
+	margin-top:24px;
+}
+
+
+
+/*--------------------------第三个广告区-------------------------------*/
+#bannerThree{
+	height:100px;
+	width:600px;
+	background-color:#000;
+	margin-top:30px;
+}
+
+
+
+
+/*-----------------------------------长条型的内容区块-------------------------------------*/
+#longdetails{
+	width:600px;
+	padding:40px 0px;
+}
+.longdetails_left{
+	width:113px;
+}
+.longdetails_left img{
+	width:70px;
+	height:70px;
+}
+#longdetails_right{
+	width:487px;
+}
+#longdetails_right ul{
+	height:70px;
+	overflow:hidden;
+	width:487px;
+	float:left;
+	list-style:none;
+}
+#longdetails_right ul li{
+	float:left;
+	width:487px;
+	text-align:left;
+	margin-top:3px;
+	color:#615F60;
+}
+
+.titleLi a{
+	margin-left:300px;
+	background:url(../images/more2.gif) left center no-repeat;
+	padding-left:21px;
+}
+
+#longdetails_right p{
+	width:417px;
+	text-align:left;
+	margin-top:25px;
+	color:#615F60;
+}
+
+
+/*-----------------------第四个广告--------------------------------------*/
+#bannerFour{
+	width:960px;
+	height:100px;
+	background-color:#000;
+	margin:0 auto;
+}
+/*-----------------------小黑块--------------------------------*/
+#black_top{
+	width:25px;
+	float:right;
+	margin-top:40px;
+}
+/*-----------------------右边的内容-----------------------------*/
+#rightContent{
+	margin-left:5px;
+	width:348px;
+	float:right;
+}
+#rightContent_top{
+	float:right;
+	width:348px;
+	height:200px;
+	background-color:#000;
+}
+
+/*-------票数-------------*/
+.votes{
+	float:right;
+	width:210px;
+	margin:30px 0 0 0;
+	padding:1px;
+	text-align:left;
+	padding-left:105px;
+}
+.votes h2{
+	margin-bottom:23px;
+}
+.votes h3{
+	margin-bottom:23px;
+	color:#878787;
+	font-size:14px;
+	font-weight:bold;
+}
+.votes dl{
+	width:210px;
+	height:auto;
+}
+.votes dl dt{
+	width:210px;
+	display:block;
+	height:100px;
+	margin-bottom:20px
+}
+.votes dl dt a{
+	width:210px;
+	display:block;
+	height:100px;
+}
+.votweek dl dt a,.votmonth dl dt a{
+	width:100px;
+	height:100px;
+	display:block;
+	line-height:100px;
+	text-align:center;
+	background:url(../images/vote2.gif) center center no-repeat;
+	margin-right:5px;
+	float:left;
+}
+.votes dl dd{
+	width:210px;
+	float:left;
+	
+}
+
+/* 为了做卡片效果，一开始要隐藏3个容器 */
+#votesmonth,#commentsmonth,#hotmonth{
+	display:none;
+}
+
+/* 热门书品 */
+.hotCommodity{
+	float:right;
+	width:348px;
+	margin-top:30px;
+	padding:0 0;
+}
+.hotCommodity h3,.hotCommodity p{
+	text-align:left;
+	padding-left:105px;
+	color:#777474;
+	font-weight:normal;
+}
+.hotCommodity h3{
+	font-size:14px;
+	font-weight:bold;
+}
+.hotCommodity p{
+	margin-top:23px;
+}
+.hotCommodity p img{
+	width:204px;
+	height:204px;
+}
+
+/*热门标签*/
+.topTags{
+	float:right;
+	width:204px;
+	margin:30px 0;
+	padding-left:105px;
+	text-align:left;
+}
+/*----------------第二栏结束------------------------*/
+
+
+/*----------------------foot---------------------------*/
+#foot{
+	width:960px;
+	float:left;
+	margin-left:-480px;
+	left:50%;
+	position:relative;
+	width:960px;
+}
+#foot p{
+	text-align:left;
+	margin-left:24px;
+	margin-top:24px;
+	color:#615F60;
+}
+#foot ul{
+	float:left;
+	width:100%;
+	list-style:none;
+	
+}
+#foot ul li{
+	width:70px;
+	float:left;
+	margin-top:3px;
+}
+#foot p a span{
+	text-align:left;
+	padding:0 5px;
+}
+
+
+/*返回顶部的那个小黑快*/
+#totop{
+	width:25px;
+	height:25px;
+	display:block;
+	float:left;
+	position:absolute;
+	left:605px;
+	top:350px;
+}
+dl,dt,dd,table,td,th,p,h1,h2,ul,li,html,h3,h4,h5,form,input,a,img{
+	margin:0;
+	padding:0;
+	list-style-type: none;
+	color:#626262;
+}
+.STYLE1{color: #83C325}
+.yaoqingma{ width:180px; height:14px;border:1px solid #9D9B9C; }
+.tianxieziliao{ width:100%; height:auto; float:left; }
+.tianxieziliao ul li{ padding-right:30px; float:left;}
+.tianxieziliao ul li a{ color:#83C325;}
+.tishi{ width:auto;height:auto; padding-top:30px; float:left; }
+.bqmainbh{  height: auto; float:left; padding-bottom:40px}
+.xinyonghu{ height:auto ; float:left;  font-size:12px}
+.bigsize{font-size:13px}
+.zhucebiao{ width:750px; height:auto; float:left; padding-top:40px;padding-left:20px;}
+.xunzhao{ width:750px; height:auto; padding-top:30px;margin-bottom:30px}
+.zzbiaoti{ width:960px; height:10px; padding-bottom:20px; float:left;}
+.join{ color:#83C325; text-decoration:underline}
+.bitiankuang{ width:300px; height:14px; border:1px solid #9D9B9C; color:#606060}
+.bianqianan{ margin:0;padding:0;width:16px; height:16px; background:url(../images/jiantou.gif)}

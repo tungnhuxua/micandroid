@@ -1,0 +1,71 @@
+/***************************************
+ * author:可乐加糖
+ * email:black.angel.liu@gmail.com
+ ****************************************/
+
+@import url("base.css");
+@import url("adv.css");
+@import url("newslist.css");
+
+
+#tagUlList{
+padding-left:45px;
+padding-top:40px;
+}
+
+
+/*列表显示*/
+.tagnews{
+	padding-left:45px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.tagnews .tagnewsleft{
+	
+}
+.tagnews .tagnewsleft img{
+	width:35px;
+	height:35px;
+}
+.tagnews .tagnewsright{
+	margin-left:24px;
+	width:300px;
+}
+.tagnews .tagnewsright h3{
+	color:#878787;
+}
+.tagnews .tagnewsright h4{
+	margin-top:5px;
+	color:#878787;
+}
+.tagnews .tagnewsright p{
+	margin-top:5px;
+	width:350px;
+	color:#878787;
+}
+
+dl,dt,dd,table,td,th,p,h1,h2,ul,li,html,h3,h4,h5,form,input,a,img{
+	margin:0;
+	padding:0;
+	list-style-type: none;
+	text-decoration:none; border:none;
+	color:#626262;
+}
+.STYLE1{color: #83C325}
+.yaoqingma{ width:180px; height:14px;border:1px solid #9D9B9C; }
+.tianxieziliao{ width:750px; height:auto; float:left;}
+.tianxieziliao ul li{ padding-right:30px; float:left;}
+.tianxieziliao ul li a{color:#83C325;}
+.tishi{ width:750px;height:auto; padding-top:30px; float:left; }
+.bqmainbh{  height: auto; float:left; padding-bottom:40px}
+.bigsize{font-size:13px}
+.zhucebiao{ width:750px; height:auto; float:left; padding-top:40px;}
+.xunzhao{ width:750px; height:auto; padding-top:30px;margin-bottom:30px}
+.zzbiaoti{ width:750px; height:10px; padding-bottom:20px; float:left;}
+.join{ color:#83C325; text-decoration:underline}
+.bitiankuang{ width:300px; height:14px; border:1px solid #9D9B9C; color:#606060}
+.bianqianan{ width:16px; height:16px; background:url(../images/jiantou.gif)}
+.bqmainbh{ width:800px; height: auto; float:left; padding-bottom:40px}
+.xinyonghu{ width:750px; height:auto ; float:left; padding-left:20px; font-size:12px}
+.bigsize{font-size:13px}
+.gongxi{ width:750px; height:200px; float:left; padding-top:20px;color:#83C325;padding-left:20px;}
