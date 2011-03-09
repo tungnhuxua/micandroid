@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<mapper namespace="PartSubjectReal">
+
+	<resultMap id="PartSubjectRealResult" type="cn.mmbook.platform.model.site.PartSubjectReal">
+              <result property="id" column="id_" />				
+              <result property="subjectId" column="subject_id_" />				
+              <result property="partId" column="part_id_" />				
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="partSubjectRealColumns">
+	    <![CDATA[
+        	id_ AS id,
+        	subject_id_ AS subjectId,
+        	part_id_ AS partId
+	    ]]>
+	</sql>
+	
+	
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert" parameterType="cn.mmbook.platform.model.site.PartSubjectReal" >
+
+        INSERT INTO
+        tb_part_subject_real (
+        	id_ ,
+        	subject_id_ ,
+        	part_id_ 
+        ) VALUES (
+        	#{id,jdbcType=INTEGER} ,
+        	#{subjectId,jdbcType=INTEGER} ,
+        	#{partId,jdbcType=INTEGER} 
+        )
+	</insert>
+    
+	<update id="update" parameterType="cn.mmbook.platform.model.site.PartSubjectReal">
+    <![CDATA[
+        UPDATE tb_part_subject_real SET
+	        subject_id_ = #{subjectId,jdbcType=INTEGER} ,
+	        part_id_ = #{partId,jdbcType=INTEGER} 
+        WHERE 
+	        id_ = #{id} 
+    ]]>
+	</update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+    <![CDATA[
+        DELETE FROM tb_part_subject_real WHERE
+        id_ = #{id} 
+    ]]>
+    </delete>
+    
+    <select id="getById" parameterType="java.lang.Integer" resultMap="PartSubjectRealResult">
+		SELECT <include refid="partSubjectRealColumns" />
+	    <![CDATA[
+		    FROM tb_part_subject_real 
+	        WHERE 
+		        id_ = #{id} 
+	    ]]>
+	</select>
+    <select id="findAll" resultMap="PartSubjectRealResult">
+		SELECT <include refid="partSubjectRealColumns" />
+	    <![CDATA[
+		    FROM tb_part_subject_real
+	    ]]>
+	</select>
+	<sql id="partSubjectRealDynamicWhere">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id_ = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(subjectId)">
+				AND subject_id_ = #{subjectId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(partId)">
+				AND part_id_ = #{partId}
+			</if>
+		</where>
+	</sql>
+		
+    <select id="count" resultType="long">
+        SELECT COUNT(1) FROM tb_part_subject_real 
+		<include refid="partSubjectRealDynamicWhere"/>    
+    </select>
+    
+    <!--
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="pageSelect" resultMap="PartSubjectRealResult">
+    	SELECT <include refid="partSubjectRealColumns" />
+	    FROM tb_part_subject_real 
+		<include refid="partSubjectRealDynamicWhere"/>
+		<if test="@Ognl@isNotEmpty(sortColumns)">
+			ORDER BY ${sortColumns}
+		</if>
+    </select>
+
+
+    <!--
+    	多表关联分页查询
+    	处理处理实现
+    -->
+    <select id="anytablelist" resultMap="PartSubjectRealResult">
+    	SELECT <include refid="partSubjectRealColumns" />
+	    FROM tb_part_subject_real
+    </select>
+		
+    <select id="anytablecount" resultType="long">
+        SELECT COUNT(1) FROM tb_part_subject_real 
+		<include refid="partSubjectRealDynamicWhere"/>    
+    </select>
+	
+	<!-- getList -->
+	<select id="getPartSubjectRealList" resultMap="PartSubjectRealResult">
+	  SELECT <include refid="partSubjectRealColumns" />
+	  FROM tb_part_subject_real
+	  <include refid="partSubjectRealDynamicWhere"/>
+	</select>
+
+
+</mapper>

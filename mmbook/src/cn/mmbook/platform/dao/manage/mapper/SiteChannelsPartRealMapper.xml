@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<mapper namespace="SiteChannelsPartReal">
+
+	<resultMap id="SiteChannelsPartRealResult" type="cn.mmbook.platform.model.manage.SiteChannelsPartReal">
+              <result property="id" column="id_" />				
+              <result property="channelsId" column="channels_id_" />				
+              <result property="partId" column="part_id_" />				
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="siteChannelsPartRealColumns">
+	    <![CDATA[
+        	id_ AS id,
+        	channels_id_ AS channelsId,
+        	part_id_ AS partId
+	    ]]>
+	</sql>
+	
+	
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert" parameterType="cn.mmbook.platform.model.manage.SiteChannelsPartReal" >
+	
+        INSERT INTO
+        tb_site_channels_part_real (
+        	channels_id_ ,
+        	part_id_ 
+        ) VALUES (
+        	#{channelsId,jdbcType=INTEGER} ,
+        	#{partId,jdbcType=INTEGER} 
+        )
+	</insert>
+    
+	<update id="update" parameterType="cn.mmbook.platform.model.manage.SiteChannelsPartReal">
+    <![CDATA[
+        UPDATE tb_site_channels_part_real SET
+	        channels_id_ = #{channelsId,jdbcType=INTEGER} ,
+	        part_id_ = #{partId,jdbcType=INTEGER} 
+        WHERE 
+	        id_ = #{id} 
+    ]]>
+	</update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+    <![CDATA[
+        DELETE FROM tb_site_channels_part_real WHERE
+        id_ = #{id} 
+    ]]>
+    </delete>
+    
+    <delete id="removeByInfo" parameterType="cn.mmbook.platform.model.manage.SiteChannelsPartReal">
+        DELETE FROM tb_site_channels_part_real 
+		<where>
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id_ = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(channelsId)">
+				AND channels_id_ = #{channelsId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(partId)">
+				AND part_id_ = #{partId}
+			</if>
+		</where>
+    </delete>
+
+    <select id="getById" parameterType="java.lang.Integer" resultMap="SiteChannelsPartRealResult">
+		SELECT <include refid="siteChannelsPartRealColumns" />
+	    <![CDATA[
+		    FROM tb_site_channels_part_real 
+	        WHERE 
+		        id_ = #{id} 
+	    ]]>
+	</select>
+    <select id="findAll" resultMap="SiteChannelsPartRealResult">
+		SELECT <include refid="siteChannelsPartRealColumns" />
+	    <![CDATA[
+		    FROM tb_site_channels_part_real
+	    ]]>
+	</select>
+	<sql id="siteChannelsPartRealDynamicWhere">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id_ = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(channelsId)">
+				AND channels_id_ = #{channelsId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(partId)">
+				AND part_id_ = #{partId}
+			</if>
+		</where>
+	</sql>
+		
+    <select id="count" resultType="long">
+        SELECT COUNT(1) FROM tb_site_channels_part_real 
+		<include refid="siteChannelsPartRealDynamicWhere"/>    
+    </select>
+    
+    <!--
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="pageSelect" resultMap="SiteChannelsPartRealResult">
+    	SELECT <include refid="siteChannelsPartRealColumns" />
+	    FROM tb_site_channels_part_real 
+		<include refid="siteChannelsPartRealDynamicWhere"/>
+		<if test="@Ognl@isNotEmpty(sortColumns)">
+			ORDER BY ${sortColumns}
+		</if>
+    </select>
+
+
+    <!--
+    	多表关联分页查询
+    	处理处理实现
+    -->
+    <select id="anytablelist" resultMap="SiteChannelsPartRealResult">
+    	SELECT <include refid="siteChannelsPartRealColumns" />
+	    FROM tb_site_channels_part_real
+    </select>
+		
+    <select id="anytablecount" resultType="long">
+        SELECT COUNT(1) FROM tb_site_channels_part_real 
+		<include refid="siteChannelsPartRealDynamicWhere"/>    
+    </select>
+	
+	<!-- getList -->
+	<select id="getSiteChannelsPartRealList" resultMap="SiteChannelsPartRealResult">
+	  SELECT <include refid="siteChannelsPartRealColumns" />
+	  FROM tb_site_channels_part_real
+	  <include refid="siteChannelsPartRealDynamicWhere"/>
+	</select>
+
+
+</mapper>

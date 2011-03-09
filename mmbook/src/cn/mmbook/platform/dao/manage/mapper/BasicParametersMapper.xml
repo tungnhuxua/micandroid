@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<mapper namespace="BasicParameters">
+
+	<resultMap id="BasicParametersResult" type="cn.mmbook.platform.model.manage.BasicParameters">
+              <result property="id" column="id_" />				
+              <result property="parametersName" column="parameters_name_" />				
+              <result property="parametersValue" column="parameters_value_" />				
+              <result property="parametersTag" column="parameters_tag_" />				
+              <result property="parametersType" column="parameters_type_" />				
+              <result property="parametersNote" column="parameters_note_" />				
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="basicParametersColumns">
+	    <![CDATA[
+        	id_ AS id,
+        	parameters_name_ AS parametersName,
+        	parameters_value_ AS parametersValue,
+        	parameters_tag_ AS parametersTag,
+        	parameters_type_ AS parametersType,
+        	parameters_note_ AS parametersNote
+	    ]]>
+	</sql>
+	
+	
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert" parameterType="cn.mmbook.platform.model.manage.BasicParameters" >
+        INSERT INTO
+        tb_basic_parameters_info (
+        	parameters_name_ ,
+        	parameters_value_ ,
+        	parameters_tag_ ,
+        	parameters_type_ ,
+        	parameters_note_ 
+        ) VALUES (
+        	#{parametersName,jdbcType=VARCHAR} ,
+        	#{parametersValue,jdbcType=VARCHAR} ,
+        	#{parametersTag,jdbcType=VARCHAR} ,
+        	#{parametersType,jdbcType=INTEGER} ,
+        	#{parametersNote,jdbcType=VARCHAR} 
+        )
+
+	</insert>
+    
+	<update id="update" parameterType="cn.mmbook.platform.model.manage.BasicParameters">
+    
+        UPDATE tb_basic_parameters_info SET
+            <if test="@Ognl@isNotEmpty(parametersName)">
+				  parameters_name_ = #{parametersName},
+			</if>
+            <if test="@Ognl@isNotEmpty(parametersValue)">
+				  parameters_value_ = #{parametersValue},
+			</if>
+            <if test="@Ognl@isNotEmpty(parametersTag)">
+				  parameters_tag_ = #{parametersTag},
+			</if>
+            <if test="@Ognl@isNotEmpty(parametersType)">
+				  parameters_type_ = #{parametersType},
+			</if>
+            <if test="@Ognl@isNotEmpty(parametersNote)">
+				  parameters_note_ = #{parametersNote},
+			</if>
+			id_=id_
+        WHERE 
+	        id_ = #{id} 
+     
+	</update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+    <![CDATA[
+        DELETE FROM tb_basic_parameters_info WHERE
+        id_ = #{id} 
+    ]]>
+    </delete>
+    
+    <select id="getById" parameterType="java.lang.Integer" resultMap="BasicParametersResult">
+		SELECT <include refid="basicParametersColumns" />
+	    <![CDATA[
+		    FROM tb_basic_parameters_info 
+	        WHERE 
+		        id_ = #{id} 
+	    ]]>
+	</select>
+    <select id="findAll" resultMap="BasicParametersResult">
+		SELECT <include refid="basicParametersColumns" />
+	    <![CDATA[
+		    FROM tb_basic_parameters_info
+	    ]]>
+	</select>
+	<sql id="basicParametersDynamicWhere">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id_ = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(parametersName)">
+	          AND parameters_name_ like '%${parametersName}%'
+			</if>
+	       <if test="@Ognl@isNotEmpty(parametersValue)">
+				AND parameters_value_ = #{parametersValue}
+			</if>
+	       <if test="@Ognl@isNotEmpty(parametersTag)">
+				AND parameters_tag_ = #{parametersTag}
+			</if>
+	       <if test="@Ognl@isNotEmpty(parametersType)">
+				AND parameters_type_ = #{parametersType}
+			</if>
+	       <if test="@Ognl@isNotEmpty(parametersNote)">
+	           AND parameters_note_ like '%${parametersNote}%' 
+			</if>
+		</where>
+	</sql>
+		
+    <select id="count" resultType="long">
+        SELECT COUNT(1) FROM tb_basic_parameters_info 
+		<include refid="basicParametersDynamicWhere"/>    
+    </select>
+    
+    <!--
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="pageSelect" resultMap="BasicParametersResult">
+    	SELECT <include refid="basicParametersColumns" />
+	    FROM tb_basic_parameters_info 
+		<include refid="basicParametersDynamicWhere"/>
+			ORDER BY id_ desc 
+    </select>
+
+
+    <!--
+    	多表关联分页查询
+    	处理处理实现
+    -->
+    <select id="anytablelist" resultMap="BasicParametersResult">
+    	SELECT <include refid="basicParametersColumns" />
+	    FROM tb_basic_parameters_info
+    </select>
+		
+    <select id="anytablecount" resultType="long">
+        SELECT COUNT(1) FROM tb_basic_parameters_info 
+		<include refid="basicParametersDynamicWhere"/>    
+    </select>
+	
+	<!-- getList -->
+	<select id="getBasicParametersList" resultMap="BasicParametersResult">
+	  SELECT <include refid="basicParametersColumns" />
+	  FROM tb_basic_parameters_info
+	  <include refid="basicParametersDynamicWhere"/>
+	</select>
+
+	<select id="verification" resultMap="BasicParametersResult">
+	  SELECT <include refid="basicParametersColumns" />
+	    FROM tb_basic_parameters_info
+		<where>
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id_ = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(parametersName)">
+	           AND parameters_name_ = #{parametersName} 
+			</if>
+	       <if test="@Ognl@isNotEmpty(parametersValue)">
+				AND parameters_value_ = #{parametersValue}
+			</if>
+	       <if test="@Ognl@isNotEmpty(parametersTag)">
+				AND parameters_tag_ = #{parametersTag}
+			</if>
+	       <if test="@Ognl@isNotEmpty(parametersType)">
+				AND parameters_type_ = #{parametersType}
+			</if>
+	       <if test="@Ognl@isNotEmpty(parametersNote)">
+	           AND parameters_note_ =  #{parametersNote}
+			</if>
+		</where>
+	</select>
+
+</mapper>

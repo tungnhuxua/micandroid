@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<mapper namespace="SiteContent">
+
+	<resultMap id="SiteContentResult" type="cn.mmbook.platform.model.site.SiteContent">
+              <result property="id" column="id_" />				
+              <result property="sortId" column="sort_id_" />				
+              <result property="oneSortId" column="one_sort_id_" />				
+              <result property="title" column="title_" />				
+              <result property="titleFull" column="title_full_" />				
+              <result property="synopsis" column="synopsis_" />				
+              <result property="sources" column="sources_" />				
+              <result property="author" column="author_" />				
+              <result property="submitNam" column="submit_nam_" />				
+              <result property="submitTime" column="submit_time_" />				
+              <result property="updateNam" column="update_nam_" />				
+              <result property="updateTime" column="update_time_" />				
+              <result property="previewsImgUrl" column="previews_img_url_" />				
+              <result property="stateNo" column="state_no_" />				
+              <result property="modelId" column="model_id_" />				
+              <result property="sortValue" column="sort_value_" />				
+              <result property="commentStat" column="comment_stat_" />				
+              <result property="viewClass" column="view_class_" />				
+              <result property="showTime" column="show_time_" />				
+              <result property="conentUrl" column="conent_url_" />				
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="siteContentColumns">
+	    <![CDATA[
+        	id_ AS id,
+        	sort_id_ AS sortId,
+        	one_sort_id_ AS oneSortId,
+        	title_ AS title,
+        	title_full_ AS titleFull,
+        	synopsis_ AS synopsis,
+        	sources_ AS sources,
+        	author_ AS author,
+        	submit_nam_ AS submitNam,
+        	submit_time_ AS submitTime,
+        	update_nam_ AS updateNam,
+        	update_time_ AS updateTime,
+        	previews_img_url_ AS previewsImgUrl,
+        	state_no_ AS stateNo,
+        	model_id_ AS modelId,
+        	sort_value_ AS sortValue,
+        	comment_stat_ AS commentStat,
+        	view_class_ AS viewClass,
+        	show_time_ AS showTime,
+        	conent_url_ AS conentUrl
+	    ]]>
+	</sql>
+	
+	
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert" parameterType="cn.mmbook.platform.model.site.SiteContent" >
+  
+        INSERT INTO
+        tb_site_content_info (
+        	id_ ,
+        	sort_id_ ,
+        	one_sort_id_ ,
+        	title_ ,
+        	title_full_ ,
+        	synopsis_ ,
+        	sources_ ,
+        	author_ ,
+        	submit_nam_ ,
+        	submit_time_ ,
+        	update_nam_ ,
+        	update_time_ ,
+        	previews_img_url_ ,
+        	state_no_ ,
+        	model_id_ ,
+        	sort_value_ ,
+        	comment_stat_ ,
+        	view_class_ ,
+        	show_time_ ,
+        	conent_url_ 
+        ) VALUES (
+        	#{id,jdbcType=VARCHAR} ,
+        	#{sortId,jdbcType=INTEGER} ,
+        	#{oneSortId,jdbcType=INTEGER} ,
+        	#{title,jdbcType=VARCHAR} ,
+        	#{titleFull,jdbcType=VARCHAR} ,
+        	#{synopsis,jdbcType=VARCHAR} ,
+        	#{sources,jdbcType=VARCHAR} ,
+        	#{author,jdbcType=VARCHAR} ,
+        	#{submitNam,jdbcType=VARCHAR} ,
+        	now(),
+        	#{updateNam,jdbcType=VARCHAR} ,
+        	now() ,
+        	#{previewsImgUrl,jdbcType=VARCHAR} ,
+        	#{stateNo,jdbcType=INTEGER} ,
+        	#{modelId,jdbcType=VARCHAR} ,
+        	#{sortValue,jdbcType=INTEGER} ,
+        	#{commentStat,jdbcType=INTEGER} ,
+        	#{viewClass,jdbcType=INTEGER} ,
+        	#{showTime,jdbcType=INTEGER} ,
+        	#{conentUrl,jdbcType=VARCHAR} 
+        )
+  
+	</insert>
+    
+	<update id="update" parameterType="cn.mmbook.platform.model.site.SiteContent">
+        UPDATE tb_site_content_info SET
+			<if test="@Ognl@isNotEmpty(id)">
+				 id_ = #{id},
+			</if>
+	       <if test="@Ognl@isNotEmpty(sortId)">
+				 sort_id_ = #{sortId},
+			</if>
+	       <if test="@Ognl@isNotEmpty(oneSortId)">
+				 one_sort_id_ = #{oneSortId},
+			</if>
+	       <if test="@Ognl@isNotEmpty(title)">
+				 title_ = #{title},
+			</if>
+	       <if test="@Ognl@isNotEmpty(titleFull)">
+				 title_full_ = #{titleFull},
+			</if>
+	       <if test="@Ognl@isNotEmpty(synopsis)">
+				 synopsis_ = #{synopsis},
+			</if>
+	       <if test="@Ognl@isNotEmpty(sources)">
+				 sources_ = #{sources},
+			</if>
+	       <if test="@Ognl@isNotEmpty(author)">
+				 author_ = #{author},
+			</if>
+	       <if test="@Ognl@isNotEmpty(submitNam)">
+				 submit_nam_ = #{submitNam},
+			</if>
+	       <if test="@Ognl@isNotEmpty(submitTime)">
+				 submit_time_ = #{submitTime},
+			</if>
+	       <if test="@Ognl@isNotEmpty(updateNam)">
+				 update_nam_ = #{updateNam},
+			</if>
+	       <if test="@Ognl@isNotEmpty(updateTime)">
+				 update_time_ = #{updateTime},
+			</if>
+	       <if test="@Ognl@isNotEmpty(previewsImgUrl)">
+				 previews_img_url_ = #{previewsImgUrl},
+			</if>
+	       <if test="@Ognl@isNotEmpty(stateNo)">
+				 state_no_ = #{stateNo},
+			</if>
+	       <if test="@Ognl@isNotEmpty(modelId)">
+				 model_id_ = #{modelId},
+			</if>
+	       <if test="@Ognl@isNotEmpty(sortValue)">
+				 sort_value_ = #{sortValue},
+			</if>
+	       <if test="@Ognl@isNotEmpty(commentStat)">
+				 comment_stat_ = #{commentStat},
+			</if>
+	       <if test="@Ognl@isNotEmpty(viewClass)">
+				 view_class_ = #{viewClass},
+			</if>
+	       <if test="@Ognl@isNotEmpty(showTime)">
+				 show_time_ = #{showTime},
+			</if>
+	       <if test="@Ognl@isNotEmpty(conentUrl)">
+				 conent_url_ = #{conentUrl},
+			</if>
+			id_ = #{id}
+        WHERE 
+	        id_ = #{id}
+	</update>
+
+    <delete id="delete" parameterType="java.lang.String">
+    <![CDATA[
+        DELETE FROM tb_site_content_info WHERE
+        id_ = #{id} 
+    ]]>
+    </delete>
+    
+    <select id="getById" parameterType="java.lang.String" resultMap="SiteContentResult">
+		SELECT <include refid="siteContentColumns" />
+	    <![CDATA[
+		    FROM tb_site_content_info 
+	        WHERE 
+		        id_ = #{id} 
+	    ]]>
+	</select>
+    <select id="findAll" resultMap="SiteContentResult">
+		SELECT <include refid="siteContentColumns" />
+	    <![CDATA[
+		    FROM tb_site_content_info
+	    ]]>
+	</select>
+	<sql id="siteContentDynamicWhere">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id_ = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(sortId)">
+				AND sort_id_ = #{sortId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(oneSortId)">
+				AND one_sort_id_ = #{oneSortId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(title)">
+				AND title_ = #{title}
+			</if>
+	       <if test="@Ognl@isNotEmpty(titleFull)">
+				AND title_full_ = #{titleFull}
+			</if>
+	       <if test="@Ognl@isNotEmpty(synopsis)">
+				AND synopsis_ = #{synopsis}
+			</if>
+	       <if test="@Ognl@isNotEmpty(sources)">
+				AND sources_ = #{sources}
+			</if>
+	       <if test="@Ognl@isNotEmpty(author)">
+				AND author_ = #{author}
+			</if>
+	       <if test="@Ognl@isNotEmpty(submitNam)">
+				AND submit_nam_ = #{submitNam}
+			</if>
+	       <if test="@Ognl@isNotEmpty(submitTime)">
+				AND submit_time_ = #{submitTime}
+			</if>
+	       <if test="@Ognl@isNotEmpty(updateNam)">
+				AND update_nam_ = #{updateNam}
+			</if>
+	       <if test="@Ognl@isNotEmpty(updateTime)">
+				AND update_time_ = #{updateTime}
+			</if>
+	       <if test="@Ognl@isNotEmpty(previewsImgUrl)">
+				AND previews_img_url_ = #{previewsImgUrl}
+			</if>
+	       <if test="@Ognl@isNotEmpty(stateNo)">
+				AND state_no_ = #{stateNo}
+			</if>
+	       <if test="@Ognl@isNotEmpty(modelId)">
+				AND model_id_ = #{modelId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(sortValue)">
+				AND sort_value_ = #{sortValue}
+			</if>
+	       <if test="@Ognl@isNotEmpty(commentStat)">
+				AND comment_stat_ = #{commentStat}
+			</if>
+	       <if test="@Ognl@isNotEmpty(viewClass)">
+				AND view_class_ = #{viewClass}
+			</if>
+	       <if test="@Ognl@isNotEmpty(showTime)">
+				AND show_time_ = #{showTime}
+			</if>
+	       <if test="@Ognl@isNotEmpty(conentUrl)">
+				AND conent_url_ = #{conentUrl}
+			</if>
+		</where>
+	</sql>
+	
+	<sql id="siteContentDynamicWhereMap">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>
+	       <if test="@Ognl@isNotEmpty(sortId)">
+				AND sort_id_ = #{sortId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(oneSortId)">
+				AND one_sort_id_ = #{oneSortId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(title)">
+				AND title_ = #{title}
+			</if>
+	       <if test="@Ognl@isNotEmpty(titleFull)">
+				AND title_full_ = #{titleFull}
+			</if>
+	       <if test="@Ognl@isNotEmpty(submitNam)">
+				AND submit_nam_ = #{submitNam}
+			</if>
+	       <if test="@Ognl@isNotEmpty(updateNam)">
+				AND update_nam_ = #{updateNam}
+			</if>
+	       <if test="@Ognl@isNotEmpty(stateNo)">
+				AND state_no_ = #{stateNo}
+			</if>
+	       <if test="@Ognl@isNotEmpty(modelId)">
+				AND model_id_ = #{modelId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(sortValue)">
+				AND sort_value_ = #{sortValue}
+			</if>
+	       <if test="@Ognl@isNotEmpty(commentStat)">
+				AND comment_stat_ = #{commentStat}
+			</if>
+	       <if test="@Ognl@isNotEmpty(viewClass)">
+				AND view_class_ = #{viewClass}
+			</if>
+	       <if test="@Ognl@isNotEmpty(showTime)">
+				AND show_time_ = #{showTime}
+			</if>
+		</where>
+	</sql>		
+    <select id="count" resultType="long">
+        SELECT COUNT(1) FROM tb_site_content_info 
+		<include refid="siteContentDynamicWhere"/>    
+    </select>
+    
+    <!--
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="pageSelect" resultMap="SiteContentResult">
+    	SELECT <include refid="siteContentColumns" />
+	    FROM tb_site_content_info 
+		<include refid="siteContentDynamicWhere"/>
+		<if test="@Ognl@isNotEmpty(sortColumns)">
+			ORDER BY ${sortColumns}
+		</if>
+    </select>
+
+
+    <!--
+    	多表关联分页查询
+    	处理处理实现
+    -->
+    <select id="anytablelist" resultMap="SiteContentResult">
+    	SELECT <include refid="siteContentColumns" />
+	    FROM tb_site_content_info
+    </select>
+		
+    <select id="anytablecount" resultType="long">
+        SELECT COUNT(1) FROM tb_site_content_info 
+		<include refid="siteContentDynamicWhere"/>    
+    </select>
+	
+	<!-- getList -->
+	<select id="getSiteContentList" resultMap="SiteContentResult">
+	  SELECT <include refid="siteContentColumns" />
+	  FROM tb_site_content_info
+	  <include refid="siteContentDynamicWhere"/>
+	</select>
+	
+	<!-- get max id -->
+	<select id="getMaxId" resultType="java.lang.String">
+          select id_ from tb_site_content_info  order by convert(id_ ,signed )   desc  limit   0,1
+	</select>
+	
+	<!-- get tag list xxj -->
+    <select id="getListByMapList" resultMap="SiteContentResult">
+    	SELECT <include refid="siteContentColumns" />
+	    FROM tb_site_content_info
+		<include refid="siteContentDynamicWhereMap"/>
+		<if test="@Ognl@isNotEmpty(sortColumns)">
+			ORDER BY ${sortColumns}
+		</if>
+	</select>
+		
+    <select id="getListByMapCount" resultType="long">
+        SELECT COUNT(1) FROM tb_site_content_info 
+		<include refid="siteContentDynamicWhereMap"/>    
+    </select>
+	
+ 	<select id="sreachSiteContent" resultMap="SiteContentResult" parameterType="hashmap">
+        SELECT <include refid="siteContentColumns" />
+	    FROM tb_site_content_info where 1=1 
+	    <if test="@Ognl@isNotEmpty(sreach)">
+	    	and title_ like '%${sreach}%' or title_full_ like '%${sreach}%' or synopsis_ like '%${sreach}%' or sources_ like '%${sreach}%'
+	    </if>
+	    <if test="@Ognl@isNotEmpty(count)">
+	    	limit #{begin},#{end}
+	    </if>
+    </select>
+</mapper>

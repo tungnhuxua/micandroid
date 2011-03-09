@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<mapper namespace="CmsModel">
+
+	<resultMap id="CmsModelResult" type="cn.mmbook.platform.model.tag.CmsModel">
+              <result property="id" column="ID_" />				
+              <result property="modelName" column="MODEL_NAME_" />				
+              <result property="depict" column="DEPICT_" />				
+              <result property="dealClass" column="DEAL_CLASS_" />				
+              <result property="dealObject" column="DEAL_OBJECT_" />				
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="cmsModelColumns">
+	    <![CDATA[
+        	id_ AS id,
+        	model_name_ AS modelName,
+        	depict_ AS depict,
+        	deal_class_ AS dealClass,
+        	deal_object_ AS dealObject
+	    ]]>
+	</sql>
+	
+	
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert" parameterType="cn.mmbook.platform.model.tag.CmsModel" >
+        INSERT INTO
+        tg_cms_model (
+        	id_ ,
+        	model_name_ ,
+        	depict_ ,
+        	deal_class_ ,
+        	deal_object_ 
+        ) VALUES (
+        	#{id,jdbcType=VARCHAR} ,
+        	#{modelName,jdbcType=VARCHAR} ,
+        	#{depict,jdbcType=VARCHAR} ,
+        	#{dealClass,jdbcType=VARCHAR} ,
+        	#{dealObject,jdbcType=VARCHAR} 
+        )
+	</insert>
+    
+	<update id="update" parameterType="cn.mmbook.platform.model.tag.CmsModel">
+    <![CDATA[
+        UPDATE tg_cms_model SET
+	        model_name_ = #{modelName,jdbcType=VARCHAR} ,
+	        depict_ = #{depict,jdbcType=VARCHAR} ,
+	        deal_class_ = #{dealClass,jdbcType=VARCHAR} ,
+	        deal_object_ = #{dealObject,jdbcType=VARCHAR} 
+        WHERE 
+	        id_ = #{id} 
+    ]]>
+	</update>
+
+    <delete id="delete" parameterType="java.lang.String">
+    <![CDATA[
+        DELETE FROM tg_cms_model WHERE
+        id_ = #{id} 
+    ]]>
+    </delete>
+    
+    <select id="getById" parameterType="java.lang.String" resultMap="CmsModelResult">
+		SELECT <include refid="cmsModelColumns" />
+	    <![CDATA[
+		    FROM tg_cms_model 
+	        WHERE 
+		        id_ = #{id} 
+	    ]]>
+	</select>
+	
+	<sql id="cmsModelDynamicWhere">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id_ = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(modelName)">
+				AND model_name_ LIKE '%' || #{modelName} || '%'
+			</if>
+	       <if test="@Ognl@isNotEmpty(depict)">
+				AND depict_ = #{depict}
+			</if>
+	       <if test="@Ognl@isNotEmpty(dealClass)">
+				AND deal_class_ = #{dealClass}
+			</if>
+	       <if test="@Ognl@isNotEmpty(dealObject)">
+				AND deal_object_ = #{dealObject}
+			</if>
+		</where>
+	</sql>
+		
+    <select id="count" resultType="long">
+        SELECT COUNT(1) FROM tg_cms_model 
+		<include refid="cmsModelDynamicWhere"/>    
+    </select>
+    
+    <!--
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="pageSelect" resultMap="CmsModelResult">
+    	SELECT <include refid="cmsModelColumns" />
+	    FROM tg_cms_model 
+		<include refid="cmsModelDynamicWhere"/>
+		<if test="@Ognl@isNotEmpty(sortColumns)">
+			ORDER BY ${sortColumns}
+		</if>
+    </select>
+
+	
+</mapper>

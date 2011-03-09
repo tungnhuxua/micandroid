@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<mapper namespace="SiteNovelNote">
+
+	<resultMap id="SiteNovelNoteResult" type="cn.mmbook.platform.model.site.SiteNovelNote">
+              <result property="id" column="id_" />				
+              <result property="contentId" column="content_id_" />				
+              <result property="chapterCount" column="chapter_count_" />				
+              <result property="serialstoryStat" column="serialstory_stat_" />				
+              <result property="authorNote" column="author_note_" />				
+              <result property="wordCount" column="word_count_" />				
+	</resultMap>
+
+	<resultMap id="SiteNovelNoteResultNew" type="cn.mmbook.platform.model.site.SiteNovelNote">
+              <result property="id" column="t1_id_" />				
+              <result property="contentId" column="t1_content_id_" />				
+              <result property="chapterCount" column="t1_chapter_count_" />				
+              <result property="serialstoryStat" column="t1_serialstory_stat_" />				
+              <result property="authorNote" column="t1_author_note_" />				
+              <result property="wordCount" column="t1_word_count_" />	
+              <association property="siteContent" column="id_" resultMap="SiteContentResultNew" />			
+	</resultMap>
+	
+	<resultMap id="SiteContentResultNew" type="cn.mmbook.platform.model.site.SiteContent">
+              <result property="id" column="id_" />				
+              <result property="sortId" column="sort_id_" />				
+              <result property="oneSortId" column="one_sort_id_" />				
+              <result property="title" column="title_" />				
+              <result property="titleFull" column="title_full_" />				
+              <result property="synopsis" column="synopsis_" />				
+              <result property="sources" column="sources_" />				
+              <result property="author" column="author_" />				
+              <result property="submitNam" column="submit_nam_" />				
+              <result property="submitTime" column="submit_time_" />				
+              <result property="updateNam" column="update_nam_" />				
+              <result property="updateTime" column="update_time_" />				
+              <result property="previewsImgUrl" column="previews_img_url_" />				
+              <result property="stateNo" column="state_no_" />				
+              <result property="modelId" column="model_id_" />				
+              <result property="sortValue" column="sort_value_" />				
+              <result property="commentStat" column="comment_stat_" />				
+              <result property="viewClass" column="view_class_" />				
+              <result property="showTime" column="show_time_" />				
+              <result property="conentUrl" column="conent_url_" />				
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="siteNovelNoteColumns">
+	    <![CDATA[
+        	id_ AS id,
+        	content_id_ AS contentId,
+        	chapter_count_ AS chapterCount,
+        	serialstory_stat_ AS serialstoryStat,
+        	author_note_ AS authorNote,
+        	word_count_ AS wordCount
+	    ]]>
+	</sql>
+	
+	
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert" parameterType="cn.mmbook.platform.model.site.SiteNovelNote" > 
+        INSERT INTO
+        tb_site_novel_note_info (
+        	id_ ,
+        	content_id_ ,
+        	chapter_count_ ,
+        	serialstory_stat_ ,
+        	author_note_ ,
+        	word_count_ 
+        ) VALUES (
+        	#{id,jdbcType=VARCHAR} ,
+        	#{contentId,jdbcType=VARCHAR} ,
+        	0 ,
+        	#{serialstoryStat,jdbcType=INTEGER} ,
+        	#{authorNote,jdbcType=VARCHAR} ,
+        	0 
+        ) 
+	</insert>
+    
+	<update id="update" parameterType="cn.mmbook.platform.model.site.SiteNovelNote">
+    <![CDATA[
+        UPDATE tb_site_novel_note_info SET
+	        content_id_ = #{contentId,jdbcType=VARCHAR} ,
+	        chapter_count_ = #{chapterCount,jdbcType=INTEGER} ,
+	        serialstory_stat_ = #{serialstoryStat,jdbcType=INTEGER} ,
+	        author_note_ = #{authorNote,jdbcType=VARCHAR} ,
+	        word_count_ = #{wordCount,jdbcType=INTEGER} 
+        WHERE 
+	        id_ = #{id} 
+    ]]>
+	</update>
+
+    <delete id="delete" parameterType="java.lang.String">
+    <![CDATA[
+        DELETE FROM tb_site_novel_note_info WHERE
+        id_ = #{id} 
+    ]]>
+    </delete>
+    
+    <select id="getById" parameterType="java.lang.String" resultMap="SiteNovelNoteResult">
+		SELECT <include refid="siteNovelNoteColumns" />
+	    <![CDATA[
+		    FROM tb_site_novel_note_info 
+	        WHERE 
+		        id_ = #{id} 
+	    ]]>
+	</select>
+    <select id="findAll" resultMap="SiteNovelNoteResult">
+		SELECT <include refid="siteNovelNoteColumns" />
+	    <![CDATA[
+		    FROM tb_site_novel_note_info
+	    ]]>
+	</select>
+	<sql id="siteNovelNoteDynamicWhere">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id_ = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(contentId)">
+				AND content_id_ = #{contentId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(chapterCount)">
+				AND chapter_count_ = #{chapterCount}
+			</if>
+	       <if test="@Ognl@isNotEmpty(serialstoryStat)">
+				AND serialstory_stat_ = #{serialstoryStat}
+			</if>
+	       <if test="@Ognl@isNotEmpty(authorNote)">
+				AND author_note_ = #{authorNote}
+			</if>
+	       <if test="@Ognl@isNotEmpty(wordCount)">
+				AND word_count_ = #{wordCount}
+			</if>
+		</where>
+	</sql>
+		
+    <select id="count" resultType="long">
+        SELECT COUNT(1) FROM tb_site_novel_note_info 
+		<include refid="siteNovelNoteDynamicWhere"/>    
+    </select>
+    
+    <!--
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="pageSelect" resultMap="SiteNovelNoteResult">
+    	SELECT <include refid="siteNovelNoteColumns" />
+	    FROM tb_site_novel_note_info 
+		<include refid="siteNovelNoteDynamicWhere"/>
+		<if test="@Ognl@isNotEmpty(sortColumns)">
+			ORDER BY ${sortColumns}
+		</if>
+    </select>
+
+
+    <!--
+    	多表关联分页查询
+    	处理处理实现
+    -->
+    <select id="anytablelist" resultMap="SiteNovelNoteResult">
+    	SELECT <include refid="siteNovelNoteColumns" />
+	    FROM tb_site_novel_note_info
+    </select>
+		
+    <select id="anytablecount" resultType="long">
+        SELECT COUNT(1) FROM tb_site_novel_note_info 
+		<include refid="siteNovelNoteDynamicWhere"/>    
+    </select>
+	
+	<!-- getList -->
+	<select id="getSiteNovelNoteList" resultMap="SiteNovelNoteResult">
+	  SELECT <include refid="siteNovelNoteColumns" />
+	  FROM tb_site_novel_note_info
+	  <include refid="siteNovelNoteDynamicWhere"/>
+	</select>
+	
+	<select id="getSiteNovelNoteInfo" resultMap="SiteNovelNoteResultNew" parameterType="string">
+		select t1.id_ t1_id_,t1.content_id_ t1_content_id_,t1.chapter_count_ t1_chapter_count_,t1.serialstory_stat_ t1_serialstory_stat_,t1.author_note_ t1_author_note_,t1.word_count_ t1_word_count_,t2.* 
+		from tb_site_novel_note_info t1 
+		inner join tb_site_content_info t2 
+		on t1.content_id_=t2.id_ 
+		and t1.content_id_=#{contentId}
+	</select>
+</mapper>
