@@ -9,6 +9,7 @@ import java.util.Set;
  * @author zhouxh
  */
 public class CmsActionSet {
+	
 	public static Set<String> set = new HashSet<String>();
 	static {
 		set.add("/admin.*");
