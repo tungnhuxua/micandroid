@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="BackGroundGray">#989898</color>
+    <color name="blue">#0000ff</color>
+    <color name="red">#b22222</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="green">#6b8e23</color>
+    <color name="violet">#151B54</color>
+    <color name="grey">#8b8989</color>
+    <color name="darkblue">#191970</color>
+    <color name="yellow1">#0000ff</color>
+    <color name="yellow2">#1100ff</color>
+    <color name="orange4">#6b8e23</color>
+    <color name="orange5">#6b8e27</color>
+    <color name="blue2">#191926</color>
+    <color name="blue25">#191970</color>
+    <color name="leftBtnColor">#533a11</color>
+    <color name="titleColor">#52657f</color>
+
+    <string name="hello">搜索宁波</string>
+    <string name="app_name">搜索宁波</string>
+    <string name="sign_in">登录</string>
+    <string name="home_btn">首页</string>
+    <string name="create_account">创建帐号</string>
+    <string name="registration_title">注册信息</string>
+    <string name="register_btn">注册</string>
+
+</resources>
