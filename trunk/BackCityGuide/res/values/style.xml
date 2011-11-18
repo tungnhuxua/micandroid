@@ -8,5 +8,10 @@
         <item name="android:shadowDy">1.6</item>
         <item name="android:shadowRadius">3.0</item>
     </style>
+    
+    <style name="signup_editText_one">
+        <item name="android:textColor">@color/violet</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 
 </resources>
