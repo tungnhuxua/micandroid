@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/app_background" >
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/RelLayHead"
+        android:layout_width="fill_parent"
+        android:layout_height="59dip"
+        android:background="@drawable/background2" >
+
+        <TextView
+            android:id="@+id/rightEdge"
+            android:layout_width="5dip"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/right_edge" />
+
+        <TextView
+            android:id="@+id/txtHeading"
+            android:layout_width="fill_parent"
+            android:layout_height="59dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="5dip"
+            android:layout_marginTop="5dip"
+            android:gravity="center"
+            android:text="Registration"
+            android:textColor="@color/titleColor"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/ButHomeTop"
+            android:layout_width="99dip"
+            android:layout_height="59dip"
+            android:layout_alignLeft="@+id/txtHeading"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/home"
+            android:gravity="right|center"
+            android:paddingRight="35dip"
+            android:text="Sign In"
+            android:textColor="@color/leftBtnColor"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <!--  -->
+
+    <Button
+        android:id="@+id/ButImage"
+        android:layout_width="70px"
+        android:layout_height="70px"
+        android:layout_below="@+id/RelLayHead"
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="5px"
+        android:background="@drawable/add_photo_without_cross" />
+
+    <EditText
+        android:id="@+id/edtName"
+        android:layout_width="fill_parent"
+        android:layout_height="40px"
+        android:layout_below="@+id/ButImage"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="10px"
+        android:gravity="left"
+        android:hint="Full Name"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/violet"
+        android:textSize="18px" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="fill_parent"
+        android:layout_height="40px"
+        android:layout_below="@+id/edtName"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="10px"
+        android:gravity="left"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/violet"
+        android:textSize="18px" />
+
+    <EditText
+        android:id="@+id/edtPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="40px"
+        android:layout_below="@+id/edtEmail"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="10px"
+        android:gravity="left"
+        android:hint="Password"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/violet"
+        android:textSize="18px" />
+
+    <EditText
+        android:id="@+id/edtcnfPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="40px"
+        android:layout_below="@+id/edtPassword"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="10px"
+        android:gravity="left"
+        android:hint="Re-enter Password"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/violet"
+        android:textSize="18px" />
+
+    <Button
+        android:id="@+id/Butregister"
+        android:layout_width="290px"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtcnfPassword"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="10px"
+        android:background="@drawable/button_on"
+        android:gravity="center"
+        android:text="Register"
+        android:textColor="@color/violet"
+        android:textSize="18sp" />
+
+    <!--  -->
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10px"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px" >
+
+        <Button
+            android:id="@+id/Buthome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_on" />
+
+        <Button
+            android:id="@+id/ButSerarch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/Buthome"
+            android:background="@drawable/search_off" />
+
+        <Button
+            android:id="@+id/ButFev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ButSerarch"
+            android:background="@drawable/favourites_off" />
+
+        <Button
+            android:id="@+id/ButPeople"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ButFev"
+            android:background="@drawable/friends_off" />
+
+        <Button
+            android:id="@+id/ButSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ButPeople"
+            android:background="@drawable/settings_off" />
+    </RelativeLayout>
+
+</RelativeLayout>

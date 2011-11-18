@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/app_background" >
+
+    <TextView
+        android:id="@+id/catName"
+        android:layout_width="fill_parent"
+        android:layout_height="40px"
+        android:layout_marginLeft="20px"
+        android:gravity="left|bottom"
+        android:text="Recently viewed"
+        android:textColor="@color/violet"
+        android:textSize="16px"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="280px"
+        android:layout_below="@+id/catName"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="10px"
+        android:cacheColorHint="#00000000"
+        android:drawSelectorOnTop="false"
+        android:fastScrollEnabled="true"
+        android:listSelector="@drawable/item_selected_background"
+        android:smoothScrollbar="true" />
+
+    <Button
+        android:id="@+id/ButSignIn"
+        android:layout_width="290px"
+        android:layout_height="wrap_content"
+        android:layout_below="@android:id/list"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="10px"
+        android:background="@drawable/button_on"
+        android:gravity="center"
+        android:textColor="@color/violet"
+        android:textSize="18sp"
+        android:text="Sign In"/>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10px"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px" >
+
+        <Button
+            android:id="@+id/Buthome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_on" />
+
+        <Button
+            android:id="@+id/ButSerarch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/Buthome"
+            android:background="@drawable/search_off" />
+
+        <Button
+            android:id="@+id/ButFev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ButSerarch"
+            android:background="@drawable/favourites_off" />
+
+        <Button
+            android:id="@+id/ButPeople"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ButFev"
+            android:background="@drawable/friends_off" />
+
+        <Button
+            android:id="@+id/ButSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ButPeople"
+            android:background="@drawable/settings_off" />
+    </RelativeLayout>
+
+</RelativeLayout>
