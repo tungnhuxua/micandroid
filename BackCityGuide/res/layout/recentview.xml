@@ -11,10 +11,8 @@
         android:layout_marginLeft="20px"
         android:gravity="left|bottom"
         android:text="Recently viewed"
-        android:textColor="@color/violet"
-        android:textSize="16px"
-        android:textStyle="bold"
-        android:typeface="sans" />
+        style="@style/inputTextStyle" 
+        />
 
     <ListView
         android:id="@android:id/list"
@@ -42,7 +40,7 @@
         android:gravity="center"
         android:textColor="@color/violet"
         android:textSize="18sp"
-        android:text="Sign In"/>
+        android:text="@string/sign_in"/>
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
