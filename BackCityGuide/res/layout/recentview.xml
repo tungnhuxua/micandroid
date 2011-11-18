@@ -7,8 +7,8 @@
     <TextView
         android:id="@+id/catName"
         android:layout_width="fill_parent"
-        android:layout_height="40px"
-        android:layout_marginLeft="20px"
+        android:layout_height="40dip"
+        android:layout_marginLeft="20dip"
         android:gravity="left|bottom"
         android:text="Recently viewed"
         style="@style/inputTextStyle" 
@@ -17,11 +17,11 @@
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"
-        android:layout_height="280px"
+        android:layout_height="280dip"
         android:layout_below="@+id/catName"
-        android:layout_marginLeft="20px"
-        android:layout_marginRight="20px"
-        android:layout_marginTop="10px"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginTop="10dip"
         android:cacheColorHint="#00000000"
         android:drawSelectorOnTop="false"
         android:fastScrollEnabled="true"
@@ -30,12 +30,12 @@
 
     <Button
         android:id="@+id/ButSignIn"
-        android:layout_width="290px"
+        android:layout_width="290dip"
         android:layout_height="wrap_content"
         android:layout_below="@android:id/list"
-        android:layout_marginLeft="20px"
-        android:layout_marginRight="20px"
-        android:layout_marginTop="10px"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginTop="10dip"
         android:background="@drawable/button_on"
         android:gravity="center"
         android:textColor="@color/violet"
@@ -47,9 +47,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10px"
-        android:layout_marginLeft="20px"
-        android:layout_marginRight="20px" >
+        android:layout_marginBottom="10dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip" >
 
         <Button
             android:id="@+id/Buthome"
