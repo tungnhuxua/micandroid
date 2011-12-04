@@ -49,6 +49,10 @@
 		</property>
 	</bean>
 
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
 	<!-- 配置事务管理 -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
@@ -57,5 +61,5 @@
 
 	<!-- 配置注解实现管理事务（cglib：proxy-target-class="true"） -->
 	<tx:annotation-driven transaction-manager="transactionManager"
-		proxy-target-class="true" />
+		proxy-target-class="false" />
 </beans>
