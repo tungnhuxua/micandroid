@@ -7,12 +7,15 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>searchningbo api</name>
 	<url>http://maven.apache.org</url>
-
 	<repositories>
 
 		<repository>
 			<id>JBoss repository</id>
 			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+		</repository>
+		<repository>
+			<id>Java.Net</id>
+			<url>http://download.java.net/maven/2/</url>
 		</repository>
 	</repositories>
 
@@ -299,6 +302,13 @@
 			<groupId>javaee</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -308,7 +318,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 
 
 	<build>

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.annotation.Resource;
 
 import ningbo.media.core.dao.BaseDao;
 
@@ -11,12 +12,16 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateCallback;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.util.Assert;
 
-public class BaseDaoImpl<E, PK extends Serializable> extends
-		HibernateDaoSupport implements BaseDao<E, PK> {
+public class BaseDaoImpl<E, PK extends Serializable> implements BaseDao<E, PK> {
+	
 
+	@Resource
+	private HibernateTemplate hibernateTemplate ;
+	
+	
 	private Class<E> entityClass;
 
 	public BaseDaoImpl() {
@@ -28,7 +33,7 @@ public class BaseDaoImpl<E, PK extends Serializable> extends
 		this.entityClass = entityClass;
 	}
 	
-	public void setEntity(Class<E> entityClass) {
+	public void setEntityClass(Class<E> entityClass) {
 		this.entityClass = entityClass;
 	}
 
@@ -42,13 +47,20 @@ public class BaseDaoImpl<E, PK extends Serializable> extends
 		return (E) getHibernateTemplate().load(this.entityClass, id);
 	}
 
-	@SuppressWarnings("unchecked")
-	public List<E> get(PK[] ids) {
+	public List<E> get(final PK[] ids) {
 		Assert.notEmpty(ids, "ids must not be empty!");
-		String hql = "from " + entityClass.getName()
+		final String hql = "from " + entityClass.getName()
 				+ " as b where b.id in(:ids) ";
-		return getSession().createQuery(hql).setParameterList("ids", ids)
-				.list();
+		return getHibernateTemplate().execute(new HibernateCallback<List<E>>(){
+
+			@SuppressWarnings("unchecked")
+			public List<E> doInHibernate(Session session)
+					throws HibernateException, SQLException {
+				return session.createQuery(hql).setParameterList("ids", ids).list() ;
+				
+			}
+			
+		}) ;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -161,5 +173,17 @@ public class BaseDaoImpl<E, PK extends Serializable> extends
 			
 		}) ;
 	}
+
+
+	public HibernateTemplate getHibernateTemplate() {
+		return hibernateTemplate;
+	}
+
+
+	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+		this.hibernateTemplate = hibernateTemplate;
+	}
+	
+	
 
 }
