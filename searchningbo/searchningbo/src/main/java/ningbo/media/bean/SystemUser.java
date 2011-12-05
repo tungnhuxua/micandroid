@@ -3,17 +3,20 @@ package ningbo.media.bean;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.Expose;
 
 @Entity
-@Table(name = "sys_user")
+@Table(name = "users")
+@XmlRootElement
 public class SystemUser implements Serializable {
 
 	private static final long serialVersionUID = -4367047739963786995L;
@@ -22,20 +25,29 @@ public class SystemUser implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Expose
 	private Integer id;
+	
 	@Expose
 	private String username; 
+	
 	@Expose
 	private String password;
+	
 	@Expose
 	private String name_en;
+	
 	@Expose
 	private String name_cn;
+	
 	@Expose
 	private String email;
+	
 	@Expose
 	private String photo_path;
+	
+	@Column(name="manager")
 	@Expose
 	private Boolean isManager;
+	
 	@Expose
 	private Date date_time;
 	
