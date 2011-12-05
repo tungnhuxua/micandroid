@@ -16,23 +16,20 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.util.Assert;
 
 public class BaseDaoImpl<E, PK extends Serializable> implements BaseDao<E, PK> {
-	
 
 	@Resource
-	private HibernateTemplate hibernateTemplate ;
-	
-	
+	private HibernateTemplate hibernateTemplate;
+
 	private Class<E> entityClass;
 
 	public BaseDaoImpl() {
 
 	}
-	
 
 	public BaseDaoImpl(Class<E> entityClass) {
 		this.entityClass = entityClass;
 	}
-	
+
 	public void setEntityClass(Class<E> entityClass) {
 		this.entityClass = entityClass;
 	}
@@ -51,16 +48,17 @@ public class BaseDaoImpl<E, PK extends Serializable> implements BaseDao<E, PK> {
 		Assert.notEmpty(ids, "ids must not be empty!");
 		final String hql = "from " + entityClass.getName()
 				+ " as b where b.id in(:ids) ";
-		return getHibernateTemplate().execute(new HibernateCallback<List<E>>(){
+		return getHibernateTemplate().execute(new HibernateCallback<List<E>>() {
 
 			@SuppressWarnings("unchecked")
 			public List<E> doInHibernate(Session session)
 					throws HibernateException, SQLException {
-				return session.createQuery(hql).setParameterList("ids", ids).list() ;
-				
+				return session.createQuery(hql).setParameterList("ids", ids)
+						.list();
+
 			}
-			
-		}) ;
+
+		});
 	}
 
 	@SuppressWarnings("unchecked")
@@ -75,25 +73,25 @@ public class BaseDaoImpl<E, PK extends Serializable> implements BaseDao<E, PK> {
 	public List<E> getList(String propertyName, Object value) {
 		Assert.hasText(propertyName, "propertyName must not be empty");
 		Assert.notNull(value, "value is required");
-		String hql = "from " + entityClass.getName() + " as model where model." + propertyName + " = ?";
+		String hql = "from " + entityClass.getName() + " as model where model."
+				+ propertyName + " = ?";
 		return findByHql(hql, value);
 	}
 
 	public List<E> getAll() {
-		String hql = "from " + entityClass.getName() ;
+		String hql = "from " + entityClass.getName();
 		return findByHql(hql);
 	}
 
 	public Long getTotalCount() {
-		String hql = "select count(*) from " + entityClass.getName() ;
-		return (Long)findUnique(hql);
+		String hql = "select count(*) from " + entityClass.getName();
+		return (Long) findUnique(hql);
 	}
-
 
 	public boolean isExist(String propertyName, Object value) {
 		Assert.hasText(propertyName, "propertyName must not be empty");
 		Assert.notNull(value, "value is required");
-		E entity = get(propertyName,value) ;
+		E entity = get(propertyName, value);
 		return (entity != null);
 	}
 
@@ -155,35 +153,31 @@ public class BaseDaoImpl<E, PK extends Serializable> implements BaseDao<E, PK> {
 
 		});
 	}
-	
-	private List<E> findByHql(final String hql,final Object... values){
-		return getHibernateTemplate().execute(new HibernateCallback<List<E>>(){
+
+	private List<E> findByHql(final String hql, final Object... values) {
+		return getHibernateTemplate().execute(new HibernateCallback<List<E>>() {
 
 			@SuppressWarnings("unchecked")
-			public List<E> doInHibernate(Session session) throws HibernateException,
-					SQLException { 
-				Query query = session.createQuery(hql) ;
-				if(values != null){
+			public List<E> doInHibernate(Session session)
+					throws HibernateException, SQLException {
+				Query query = session.createQuery(hql);
+				if (values != null) {
 					for (int i = 0, j = values.length; i < j; i++) {
 						query.setParameter(i, values[i]);
 					}
 				}
-				return query.list() ;
+				return query.list();
 			}
-			
-		}) ;
-	}
 
+		});
+	}
 
 	public HibernateTemplate getHibernateTemplate() {
 		return hibernateTemplate;
 	}
 
-
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
 	}
-	
-	
 
 }

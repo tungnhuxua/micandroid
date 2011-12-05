@@ -13,12 +13,10 @@ import ningbo.media.service.SystemUserService;
 public class SystemUserServiceImpl extends BaseServiceImpl<SystemUser, Integer> implements
 		SystemUserService {
 	
-	private SystemUserDao systemUserDao ;
 
 	@Autowired(required = false)
 	public SystemUserServiceImpl(@Qualifier("systemUserDao")SystemUserDao systemUserDao) {
 		super(systemUserDao);
-		this.systemUserDao = systemUserDao ;
 	}
 
 }
