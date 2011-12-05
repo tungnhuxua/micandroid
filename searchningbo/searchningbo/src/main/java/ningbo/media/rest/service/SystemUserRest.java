@@ -9,9 +9,9 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
+//import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.UriInfo;
+//import javax.ws.rs.core.UriInfo;
 
 import ningbo.media.bean.SystemUser;
 import ningbo.media.service.SystemUserService;
@@ -19,7 +19,7 @@ import ningbo.media.service.SystemUserService;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Path("/usermgr")
+@Path("/user")
 @Component
 @Scope("request")
 public class SystemUserRest{
@@ -27,8 +27,8 @@ public class SystemUserRest{
 	@Resource
 	private SystemUserService systemUserService ;
 	
-	@Context
-	private UriInfo info ;
+	//@Context
+	//private UriInfo info ;
 
 	@Path("/show/{id : \\d+}")
 	@GET
