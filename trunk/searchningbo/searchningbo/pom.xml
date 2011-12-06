@@ -339,7 +339,7 @@
 
 					<configuration>
 						<server>tomcat</server>
-						<path>/api</path>
+						<path>/</path>
 					</configuration>
 
 				</plugin>
