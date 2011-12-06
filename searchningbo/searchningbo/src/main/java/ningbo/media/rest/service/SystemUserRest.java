@@ -35,7 +35,6 @@ public class SystemUserRest{
 	@Produces(MediaType.APPLICATION_JSON)
 	public SystemUser getSystemUserByName(@PathParam("id")Integer id) {
 			SystemUser u = systemUserService.get(id) ;
-			System.out.println(u.toJson()) ;
 			return u ;
 	}
 	
@@ -53,5 +52,4 @@ public class SystemUserRest{
 		return null ;
 	}
 	
-
 }

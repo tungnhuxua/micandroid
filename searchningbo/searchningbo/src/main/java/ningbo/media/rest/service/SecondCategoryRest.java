@@ -32,9 +32,12 @@ public class SecondCategoryRest {
 	@Path("/show/subCategory")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<SecondCategory> getCategoryByFirst(String value,@Context HttpServletRequest ctx){
+	public List<SecondCategory> getCategoryByFirst(String value,@Context HttpServletRequest request){
 		String propertyName = "firstCategoryId" ;
-		Integer id = Integer.valueOf(ctx.getParameter("value")) ;
+		String param = request.getParameter("value") ;
+		Integer id = Integer.valueOf(param) ;
 		return secondCategoryService.getList(propertyName,id ) ;
 	}
+	
+
 }
