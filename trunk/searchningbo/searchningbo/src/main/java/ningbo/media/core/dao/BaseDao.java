@@ -70,9 +70,4 @@ public interface BaseDao<E,PK extends Serializable> {
 	
 	public void evict(Object object) ;
 	
-	
-	
-	
-	
-
 }
