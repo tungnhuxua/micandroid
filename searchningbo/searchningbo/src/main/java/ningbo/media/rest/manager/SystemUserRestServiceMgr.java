@@ -46,5 +46,6 @@ public class SystemUserRestServiceMgr  {
 		String flag = webResource.type(MediaType.APPLICATION_JSON).post(String.class, userJson) ;
 		return flag;
 	}
+	
 
 }

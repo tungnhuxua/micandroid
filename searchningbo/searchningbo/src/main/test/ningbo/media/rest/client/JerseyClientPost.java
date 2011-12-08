@@ -13,7 +13,7 @@ public class JerseyClientPost {
 			Client client = Client.create();
 
 			WebResource webResource = client
-					.resource("http://localhost:8080/api/rest/json/systemUser/post");
+					.resource("http://localhost:8080/user/register");
 
 			String input = "{\"username\":\"zoopnin\",\"password\":\"12345678\",\"id\":1,\"email\":\"leyxan.nb@qq.com\",\"name_cn\":\"宁烛坪\",\"photo_path\":\"head.png\",\"isManager\":\"false\",\"date_time\":1322809084753}";
 

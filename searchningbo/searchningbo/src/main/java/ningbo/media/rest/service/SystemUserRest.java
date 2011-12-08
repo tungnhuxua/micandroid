@@ -11,6 +11,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 //import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 //import javax.ws.rs.core.UriInfo;
 
 import ningbo.media.bean.SystemUser;
@@ -30,6 +31,15 @@ public class SystemUserRest{
 	//@Context
 	//private UriInfo info ;
 
+	/***
+	 * description: 
+	 * access:/user/show/{id} 
+	 * example:/user/show/1 [return json.]
+	 * request method:get
+	 * 
+	 * @param id
+	 * @return SystemUser
+	 */
 	@Path("/show/{id : \\d+}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -45,11 +55,17 @@ public class SystemUserRest{
 		return systemUserService.getAll() ;
 	}
 
-	@Path("/add")
+	@Path("/register")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String addSystemUser(String userJson) {
-		return null ;
+	public Response addSystemUser(String userJson) {
+		SystemUser u = SystemUser.fromJson(userJson) ;
+		try{
+			systemUserService.save(u) ;
+		}catch(Exception ex){
+			ex.printStackTrace() ;
+		}
+		return Response.ok().build() ;
 	}
 	
 }
