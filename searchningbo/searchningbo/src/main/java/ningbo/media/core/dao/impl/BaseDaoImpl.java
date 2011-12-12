@@ -138,7 +138,7 @@ public class BaseDaoImpl<E, PK extends Serializable> implements BaseDao<E, PK> {
 		getHibernateTemplate().evict(object);
 	}
 
-	private Object findUnique(final String hql, final Object... values) {
+	public Object findUnique(final String hql, final Object... values) {
 		return getHibernateTemplate().execute(new HibernateCallback<Object>() {
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {

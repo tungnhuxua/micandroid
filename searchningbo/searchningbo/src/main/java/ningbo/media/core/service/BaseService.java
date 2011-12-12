@@ -68,4 +68,5 @@ public interface BaseService<E,PK extends Serializable> {
 
 	public void evict(Object object);
 
+	public Object findUnique(String hql,  Object... values) ;
 }

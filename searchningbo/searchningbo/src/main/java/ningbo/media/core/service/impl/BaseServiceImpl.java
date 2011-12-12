@@ -82,6 +82,10 @@ public class BaseServiceImpl<E, PK extends Serializable> implements
 	public void evict(Object object) {
 		baseDao.evict(object) ;
 	}
+
+	public Object findUnique(String hql, Object... values) {
+		return baseDao.findUnique(hql, values);
+	}
 	
 	
 
