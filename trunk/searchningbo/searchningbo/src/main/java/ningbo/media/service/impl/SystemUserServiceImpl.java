@@ -19,10 +19,10 @@ public class SystemUserServiceImpl extends BaseServiceImpl<SystemUser, Integer> 
 		super(systemUserDao);
 	}
 	
-	public boolean verificationUser(String email,String password){
-		final String hql = "from SystemUser as model where model.email = ? and model.passowrd = ? " ;
+	public SystemUser verificationUser(String email,String password){
+		final String hql = "from SystemUser as model where model.email = ? and model.password = ? " ;
 		SystemUser u = (SystemUser)super.findUnique(hql,email,password) ;
-		return u != null ;
+		return u ;
 	}
 
 }
