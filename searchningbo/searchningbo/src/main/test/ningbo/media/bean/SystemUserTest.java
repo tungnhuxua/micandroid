@@ -16,6 +16,7 @@ public class SystemUserTest {
 		// u.setPhoto_path("/data/data/image/head.png");
 		// u.setIsManager(false);
 		return u.toJson();
+		
 	}
 
 	public static void main(String[] args) {

@@ -55,6 +55,7 @@ public class SystemUserRest {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addSystemUser(String userJson) {
+		
 		SystemUser u = SystemUser.fromJson(userJson);
 		try {
 			systemUserService.save(u);
@@ -65,11 +66,13 @@ public class SystemUserRest {
 	}
 
 	@Path("/verification")
-	@PUT
+	@GET
 	@Consumes(MediaType.APPLICATION_JSON)
-	public SystemUser verificationUser(@QueryParam("email") String email,
+	public String verificationUser(@QueryParam("email") String email,
 			@QueryParam("password") String password) {
-		return systemUserService.verificationUser(email, password);
+		SystemUser u = systemUserService.verificationUser(email, password) ;
+		String json = u.toJson() ;
+		return json ;
 	}
 
 	@Path("/check/{property}")
