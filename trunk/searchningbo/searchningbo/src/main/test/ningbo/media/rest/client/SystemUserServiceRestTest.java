@@ -6,13 +6,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
-import ningbo.media.BaseTest;
 import ningbo.media.bean.SystemUser;
 import ningbo.media.service.SystemUserService;
 
@@ -21,6 +23,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -31,7 +34,7 @@ import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.junit.Test;
 
-public class SystemUserServiceRestTest extends BaseTest{
+public class SystemUserServiceRestTest {
 	
 	@Resource
 	private SystemUserService systemUserService ;
@@ -79,15 +82,18 @@ public class SystemUserServiceRestTest extends BaseTest{
 		List<BasicNameValuePair> data = new ArrayList<BasicNameValuePair>() ;
 		data.add(new BasicNameValuePair("email","leyxan@live.cn")) ;
 		data.add(new BasicNameValuePair("password","123456")) ;
-		HttpEntity entity = null ;
-		try {
-			entity = new UrlEncodedFormEntity(data, "UTF-8") ;
-			JSONObject json = put("http://localhost:8080/user/verification",entity) ;
+		
+		Map<String,String> temp = new HashMap<String,String>() ;
+		temp.put("email","leyxan@live.cn") ;
+		temp.put("password","123456") ;
+		
+		//HttpEntity entity = null ;
+	
+			//entity = new UrlEncodedFormEntity(temp, "UTF-8") ;
+			//JSONObject json = post("http://localhost:8080/user/verification",entity) ;
+			JSONObject json = get("http://localhost:8080/user/verification", temp) ;
 			System.out.println(json) ;
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 	}
 	
 	private static JSONObject put(String url, HttpEntity entityReq) {
@@ -145,6 +151,85 @@ public class SystemUserServiceRestTest extends BaseTest{
 			}
 		}
 		return sb.toString();
+	}
+	
+	
+	public static JSONObject post(String url, HttpEntity entityReq) {
+		HttpClient httpClient = new DefaultHttpClient();
+		HttpPost httpPost = new HttpPost(url);
+		HttpResponse response = null;
+		JSONObject json = null;
+		try {
+			httpPost.setEntity(entityReq);
+			response = httpClient.execute(httpPost);
+			HttpEntity entityResp = response.getEntity();
+			if (entityResp != null) {
+				InputStream instream = entityResp.getContent();
+				String result = convertStreamToString(instream);
+				json = new JSONObject(result);
+				instream.close();
+			}
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	public static JSONObject get(String url, Map<String, String> params) {
+
+		HttpClient httpClient = new DefaultHttpClient();
+		// Prepare a request object
+		if (params != null) {
+			int i = 0;
+			for (Map.Entry<String, String> param : params.entrySet()) {
+				if (i == 0) {
+					url += "?";
+				} else {
+					url += "&";
+				}
+
+				try {
+					url += param.getKey() + "="
+							+ URLEncoder.encode(param.getValue(), "UTF-8");
+				} catch (UnsupportedEncodingException e) {
+				}
+				i++;
+			}
+		}
+
+		HttpGet httpGet = new HttpGet(url);
+		// Execute the request
+		HttpResponse response = null;
+		JSONObject json = null;
+		try {
+
+			// 向服务器发送GET请求并获取服务器返回的结果
+			response = httpClient.execute(httpGet);
+			// Get hold of the response entity
+			HttpEntity entityResp = response.getEntity();
+
+			if (entityResp != null) {
+				// A Simple JSON Response Read
+				InputStream instream = entityResp.getContent();
+				String result = convertStreamToString(instream);
+				// A Simple JSONObject Creation
+				json = new JSONObject(result);
+				// Closing the input stream will trigger connection release
+				instream.close();
+			}
+
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return json;
 	}
 		
 	}
