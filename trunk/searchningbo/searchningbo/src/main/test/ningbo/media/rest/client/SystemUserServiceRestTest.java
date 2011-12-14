@@ -28,6 +28,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
@@ -77,7 +78,7 @@ public class SystemUserServiceRestTest {
 			}
 	}
 	
-	@Test
+	
 	public void testPutRequest(){
 		List<BasicNameValuePair> data = new ArrayList<BasicNameValuePair>() ;
 		data.add(new BasicNameValuePair("email","leyxan@live.cn")) ;
@@ -94,6 +95,30 @@ public class SystemUserServiceRestTest {
 			JSONObject json = get("http://localhost:8080/user/verification", temp) ;
 			System.out.println(json) ;
 	
+	}
+	
+	
+	public void testAddSystemUser(){
+		String url = "http://localhost:8080/user/register" ;
+		HttpEntity entity = null ;
+		
+		List<BasicNameValuePair> data = new ArrayList<BasicNameValuePair>() ;
+		data.add(new BasicNameValuePair("email","tnyx2005@163.com")) ;
+		data.add(new BasicNameValuePair("password","12345678")) ;
+		data.add(new BasicNameValuePair("username","zoopnin")) ;
+		
+		try {
+			entity = new UrlEncodedFormEntity(data, HTTP.UTF_8) ;
+			System.out.println(post(url,entity)) ;
+			
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testListObject(){
+		String url = "http://localhost:8080/category/first/showAll" ;
 	}
 	
 	private static JSONObject put(String url, HttpEntity entityReq) {
@@ -159,6 +184,7 @@ public class SystemUserServiceRestTest {
 		HttpPost httpPost = new HttpPost(url);
 		HttpResponse response = null;
 		JSONObject json = null;
+		
 		try {
 			httpPost.setEntity(entityReq);
 			response = httpClient.execute(httpPost);
@@ -175,7 +201,7 @@ public class SystemUserServiceRestTest {
 			e.printStackTrace();
 		} catch (JSONException e) {
 			e.printStackTrace();
-		}
+		} 
 		return json;
 	}
 	

@@ -75,12 +75,12 @@ public class BaseDaoImpl<E, PK extends Serializable> implements BaseDao<E, PK> {
 		Assert.notNull(value, "value is required");
 		String hql = "from " + entityClass.getName() + " as model where model."
 				+ propertyName + " = ?";
-		return findByHql(hql, value);
+		return (List<E>)findByHql(hql, value);
 	}
 
 	public List<E> getAll() {
 		String hql = "from " + entityClass.getName();
-		return findByHql(hql);
+		return (List<E>)findByHql(hql);
 	}
 
 	public Long getTotalCount() {
@@ -154,11 +154,29 @@ public class BaseDaoImpl<E, PK extends Serializable> implements BaseDao<E, PK> {
 		});
 	}
 
-	private List<E> findByHql(final String hql, final Object... values) {
+	public List<E> findByHql(final String hql, final Object... values) {
 		return getHibernateTemplate().execute(new HibernateCallback<List<E>>() {
 
 			@SuppressWarnings("unchecked")
 			public List<E> doInHibernate(Session session)
+					throws HibernateException, SQLException {
+				Query query = session.createQuery(hql);
+				if (values != null) {
+					for (int i = 0, j = values.length; i < j; i++) {
+						query.setParameter(i, values[i]);
+					}
+				}
+				return query.list();
+			}
+
+		});
+	}
+	
+	public List<String> findAllObject(final String hql, final Object... values) {
+		return getHibernateTemplate().execute(new HibernateCallback<List<String>>() {
+
+			@SuppressWarnings("unchecked")
+			public List<String> doInHibernate(Session session)
 					throws HibernateException, SQLException {
 				Query query = session.createQuery(hql);
 				if (values != null) {
