@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import ningbo.media.bean.FirstCategory;
@@ -25,6 +26,16 @@ public class FirstCategoryRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<FirstCategory> getAllFirstCategory(){
 		return firstCategoryService.getAll() ;
+	}
+	
+	
+	@Path("/categoryName/{local}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<String> getCategoryName(@PathParam("local")String local){
+		
+		return firstCategoryService.getAllCagegoryName(local) ;
+		
 	}
 	
 	

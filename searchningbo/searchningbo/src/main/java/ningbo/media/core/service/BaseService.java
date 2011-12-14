@@ -3,7 +3,7 @@ package ningbo.media.core.service;
 import java.io.Serializable;
 import java.util.List;
 
-public interface BaseService<E,PK extends Serializable> {
+public interface BaseService<E, PK extends Serializable> {
 	/**
 	 * According to PK(id) query object(E)
 	 * 
@@ -68,5 +68,9 @@ public interface BaseService<E,PK extends Serializable> {
 
 	public void evict(Object object);
 
-	public Object findUnique(String hql,  Object... values) ;
+	public Object findUnique(String hql, Object... values);
+
+	public List<E> findByHql(String hql, Object... values);
+
+	public List<String> findAllObject(String hql, Object... values);
 }

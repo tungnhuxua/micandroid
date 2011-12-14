@@ -86,6 +86,14 @@ public class BaseServiceImpl<E, PK extends Serializable> implements
 	public Object findUnique(String hql, Object... values) {
 		return baseDao.findUnique(hql, values);
 	}
+
+	public List<E> findByHql(String hql, Object... values) {
+		return baseDao.findByHql(hql, values);
+	}
+	
+	public List<String> findAllObject(String hql, Object... values){
+		return baseDao.findAllObject(hql, values) ;
+	}
 	
 	
 
