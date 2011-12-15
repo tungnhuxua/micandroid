@@ -1,8 +1,6 @@
 package ningbo.media.bean;
 
 import java.io.Serializable;
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,8 +32,6 @@ public class FirstCategory implements Serializable{
 	@Expose
 	private Integer user_id ;
 	
-	@Expose
-	private Date date_time ;
 	
 	public FirstCategory(){}
 
@@ -71,14 +67,6 @@ public class FirstCategory implements Serializable{
 		this.user_id = user_id;
 	}
 
-	public Date getDate_time() {
-		return date_time;
-	}
-
-	public void setDate_time(Date date_time) {
-		this.date_time = date_time;
-	}
-	
 	public  String toJson(){
 		Gson gson = new Gson() ;
 		String json =  gson.toJson(this, FirstCategory.class) ;
