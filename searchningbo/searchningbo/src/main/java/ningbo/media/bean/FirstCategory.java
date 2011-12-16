@@ -78,5 +78,13 @@ public class FirstCategory implements Serializable{
 		FirstCategory fCategory = gson.fromJson(jsonCategory, FirstCategory.class) ;
 		return fCategory ;
 	}
+
+	@Override
+	public String toString() {
+		return "FirstCategory [id=" + id + ", name_en=" + name_en
+				+ ", name_cn=" + name_cn + ", user_id=" + user_id + "]";
+	}
+	
+	
 	
 }
