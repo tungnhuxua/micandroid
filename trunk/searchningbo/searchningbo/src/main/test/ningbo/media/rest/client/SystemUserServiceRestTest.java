@@ -38,8 +38,8 @@ import org.codehaus.jettison.json.JSONObject;
 import org.junit.Test;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
-import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 public class SystemUserServiceRestTest {
 
@@ -47,6 +47,43 @@ public class SystemUserServiceRestTest {
 	private SystemUserService systemUserService;
 	
 	@Test
+	public void testJsonObjectJ(){
+		JsonObject json = getJ("http://192.168.1.100:8080/category/first/showAll") ;
+		System.out.println(json.toString()) ;
+	}
+	
+	
+	
+	
+	public static JsonObject getJ(String url) {
+
+		HttpClient httpClient = new DefaultHttpClient();
+		// Prepare a request object
+		HttpGet httpGet = new HttpGet(url);
+		// Execute the request
+		HttpResponse response = null;
+		JsonObject json = null;
+		try {
+
+			// 向服务器发送GET请求并获取服务器返回的结果
+			response = httpClient.execute(httpGet);
+			// Get hold of the response entity
+			HttpEntity entityResp = response.getEntity();
+
+			if (entityResp != null) {
+				String result = EntityUtils.toString(entityResp);
+				json = new JsonObject() ;
+				json.getAsJsonObject(result) ;
+			}
+
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
 	public void testGson(){
 		JSONObject jsonObject = get("http://192.168.1.100:8080/category/first/showAll") ;
 		Gson gson = new Gson() ;
