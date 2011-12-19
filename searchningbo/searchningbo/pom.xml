@@ -18,7 +18,7 @@
 			<url>http://download.java.net/maven/2/</url>
 		</repository>
 	</repositories>
-	
+
 	<properties>
 		<spring.version>3.0.6.RELEASE</spring.version>
 		<spring.security.version>3.0.7.RELEASE</spring.security.version>
@@ -305,6 +305,18 @@
 			<version>1.4</version>
 		</dependency>
 		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
+		</dependency>
+		<!-- 
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+		</dependency>
+		 -->
+		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>4.0.3</version>
@@ -315,7 +327,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>javaee</groupId>
 			<artifactId>javaee-api</artifactId>
