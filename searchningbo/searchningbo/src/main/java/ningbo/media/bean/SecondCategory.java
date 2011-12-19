@@ -1,6 +1,7 @@
 package ningbo.media.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -39,6 +41,9 @@ public class SecondCategory implements Serializable {
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
 	@JoinColumn(name = "category1_id")
 	private FirstCategory firstCategory;
+	
+	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "secondCategory")
+	private List<Location> locations ;
 
 	public SecondCategory() {
 	}
@@ -74,6 +79,15 @@ public class SecondCategory implements Serializable {
 
 	public void setFirstCategory(FirstCategory firstCategory) {
 		this.firstCategory = firstCategory;
+	}
+	
+	@XmlTransient
+	public List<Location> getLocations() {
+		return locations;
+	}
+
+	public void setLocations(List<Location> locations) {
+		this.locations = locations;
 	}
 
 	public String toJson() {

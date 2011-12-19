@@ -2,12 +2,19 @@ package ningbo.media.bean;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+import com.google.gson.Gson;
 import com.google.gson.annotations.Expose;
 
 @Entity
@@ -30,20 +37,25 @@ public class Location implements Serializable {
 
 	@Expose
 	private String address_en;
-	
+
 	@Expose
 	private String address_cn;
-	
+
 	@Expose
 	private String telephone;
-	
+
 	@Expose
 	private Double longitude;
-	
+
 	@Expose
 	private Double latitude;
-	
-	public Location(){}
+
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
+	@JoinColumn(name = "category2_id")
+	private SecondCategory secondCategory;
+
+	public Location() {
+	}
 
 	public Integer getId() {
 		return id;
@@ -108,7 +120,34 @@ public class Location implements Serializable {
 	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
-	
-	
+
+	@XmlTransient
+	public SecondCategory getSecondCategory() {
+		return secondCategory;
+	}
+
+	public void setSecondCategory(SecondCategory secondCategory) {
+		this.secondCategory = secondCategory;
+	}
+
+	public String toJson() {
+		Gson gson = new Gson();
+		String json = gson.toJson(this, Location.class);
+		return json;
+	}
+
+	public static Location fromJson(String jsonCategory) {
+		Gson gson = new Gson();
+		Location fLocation = gson.fromJson(jsonCategory, Location.class);
+		return fLocation;
+	}
+
+	@Override
+	public String toString() {
+		return "Location [id=" + id + ", name_en=" + name_en + ", name_cn="
+				+ name_cn + ", address_en=" + address_en + ", address_cn="
+				+ address_cn + ", telephone=" + telephone + ", longitude="
+				+ longitude + ", latitude=" + latitude + "]";
+	}
 
 }
