@@ -15,9 +15,9 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
-import org.codehaus.jettison.json.JSONArray;
-import org.codehaus.jettison.json.JSONException;
-import org.codehaus.jettison.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.Test;
 
 import com.google.gson.Gson;
@@ -88,8 +88,8 @@ public class SecondCategoryServiceTest {
 
 			
 			StringBuffer url2 = new StringBuffer(
-					"http://localhost:8080/location/category/");
-			url2.append(list1.get(1).getId());
+					"http://localhost:8080/location/category/3");
+			//url2.append(list1.get(0).getId());
 			System.out.println("id:" + list1.get(1).getId()) ;
 			JSONObject json2 = get(url2.toString());
 			System.out.println(json2)  ;
