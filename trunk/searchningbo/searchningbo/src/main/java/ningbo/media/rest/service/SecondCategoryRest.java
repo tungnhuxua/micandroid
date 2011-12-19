@@ -1,5 +1,6 @@
 package ningbo.media.rest.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -43,7 +44,7 @@ public class SecondCategoryRest {
 		}
 		FirstCategory firstCategory = firstCategoryService.get(Integer.valueOf(id)) ;
 		if(firstCategory == null){
-			return null ;
+			return new ArrayList<SecondCategory>()  ;
 		}
 		return firstCategory.getSecondCategorys() ;
 	}
