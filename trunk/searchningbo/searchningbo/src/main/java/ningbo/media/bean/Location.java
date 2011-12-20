@@ -25,7 +25,7 @@ public class Location implements Serializable {
 	private static final long serialVersionUID = 5398023012055824282L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Expose
 	private Integer id;
 
