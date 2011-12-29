@@ -54,7 +54,7 @@ public class SecondCategoryServiceTest {
 		return json;
 	}
 
-	@Test
+	
 	public void testJsonObject() {
 		try {
 			String url = "http://localhost:8080/category/first/showAll";
@@ -112,6 +112,40 @@ public class SecondCategoryServiceTest {
 		
 
 		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+	}
+	
+
+	public void testJson(){
+		try {
+			JSONObject jsonObject = get("http://localhost:8080/location/category/3") ;
+			System.out.println(jsonObject.length()) ;
+			
+			JSONArray jsonArray = jsonObject.getJSONArray("location") ;
+			
+			for(int i=0,j = jsonArray.length();i<j;i++){
+				JSONObject json = jsonArray.getJSONObject(i) ;
+				String address = json.getString("address_cn") ;
+				System.out.println(address) ;
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testJson2(){
+		try {
+			JSONObject jsonObject = get("http://localhost:8080/location/category/3") ;
+			System.out.println(jsonObject.length()) ;
+			JSONObject temp = jsonObject.getJSONObject("location") ;
+			//System.out.println(temp.getString("address_cn") ) ;
+			System.out.println(temp) ;
+	
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
