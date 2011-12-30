@@ -25,13 +25,14 @@ import com.google.gson.reflect.TypeToken;
 
 public class SecondCategoryServiceTest {
 
+	
 	public static JSONObject get(String url) {
 		HttpClient httpClient = new DefaultHttpClient();
 		// Prepare a request object
 		HttpGet httpGet = new HttpGet(url);
 		// Execute the request
 		HttpResponse response = null;
-		JSONObject json = null;
+		JSONObject jsonArray = null;
 		try {
 
 			// 向服务器发送GET请求并获取服务器返回的结果
@@ -41,7 +42,7 @@ public class SecondCategoryServiceTest {
 
 			if (entityResp != null) {
 				String result = EntityUtils.toString(entityResp);
-				json = new JSONObject(result);
+				jsonArray = new JSONObject(result);
 			}
 
 		} catch (ClientProtocolException e) {
@@ -51,8 +52,35 @@ public class SecondCategoryServiceTest {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		return json;
+		return jsonArray;
 	}
+	
+	public static String getString(String url) {
+		HttpClient httpClient = new DefaultHttpClient();
+		// Prepare a request object
+		HttpGet httpGet = new HttpGet(url);
+		// Execute the request
+		HttpResponse response = null;
+		String result = null ;
+		try {
+
+			// 向服务器发送GET请求并获取服务器返回的结果
+			response = httpClient.execute(httpGet);
+			// Get hold of the response entity
+			HttpEntity entityResp = response.getEntity();
+
+			if (entityResp != null) {
+				result = EntityUtils.toString(entityResp);
+			}
+
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 
 	
 	public void testJsonObject() {
@@ -121,7 +149,6 @@ public class SecondCategoryServiceTest {
 		try {
 			JSONObject jsonObject = get("http://localhost:8080/location/category/3") ;
 			System.out.println(jsonObject.length()) ;
-			
 			JSONArray jsonArray = jsonObject.getJSONArray("location") ;
 			
 			for(int i=0,j = jsonArray.length();i<j;i++){
@@ -138,15 +165,25 @@ public class SecondCategoryServiceTest {
 	@Test
 	public void testJson2(){
 		try {
-			JSONObject jsonObject = get("http://localhost:8080/location/category/3") ;
-			System.out.println(jsonObject.length()) ;
-			JSONObject temp = jsonObject.getJSONObject("location") ;
-			//System.out.println(temp.getString("address_cn") ) ;
-			System.out.println(temp) ;
+			JSONObject jsonObject = get("http://localhost:8080/location/category/1") ;
+			
+			JSONArray jsonArray = jsonObject.getJSONArray("location") ;
+			System.out.println(jsonArray) ;
+			//System.out.println(jsonObject.contains("[")) ;
+			//boolean flag = jsonObject.contains("[") ;
+			System.out.println(jsonArray.length()) ;
+			for(int i=0,j=jsonArray.length();i < j;i++){
+				JSONObject tempJson = jsonArray.getJSONObject(i) ;
+				if(tempJson != null){
+					String name_cn = tempJson.getString("name_cn") ;
+					String address_cn = tempJson.getString("address_cn") ;
+					System.out.println("name_cn:"+name_cn + " address_cn" + address_cn) ;
+				}
+			}
 	
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			//e.printStackTrace();
+			
 		}
 	}
 

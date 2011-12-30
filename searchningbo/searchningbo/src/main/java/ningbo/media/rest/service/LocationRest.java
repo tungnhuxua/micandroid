@@ -57,7 +57,12 @@ public class LocationRest {
 		if(secondCategory == null){
 			return new ArrayList<Location>() ;
 		}
-		return secondCategory.getLocations() ;
+		List<Location> listLocation = secondCategory.getLocations() ;
+		int size = listLocation.size() ;
+		if(size == 1){
+			listLocation.add(new Location()) ;
+		}
+		return listLocation ;
 	}
 
 }
