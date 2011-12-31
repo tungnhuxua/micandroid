@@ -43,10 +43,10 @@ import com.google.gson.reflect.TypeToken;
 
 public class SystemUserServiceRestTest {
 
-	@Resource
-	private SystemUserService systemUserService;
+	//@Resource
+	//private SystemUserService systemUserService;
 	
-	@Test
+	
 	public void testJsonObjectJ(){
 		JsonObject json = getJ("http://192.168.1.100:8080/category/first/showAll") ;
 		System.out.println(json.toString()) ;
@@ -169,7 +169,12 @@ public class SystemUserServiceRestTest {
 		}
 	}
 
+	@Test
 	public void testPutRequest() {
+		
+		String url = "http://localhost:8080/user/verification";
+		HttpEntity entity = null;
+		
 		List<BasicNameValuePair> data = new ArrayList<BasicNameValuePair>();
 		data.add(new BasicNameValuePair("email", "leyxan@live.cn"));
 		data.add(new BasicNameValuePair("password", "123456"));
@@ -183,7 +188,14 @@ public class SystemUserServiceRestTest {
 		// entity = new UrlEncodedFormEntity(temp, "UTF-8") ;
 		// JSONObject json =
 		// post("http://localhost:8080/user/verification",entity) ;
-		JSONObject json = get("http://localhost:8080/user/verification", temp);
+	/*	try {
+			entity = new UrlEncodedFormEntity(data, HTTP.UTF_8);
+			System.out.println(post(url, entity));
+
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}*/
+		JSONObject json = get(url, temp);
 		System.out.println(json);
 
 	}
