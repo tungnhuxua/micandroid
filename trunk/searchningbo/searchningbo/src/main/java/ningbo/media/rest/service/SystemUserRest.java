@@ -77,12 +77,14 @@ public class SystemUserRest {
 
 	@Path("/verification")
 	@GET
-	@Consumes(MediaType.APPLICATION_JSON)
-	public String verificationUser(@QueryParam("email") String email,
+	@Produces(MediaType.APPLICATION_JSON)
+	public SystemUser verificationUser(@QueryParam("email") String email,
 			@QueryParam("password") String password) {
 		SystemUser u = systemUserService.verificationUser(email, password);
-		String json = u.toJson();
-		return json;
+		if(u == null){
+			return new SystemUser() ;
+		}
+		return u ;
 	}
 
 	@Path("/check/{property}")
