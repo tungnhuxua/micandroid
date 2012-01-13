@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
 import com.google.gson.annotations.Expose;
 
 @Entity
@@ -40,6 +42,9 @@ public class Event implements Serializable{
 	private Integer userId ;  //(organizer of the event)
 	
 	@Expose
+	private Integer isPublic ;//(0:private no 0 public)
+	
+	@Expose
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
 	@JoinColumn(name = "locationId")
 	private Location location ; //(address of the event)
@@ -47,7 +52,6 @@ public class Event implements Serializable{
 	@Expose
 	private String invitedIds ;//(Invited friend )
 	
-	//private Integer commentId ;//(Reviewer)
 	
 	
 	
@@ -93,7 +97,7 @@ public class Event implements Serializable{
 		this.userId = userId;
 	}
 
-
+	@XmlTransient
 	public Location getLocation() {
 		return location;
 	}
@@ -108,6 +112,15 @@ public class Event implements Serializable{
 
 	public void setInvitedIds(String invitedIds) {
 		this.invitedIds = invitedIds;
+	}
+	
+
+	public Integer getIsPublic() {
+		return isPublic;
+	}
+
+	public void setIsPublic(Integer isPublic) {
+		this.isPublic = isPublic;
 	}
 
 	@Override

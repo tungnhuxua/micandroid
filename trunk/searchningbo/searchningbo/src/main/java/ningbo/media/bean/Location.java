@@ -135,6 +135,7 @@ public class Location implements Serializable {
 		this.secondCategory = secondCategory;
 	}
 	
+	@XmlTransient
 	public List<Event> getEvents() {
 		return events;
 	}
