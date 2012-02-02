@@ -162,7 +162,7 @@ public class SecondCategoryServiceTest {
 		}
 	}
 	
-	@Test
+	
 	public void testJson2(){
 		try {
 			JSONObject jsonObject = get("http://localhost:8080/location/category/1") ;
@@ -185,6 +185,10 @@ public class SecondCategoryServiceTest {
 			//e.printStackTrace();
 			
 		}
+	}
+	
+	public void testIsExistsFavorite(){
+		
 	}
 
 }

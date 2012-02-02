@@ -169,7 +169,7 @@ public class SystemUserServiceRestTest {
 		}
 	}
 
-	@Test
+
 	public void testPutRequest() {
 		
 		String url = "http://localhost:8080/user/verification";
@@ -195,6 +195,20 @@ public class SystemUserServiceRestTest {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}*/
+		JSONObject json = get(url, temp);
+		System.out.println(json);
+
+	}
+	
+	@Test
+	public void testIsExistsFavorite() {
+		
+		String url = "http://localhost:8080/favorite/check/exists";
+		
+		Map<String, String> temp = new HashMap<String, String>();
+		temp.put("userId", String.valueOf(12));
+		temp.put("locationId", String.valueOf(6480));
+
 		JSONObject json = get(url, temp);
 		System.out.println(json);
 

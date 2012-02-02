@@ -5,12 +5,9 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -52,10 +49,6 @@ public class Location implements Serializable {
 	@Expose
 	private Double latitude;
 
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
-	@JoinColumn(name = "category2_id")
-	private SecondCategory secondCategory;
-	
 	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "location")
 	private List<Event> events ;
 
@@ -126,14 +119,6 @@ public class Location implements Serializable {
 		this.latitude = latitude;
 	}
 
-	@XmlTransient
-	public SecondCategory getSecondCategory() {
-		return secondCategory;
-	}
-
-	public void setSecondCategory(SecondCategory secondCategory) {
-		this.secondCategory = secondCategory;
-	}
 	
 	@XmlTransient
 	public List<Event> getEvents() {
