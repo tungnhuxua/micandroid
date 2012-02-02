@@ -56,23 +56,25 @@ public class SystemUserRest {
 	@Path("/register")
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	@Produces("application/json")
-	public SystemUser addSystemUser(@FormParam("email") String email,
-			@FormParam("username") String username,
-			@FormParam("password") String password) {
+	@Produces(MediaType.APPLICATION_JSON)
+	public SystemUser addSystemUser(@FormParam("username") String username,
+			@FormParam("password") String password,
+			@FormParam("email") String email) {
 
 		SystemUser u = new SystemUser() ;
 		u.setEmail(email) ;
 		u.setPassword(password) ;
 		u.setUsername(username) ;
 		u.setDate_time(new Date()) ;
+		u.setIsManager(false) ;
 		try {
 			systemUserService.save(u);
 			return u;
 		} catch (Exception ex) {
 			ex.printStackTrace();
+			return null;
 		}
-		return null;
+		
 	}
 
 	@Path("/verification")

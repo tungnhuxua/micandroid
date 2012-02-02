@@ -10,8 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -41,9 +42,10 @@ public class SecondCategory implements Serializable {
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
 	@JoinColumn(name = "category1_id")
 	private FirstCategory firstCategory;
-	
-	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "secondCategory")
-	private List<Location> locations ;
+
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "locations_category", joinColumns = @JoinColumn(name = "category2_id"), inverseJoinColumns = @JoinColumn(name = "location_id"))
+	private List<Location> locations;
 
 	public SecondCategory() {
 	}
@@ -74,13 +76,13 @@ public class SecondCategory implements Serializable {
 
 	@XmlTransient
 	public FirstCategory getFirstCategory() {
-		return firstCategory ;
+		return firstCategory;
 	}
 
 	public void setFirstCategory(FirstCategory firstCategory) {
 		this.firstCategory = firstCategory;
 	}
-	
+
 	@XmlTransient
 	public List<Location> getLocations() {
 		return locations;
