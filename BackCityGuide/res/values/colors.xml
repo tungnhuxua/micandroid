@@ -18,5 +18,10 @@
     <color name="blue25">#191970</color>
     <color name="leftBtnColor">#533a11</color>
     <color name="titleColor">#52657f</color>
+    <color name="button_text">#444</color>
+    <color name="body_background">#FFF</color>
+    <color name="headTitleColor">#787878</color>
+    <color name="headerTitleColor">#717171</color>
+    <color name="listTitleColor">#6F716E</color>
 
 </resources>
