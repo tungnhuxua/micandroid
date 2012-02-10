@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/app_background" >
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/RelLayHead"
+        android:layout_width="fill_parent"
+        android:layout_height="68dip"
+         >
+
+        <TextView
+            android:id="@+id/txtHeading"
+            android:layout_width="fill_parent"
+            android:layout_height="68dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dip"
+            android:gravity="center"
+            android:text="@string/search_result"
+            android:textColor="@color/titleColor"
+            android:textSize="18sp" 
+            android:background="@drawable/top_bar"/>
+
+        <Button
+            android:id="@+id/ButBackSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="57dip"
+            android:layout_alignLeft="@+id/txtHeading"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/top_left_btn"
+            android:gravity="right|center"
+            android:paddingRight="40dip"
+            android:text="@string/search_back"
+            android:textColor="@color/leftBtnColor"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/ButBackMap"
+            android:layout_width="wrap_content"
+            android:layout_height="57dip"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/top_right_btn"
+            android:gravity="right|center"
+            android:paddingRight="25dip"
+            android:text="@string/search_map"
+            android:textColor="@color/leftBtnColor"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RelLayHead"
+        android:layout_marginBottom="80dip"
+        android:background="@drawable/splash_background_cn"
+        android:cacheColorHint="#00000000"
+        android:drawSelectorOnTop="false"
+        android:fastScrollEnabled="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:listSelector="@drawable/item_selected_background"
+        android:smoothScrollbar="true" />
+
+    <include layout="@layout/footer" />
+
+</RelativeLayout>

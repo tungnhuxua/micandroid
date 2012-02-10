@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutcat"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/txtLocationName"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/txtLocationId"
+        android:gravity="left|center"
+        android:paddingLeft="30dp"
+        android:text="The LocationName"
+        android:textColor="@color/headerTitleColor"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txtLocationId"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="20dp"
+        android:gravity="left|center"
+        android:paddingLeft="10dp"
+        android:text="The LocationId"
+        android:visibility="gone"
+        android:textColor="@color/headerTitleColor"
+        android:textSize="14sp" />
+
+</RelativeLayout>
+

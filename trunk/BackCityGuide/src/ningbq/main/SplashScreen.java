@@ -38,9 +38,9 @@ public class SplashScreen extends Activity implements LocationListener {
 		updateUI();
 		// modify
 
-		Toast.makeText(this,
-				"Please Make sure Your GPS is on While open this Application",
-				Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this,
+	    //	"Please Make sure Your GPS is on While open this Application",
+		//	Toast.LENGTH_SHORT).show();
 
 	}
 
@@ -55,7 +55,7 @@ public class SplashScreen extends Activity implements LocationListener {
 	/**
 	 * This Function Stop Listing the GPS
 	 */
-	private void stopListening() {
+	protected void stopListening() {
 		if (m_gpsManager != null) {
 			m_gpsManager.removeUpdates(this);
 		}
@@ -90,7 +90,7 @@ public class SplashScreen extends Activity implements LocationListener {
 		public void handleMessage(Message msg) {
 			try {
 				Intent intent = new Intent(SplashScreen.this,
-						MainScrrenWithRecentView.class);
+						MainScreenActivity.class);
 				startActivity(intent);
 				finish();
 			} catch (Exception ex) {
