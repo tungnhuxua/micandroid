@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/secondCategoryBar"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_new_main"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/secondCategoryHeadBar"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/topbar_new_main"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/secondCategorySliding"
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@drawable/smallbutton_new"
+            android:text="@string/but_back" />
+
+        <TextView
+            android:id="@+id/catName"
+            style="@style/inputTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.83"
+            android:gravity="left|center"
+            android:paddingLeft="40dp"
+            android:text="@string/search_title"
+            android:textColor="@color/headTitleColor" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/background_new_main" >
+
+        <ListView
+            android:id="@+id/secondCategoryList"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dip"
+            android:cacheColorHint="#00000000"
+            android:drawSelectorOnTop="false"
+            android:fastScrollEnabled="true"
+            android:listSelector="@drawable/item_selected_background"
+            android:smoothScrollbar="true" />
+    </RelativeLayout>
+
+</LinearLayout>
