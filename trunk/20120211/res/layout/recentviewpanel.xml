@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/app_background"
+    android:orientation="vertical" >
+
+    <include layout="@layout/mainscreen" />
+
+    <SlidingDrawer
+        android:id="@+id/indexPageSliding"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:content="@+id/indexPageScreenContent"
+        android:handle="@+id/indexPageScreenHandle"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/indexPageScreenHandle"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_launcher_allshow" />
+
+
+        <LinearLayout
+            android:id="@+id/indexPageScreenContent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <include layout="@layout/recentview" />
+        </LinearLayout>
+    </SlidingDrawer>
+
+</FrameLayout>
