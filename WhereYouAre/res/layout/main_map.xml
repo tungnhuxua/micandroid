@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/showMap"
+        android:layout_width="fill_parent"
+        android:layout_height="320dp" >
+
+        <com.baidu.mapapi.MapView
+            android:id="@+id/mapView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:clickable="true" />
+        
+        
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/historyButton"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/showMap"
+        android:layout_marginTop="10dp"
+        android:text="@string/history_button_text"
+        android:textSize="17dp" >
+    </Button>
+
+</RelativeLayout>

@@ -1,0 +1,7 @@
+ - Zoom and center get off
+ - Add age and remove button for saved items (add confirm dialog)
+ - Fix multiline saved items
+ - First run screen
+ - List view for saved items
+ - Preferences:
+	- Turn history on/off
