@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="70dp"
+    android:paddingBottom="2dp"
+    android:paddingTop="2dp"
+    android:weightSum="1.0" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight=".8"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/timeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="12:35 am"
+            android:textSize="13dp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/timeTextView"
+            android:layout_centerHorizontal="true"
+            android:text="Yesterday"
+            android:textSize="10dp" >
+        </TextView>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_margin="4dp"
+        android:background="#777777"
+        android:width="1dp" >
+    </TextView>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight=".2"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/addressTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Google Dr.Mountain View, California"
+            android:textSize="14dp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/elapsedTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addressTextView"
+            android:text="For 34 minutes"
+            android:textSize="10dp" >
+        </TextView>
+    </RelativeLayout>
+
+</LinearLayout>
