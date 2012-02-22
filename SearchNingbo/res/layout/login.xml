@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_new_main"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/signInViewHeadBar"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/topbar_new_main"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/backRecentView"
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@drawable/smallbutton_new"
+            android:padding="0dp"
+            android:text="@string/but_back" />
+
+        <TextView
+            android:id="@+id/catName"
+            style="@style/inputTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.83"
+            android:gravity="left|center"
+            android:paddingLeft="10dp"
+            android:paddingRight="40dp"
+            android:text="@string/sign_in"
+            android:textSize="24sp"
+            android:textColor="@color/headerTitleColor" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/loginViewRelativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/RelLayHead"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:layout_marginTop="10dip"
+            android:gravity="left|center"
+            android:hint="Email Address"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/violet"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/edtEmail"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:layout_marginTop="10dip"
+            android:gravity="left|center"
+            android:hint="Ningbo Password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/ButSignIn"
+            android:layout_width="290dip"
+            android:layout_height="40dp"
+            android:layout_below="@+id/edtPassword"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/button_new_main"
+            android:gravity="center"
+            android:text="@string/sign_in"
+            android:textColor="@color/headTitleColor"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtforgotPassword"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/ButSignIn"
+            android:layout_marginLeft="20dip"
+            android:gravity="left|center"
+            android:text="forgotton your password?"
+            android:textColor="@color/violet"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/txtnewtoningbo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtforgotPassword"
+            android:layout_marginLeft="20dip"
+            android:layout_marginTop="10dip"
+            android:gravity="left"
+            android:text="New to Ningbo?"
+            android:textColor="@color/violet"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <Button
+            android:id="@+id/ButSignUp"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/txtnewtoningbo"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:layout_marginTop="20dip"
+            android:background="@drawable/button_new_main"
+            android:gravity="center"
+            android:text="@string/create_account"
+            android:textColor="@color/headTitleColor"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</LinearLayout>
