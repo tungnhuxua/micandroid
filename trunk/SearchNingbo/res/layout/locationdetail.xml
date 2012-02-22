@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/body_background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/locationDetailHeadBar"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/topbar_new_main"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/locationDetailSliding"
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@drawable/smallbutton_new"
+            android:text="@string/but_back" />
+
+        <TextView
+            android:id="@+id/catName"
+            style="@style/inputTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.83"
+            android:gravity="center"
+            android:text="@string/location_detail"
+            android:textColor="@color/headTitleColor" />
+
+        <Button
+            android:id="@+id/locationDetailScreenMap"
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@drawable/smallbutton_new"
+            android:text="@string/search_map" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFEFF0F4"
+        android:scrollbars="horizontal" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#FFEFF0F4"
+            android:orientation="vertical" >
+
+            <!-- 单位名称与电话 -->
+
+            <RelativeLayout
+                android:id="@+id/relative_3"
+                android:layout_width="fill_parent"
+                android:layout_height="100dip"
+                android:layout_margin="10.0dip"
+                android:background="@drawable/panel_bg"
+                android:paddingBottom="2dip"
+                android:paddingLeft="2dip"
+                android:paddingRight="2dip"
+                android:paddingTop="2dip" >
+
+                <TextView
+                    android:id="@+id/txt_location_name_title"
+                    style="@style/normalText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/locationName"
+                    android:textColor="#FF7D899D"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:id="@+id/txtLocationName"
+                    style="@style/normalText.span"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/txt_location_name_title"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_toRightOf="@id/txt_location_name_title"
+                    android:textSize="16.0sp" />
+                <!-- 分隔条 -->
+
+                <View
+                    android:id="@+id/view_3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0dip"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/horizontal_separation_line" />
+
+                <TextView
+                    android:id="@+id/txt_location_tel_title"
+                    style="@style/normalText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_location_name_title"
+                    android:layout_below="@+id/view_3"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/locationTel"
+                    android:textColor="#FF7D899D"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:id="@+id/txtLocationTel"
+                    style="@style/normalText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@id/view_3"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_toRightOf="@id/txt_location_tel_title"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="16.0sp" />
+            </RelativeLayout>
+            <!-- 单位地址 -->
+
+            <RelativeLayout
+                android:id="@+id/relative_address_info"
+                android:layout_width="fill_parent"
+                android:layout_height="50dip"
+                android:layout_margin="10.0dip"
+                android:background="@drawable/panel_bg"
+                android:padding="15.0dip" >
+
+                <TextView
+                    android:id="@+id/txtLocationAddress"
+                    style="@style/normalText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+                </TextView>
+            </RelativeLayout>
+            <!-- 是否收藏 -->
+
+            <RelativeLayout
+                android:id="@+id/relative_following"
+                android:layout_width="fill_parent"
+                android:layout_height="50dip"
+                android:layout_margin="10.0dip"
+                android:background="@drawable/panel_bg" >
+
+                <TextView
+                    android:id="@+id/txtFev"
+                    style="@style/normalText.span"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="10.0dip"
+                    android:textSize="16.0sp" >
+                </TextView>
+                <!-- 是否被收藏 按钮 -->
+
+                <Button
+                    android:id="@+id/following_btn"
+                    style="@style/Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="10.0dip"
+                    android:text="@string/locationNoFavorite"
+                    android:drawablePadding="5dip" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_maps"
+                android:layout_width="fill_parent"
+                android:layout_height="200dip"
+                android:layout_margin="10.0dip"
+                android:background="@drawable/panel_bg" >
+
+                <com.baidu.mapapi.MapView
+                    android:id="@+id/locationMapId"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:clickable="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_margin="10.0dip"
+                android:background="@drawable/panel_bg" >
+
+                <!-- 垂直分隔条 -->
+
+                <View
+                    android:id="@+id/view_one"
+                    android:layout_width="1.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/vertical_separation_line_repeat" >
+                </View>
+
+                <RelativeLayout
+                    android:id="@+id/eventsLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/view_one"
+                    android:clickable="true" >
+
+                    <!-- 举办活动的次数 -->
+
+                    <TextView
+                        android:id="@+id/txtEventsCount"
+                        style="@style/normalText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10.0dip"
+                        android:gravity="center"
+                        android:text="" >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/friends_count_title"
+                        style="@style/normalText.span"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtEventsCount"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:text="举办的活动" >
+                    </TextView>
+                </RelativeLayout>
+
+                <!-- 该位置被收藏的人数 -->
+
+                <LinearLayout
+                    android:id="@+id/followersLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@id/view_one"
+                    android:clickable="true"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/txtBeFevUserCount"
+                        style="@style/normalText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10.0dip"
+                        android:gravity="center"
+                        android:text="" >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/followers_count_title"
+                        style="@style/normalText.span"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:text="收藏的用户" >
+                    </TextView>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/footer" />
+
+</LinearLayout>
