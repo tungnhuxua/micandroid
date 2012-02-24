@@ -3,6 +3,11 @@ package ningbq.address;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 
+import com.mapabc.mapapi.GeoPoint;
+import com.mapabc.mapapi.MapActivity;
+import com.mapabc.mapapi.MapController;
+import com.mapabc.mapapi.MapView;
+
 import ningbq.application.BaiduMapApiApplication;
 import ningbq.main.R;
 import ningbq.util.CheckNetwork;
@@ -30,11 +35,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.baidu.mapapi.BMapManager;
-import com.baidu.mapapi.GeoPoint;
-import com.baidu.mapapi.MapActivity;
-import com.baidu.mapapi.MapController;
-import com.baidu.mapapi.MapView;
 
 public class LocationTakePhotoScreen extends MapActivity {
 
@@ -63,15 +63,6 @@ public class LocationTakePhotoScreen extends MapActivity {
 		registerForContextMenu(but_Image) ;
 		locationInfoProgress.execute();
 
-		BaiduMapApiApplication app = (BaiduMapApiApplication) this
-				.getApplication();
-		if (app.mBMapMgr == null) {
-			app.mBMapMgr = new BMapManager(getApplication());
-			app.mBMapMgr.init(BaiduMapApiApplication.BAIDU_KEY,
-					new BaiduMapApiApplication.MyGeneralListener());
-		}
-		app.mBMapMgr.start();
-		super.initMapActivity(app.mBMapMgr);
 
 		mapView = (MapView) findViewById(R.id.locationBigMap);
 		MapController mMapController = mapView.getController();
@@ -190,21 +181,7 @@ public class LocationTakePhotoScreen extends MapActivity {
 		return false;
 	}
 
-	@Override
-	protected void onPause() {
-		BaiduMapApiApplication app = (BaiduMapApiApplication) this
-				.getApplication();
-		app.mBMapMgr.stop();
-		super.onPause();
-	}
 
-	@Override
-	protected void onResume() {
-		BaiduMapApiApplication app = (BaiduMapApiApplication) this
-				.getApplication();
-		app.mBMapMgr.start();
-		super.onResume();
-	}
 
 	class LocationInfoProgress extends AsyncTask<Void, Void, Boolean> implements
 			LocationListener {

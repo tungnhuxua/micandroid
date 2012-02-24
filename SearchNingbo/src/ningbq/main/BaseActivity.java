@@ -1,8 +1,5 @@
 package ningbq.main;
 
-
-import com.google.android.maps.MapActivity;
-
 import ningbq.address.LocationAddressListScreen;
 import ningbq.main.widget.MyHorizontalScrollView;
 import ningbq.main.widget.MyHorizontalScrollView.SizeCallback;
@@ -23,6 +20,8 @@ import android.view.Window;
 import android.widget.HorizontalScrollView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.mapabc.mapapi.MapActivity;
 
 public abstract class BaseActivity extends MapActivity implements
 		OnClickListener {

@@ -8,7 +8,6 @@ import ningbq.application.BaiduMapApiApplication;
 import ningbq.main.R;
 import ningbq.service.FavoriteService;
 import ningbq.util.CalculateDistance;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
@@ -26,14 +25,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.baidu.mapapi.BMapManager;
-import com.baidu.mapapi.GeoPoint;
-import com.baidu.mapapi.ItemizedOverlay;
-import com.baidu.mapapi.MapActivity;
-import com.baidu.mapapi.MapController;
-import com.baidu.mapapi.MapView;
-import com.baidu.mapapi.OverlayItem;
-import com.baidu.mapapi.Projection;
+import com.mapabc.mapapi.GeoPoint;
+import com.mapabc.mapapi.ItemizedOverlay;
+import com.mapabc.mapapi.MapActivity;
+import com.mapabc.mapapi.MapController;
+import com.mapabc.mapapi.MapView;
+import com.mapabc.mapapi.OverlayItem;
+import com.mapabc.mapapi.Projection;
 
 public class LocationDetailScreen extends MapActivity implements
 		OnClickListener {
@@ -62,17 +60,6 @@ public class LocationDetailScreen extends MapActivity implements
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.locationdetail);
-		// 百度地图
-		BaiduMapApiApplication app = (BaiduMapApiApplication) this
-				.getApplication();
-		if (app.mBMapMgr == null) {
-			app.mBMapMgr = new BMapManager(getApplication());
-			app.mBMapMgr.init(BaiduMapApiApplication.BAIDU_KEY,
-					new BaiduMapApiApplication.MyGeneralListener());
-		}
-		app.mBMapMgr.start();
-		// 如果使用地图SDK，请初始化地图Activity
-		super.initMapActivity(app.mBMapMgr);
 
 		Bundle bundel = getIntent().getExtras();
 		locationId = bundel.getString("locationId");
@@ -182,21 +169,6 @@ public class LocationDetailScreen extends MapActivity implements
 		return false;
 	}
 
-	@Override
-	protected void onPause() {
-		BaiduMapApiApplication app = (BaiduMapApiApplication) this
-				.getApplication();
-		app.mBMapMgr.stop();
-		super.onPause();
-	}
-
-	@Override
-	protected void onResume() {
-		BaiduMapApiApplication app = (BaiduMapApiApplication) this
-				.getApplication();
-		app.mBMapMgr.start();
-		super.onResume();
-	}
 
 	class OverItemT extends ItemizedOverlay<OverlayItem> {
 
