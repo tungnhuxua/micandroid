@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:autonavi="http://schemas.android.com/apk/res/com.mapabc"
     android:id="@+id/findScreenBar"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -39,13 +40,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
-        <com.google.android.maps.MapView
+        <com.mapabc.mapapi.MapView
             android:id="@+id/findScreenMap"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:apiKey="00t2obY8ctbPoP4OFoP1-Of7xZ_d1Nci6L7169A"
+            android:apiKey="@string/mapabc_apikey"
             android:clickable="true" />
         <!-- home:00t2obY8ctbP8A4BN22lly8Mf-84SmU1tYelpbQ -->
+        <!-- office:00t2obY8ctbPoP4OFoP1-Of7xZ_d1Nci6L7169A -->
     </LinearLayout>
 
 </LinearLayout>

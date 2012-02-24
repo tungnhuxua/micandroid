@@ -90,4 +90,7 @@
     <string name="baidu_check_network">Network Error!</string>
     <string name="baidu_check_connKey">Check Baidu Maps Key.</string>
 
+    <!-- Mapabc key -->
+    <string name="mapabc_apikey">c2b0f58a6f09cafd1503c06ef08ac7aeb7ddb91a2f2f5272c163f9681a5aa71633eac88a0eef5c4e</string>
+
 </resources>

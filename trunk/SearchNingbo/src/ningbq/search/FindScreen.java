@@ -1,10 +1,9 @@
 package ningbq.search;
 
-import com.google.android.maps.GeoPoint;
-import com.google.android.maps.MapController;
-import com.google.android.maps.MapView;
-import com.google.android.maps.MyLocationOverlay;
-
+import com.mapabc.mapapi.GeoPoint;
+import com.mapabc.mapapi.MapController;
+import com.mapabc.mapapi.MapView;
+import com.mapabc.mapapi.MyLocationOverlay;
 import ningbq.main.BaseActivity;
 import ningbq.main.R;
 import android.location.Criteria;
@@ -13,6 +12,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -22,13 +22,17 @@ public class FindScreen extends BaseActivity implements LocationListener {
 	private MapView mapView;
 	private Location currentLocation;
 	private MapController mapController;
+	//private View appMapabc ;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
+		//LayoutInflater inflater = LayoutInflater.from(this);
+		//appMapabc = inflater.inflate(R.layout.find, null) ;
+		
 		ViewGroup mapGroup = (ViewGroup) appView
 				.findViewById(R.id.findScrennMapLayout);
-		this.mapView = (MapView) mapGroup.findViewById(R.id.findScreenMap);
+		mapView = (MapView) mapGroup.findViewById(R.id.findScreenMap);
 		ImageView imageView = (ImageView) viewGroup
 				.findViewById(R.id.findScreenliding);
 		imageView.setOnClickListener(new ClickListenerForScrolling(scrollView,

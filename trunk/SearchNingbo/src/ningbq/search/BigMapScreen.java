@@ -2,6 +2,7 @@ package ningbq.search;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import ningbq.Constant.Constaints;
 import ningbq.application.BaiduMapApiApplication;
 import ningbq.main.R;
@@ -13,17 +14,17 @@ import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.view.ViewGroup.LayoutParams;
+import android.view.Window;
 import android.widget.Toast;
-import com.baidu.mapapi.BMapManager;
-import com.baidu.mapapi.GeoPoint;
-import com.baidu.mapapi.ItemizedOverlay;
-import com.baidu.mapapi.MapActivity;
-import com.baidu.mapapi.MapController;
-import com.baidu.mapapi.MapView;
-import com.baidu.mapapi.OverlayItem;
-import com.baidu.mapapi.Projection;
+
+import com.mapabc.mapapi.GeoPoint;
+import com.mapabc.mapapi.ItemizedOverlay;
+import com.mapabc.mapapi.MapActivity;
+import com.mapabc.mapapi.MapController;
+import com.mapabc.mapapi.MapView;
+import com.mapabc.mapapi.OverlayItem;
+import com.mapabc.mapapi.Projection;
 
 public class BigMapScreen extends MapActivity{
 	
@@ -42,15 +43,6 @@ public class BigMapScreen extends MapActivity{
 		int lon2 = bundle.getInt("lon1") ;
 		locationAddress = bundle.getString("locAddress") ;
 		
-		BaiduMapApiApplication app = (BaiduMapApiApplication) this
-				.getApplication();
-		if (app.mBMapMgr == null) {
-			app.mBMapMgr = new BMapManager(getApplication());
-			app.mBMapMgr.init(BaiduMapApiApplication.BAIDU_KEY,
-					new BaiduMapApiApplication.MyGeneralListener());
-		}
-		app.mBMapMgr.start();
-		super.initMapActivity(app.mBMapMgr);
 		
 		mapView = (MapView) findViewById(R.id.locationBigMap);
 		MapController mMapController = mapView.getController();
@@ -71,21 +63,6 @@ public class BigMapScreen extends MapActivity{
 		return false;
 	}
 	
-	@Override
-	protected void onPause() {
-		BaiduMapApiApplication app = (BaiduMapApiApplication) this
-				.getApplication();
-		app.mBMapMgr.stop();
-		super.onPause();
-	}
-
-	@Override
-	protected void onResume() {
-		BaiduMapApiApplication app = (BaiduMapApiApplication) this
-				.getApplication();
-		app.mBMapMgr.start();
-		super.onResume();
-	}
 	
 	class OverItemT extends ItemizedOverlay<OverlayItem> {
 
