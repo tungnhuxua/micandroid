@@ -2,11 +2,13 @@ package ningbo.media.bean;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 import com.google.gson.annotations.Expose;
 
@@ -29,9 +31,17 @@ public class Favorite implements Serializable{
 	private Integer locationId ;
 	
 	@Expose
-	private String locationName ;
+	@Column(name = "deviceId")
+	private String deviceId ;
+	
+	@Transient
+	private String error ;
 	
 	public Favorite(){}
+	
+	public Favorite(String error){
+		this.error = error ;
+	}
 	
 	public Favorite(boolean flag){
 		flag  = false ;
@@ -61,14 +71,24 @@ public class Favorite implements Serializable{
 		this.locationId = locationId;
 	}
 
-	public String getLocationName() {
-		return locationName;
+	public String getDeviceId() {
+		return deviceId;
 	}
 
-	public void setLocationName(String locationName) {
-		this.locationName = locationName;
+	public void setDeviceId(String deviceId) {
+		this.deviceId = deviceId;
 	}
-	
-	
 
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
+	}
+
+
+
+	
 }

@@ -8,7 +8,6 @@
 	<name>searchningbo api</name>
 	<url>http://maven.apache.org</url>
 	<repositories>
-
 		<repository>
 			<id>JBoss repository</id>
 			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
@@ -16,6 +15,17 @@
 		<repository>
 			<id>Java.Net</id>
 			<url>http://download.java.net/maven/2/</url>
+		</repository>
+
+		<repository>
+			<id>snapshot-repository.java.net</id>
+			<url>http://download.java.net/maven/1</url>
+		</repository>
+
+
+		<repository>
+			<id>maven-repository.java.net</id>
+			<url>http://maven.java.net</url>
 		</repository>
 	</repositories>
 
@@ -25,7 +35,7 @@
 		<ibatis.version>2.3.4.726</ibatis.version>
 		<cxf.version>2.4.3</cxf.version>
 		<hibernate.version>3.6.1.Final</hibernate.version>
-		<jersey.version>1.10</jersey.version>
+		<jersey.version>1.8</jersey.version>
 	</properties>
 
 	<dependencies>
@@ -34,6 +44,7 @@
 			<artifactId>jersey-server</artifactId>
 			<version>${jersey.version}</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-client</artifactId>
@@ -43,6 +54,13 @@
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-json</artifactId>
 			<version>${jersey.version}</version>
+		</dependency>
+		 -->
+		 
+		<dependency>
+			<groupId>com.sun.jersey.contribs</groupId>
+			<artifactId>jersey-multipart</artifactId>
+			<version>1.11</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.jersey.contribs</groupId>
@@ -231,6 +249,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
 		<!-- Hibernate end -->
 		<!-- logging begin -->
 		<!--spring3 CharacterEncodingFilter 依赖这个commons-loggingjar包 -->
@@ -309,13 +328,8 @@
 			<artifactId>json</artifactId>
 			<version>20090211</version>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>net.sf.json-lib</groupId>
-			<artifactId>json-lib</artifactId>
-			<version>2.4</version>
-		</dependency>
-		 -->
+		<!-- <dependency> <groupId>net.sf.json-lib</groupId> <artifactId>json-lib</artifactId> 
+			<version>2.4</version> </dependency> -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>

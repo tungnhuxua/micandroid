@@ -46,11 +46,7 @@ public class SecondCategoryRest {
 		if(firstCategory == null){
 			return new ArrayList<SecondCategory>()  ;
 		}
-		List<SecondCategory> tempList = firstCategory.getSecondCategorys() ;
-		if(tempList.size() == 1){
-			tempList.add(new SecondCategory()) ;
-		}
-		return tempList ;
+		return firstCategory.getSecondCategorys() ;
 	}
 
 }

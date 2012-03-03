@@ -1,5 +1,7 @@
 package ningbo.media.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -25,25 +27,18 @@ public class FavoriteServiceImpl extends BaseServiceImpl<Favorite, Integer>
 		return favoriteDao.findFavoriteById(userId, locationId);
 	}
 
-	public boolean isExistsFavorite(String userId, String locationId) {
-		boolean flag = false ;
-		final String hql = "from Favorite model where model.userId = ? and model.locationId = ? ";
-		Favorite favorite = null;
-		if ("".equals(userId) || "".equals(locationId) || userId == null
-				|| locationId == null) {
-			return flag;
-		}
-		try {
-			favorite = (Favorite) findUnique(hql, Integer.valueOf(userId),
-					Integer.valueOf(locationId));
-			if(favorite != null){
-				flag = true ;
-			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			return flag;
-		}
-		return flag ;
+	public Favorite findFavoriteByDeviceId(String deviceId, String locationId) {
+		return favoriteDao.findFavoriteByDeviceId(deviceId, locationId) ;
 	}
+
+	public List<Favorite> getListFavoriteByUserId(Integer userId) {
+		return favoriteDao.getListFavoriteByUserId(userId);
+	}
+
+	public List<Favorite> getListFavoriteByDeviceId(String deviceId) {
+		return favoriteDao.getListFavoriteByDeviceId(deviceId);
+	}
+
+
 
 }
