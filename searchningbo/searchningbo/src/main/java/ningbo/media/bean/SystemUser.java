@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.google.gson.Gson;
@@ -48,10 +49,28 @@ public class SystemUser implements Serializable {
 	@Expose
 	private Boolean isManager;
 	
+	@Column(name = "userKey")
+	private String userKey ;
+	
 	@Expose
 	private Date date_time;
 	
+	@Transient
+	private String error ;
 	
+	public SystemUser(){}
+	
+	public SystemUser(String error){
+		this.error = error ;
+	}
+
+	public String getUserKey() {
+		return userKey;
+	}
+
+	public void setUserKey(String userKey) {
+		this.userKey = userKey;
+	}
 
 	public Integer getId() {
 		return id;
@@ -125,6 +144,16 @@ public class SystemUser implements Serializable {
 		this.date_time = date_time;
 	}
 	
+	
+	
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
+	}
+
 	public String toJson(){
 		Gson gson = new Gson() ;
 		String json = gson.toJson(this, SystemUser.class) ;

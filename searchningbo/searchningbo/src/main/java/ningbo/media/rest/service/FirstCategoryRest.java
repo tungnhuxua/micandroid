@@ -21,7 +21,7 @@ public class FirstCategoryRest {
 	@Resource
 	private FirstCategoryService firstCategoryService ;
 	
-	@Path("/showAll")
+	@Path("/showAll.json")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<FirstCategory> getAllFirstCategory(){
