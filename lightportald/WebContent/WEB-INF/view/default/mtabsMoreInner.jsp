@@ -1,1 +1,0 @@
-<img src="<%= request.getContextPath() %>/light/images/arrow_down.gif" class="arrow-down" style="padding:5px;" align="middle">

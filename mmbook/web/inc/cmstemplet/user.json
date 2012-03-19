@@ -1,6 +1,0 @@
-[
-{id:'siteName',text:'网站名称',iconCls:'icon-treep',arr:'{$site[siteName]}','leaf':true},
-{id:'userName',text:'用户名',iconCls:'icon-treep',arr:'{$user[userName]}','leaf':true},
-{id:'loginIp',text:'登录IP',iconCls:'icon-treep',arr:'{$user[loginIp]}','leaf':true},
-{id:'loginTime',text:'登录时间',iconCls:'icon-treep',arr:'{$user[loginTime]}','leaf':true}
-]

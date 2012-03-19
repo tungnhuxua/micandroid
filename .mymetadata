@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="searchningbo"
+  id="myeclipse.1332166462578"
+  context-root="/"
+  j2ee-spec="5.0"
+  archive="searchningbo.war">
+  <attributes>
+    <attribute name="webrootdir" value="/web" />
+  </attributes>
+</project-module>
+

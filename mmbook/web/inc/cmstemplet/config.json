@@ -1,6 +1,0 @@
-[
-{id:'imgUrl',text:'存放图片路径',iconCls:'icon-treep',arr:'{$config[imgUrl]}','leaf':true},
-{id:'uploadPath',text:'上传路径',iconCls:'icon-treep',arr:'{$config[uploadPath]}','leaf':true},
-{id:'cachePage',text:'生成页面路径',iconCls:'icon-treep',arr:'{$config[loginTime]}','leaf':true},
-{id:'urlAmp',text:'URL连接符',iconCls:'icon-treep',arr:'{$config[urlAmp]}','leaf':true}
-]

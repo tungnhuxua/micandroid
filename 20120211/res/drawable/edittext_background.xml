@@ -1,51 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="10dp"
-    android:shape="rectangle" >
-
-    <!--
-    <corners
-        android:bottomLeftRadius="15dp"
-        android:bottomRightRadius="15dp"
-        android:radius="1"
-        android:topLeftRadius="15dp"
-        android:topRightRadius="15dp" />
-    -->
-    <!--   -->
-    <stroke
-        android:width="0dip"
-        android:color="#ffffff" />
-
-    <corners android:radius="20dp" 
-        android:topLeftRadius="25dp"
-        android:topRightRadius="25dp"
-        android:bottomLeftRadius="25dp"
-        android:bottomRightRadius="25dp" />
-
-    <gradient
-        android:angle="90"
-        android:endColor="#FFFFFF"
-        android:startColor="#000000"
-        android:type="linear" />
-  
-<!-- 
-    <corners
-        android:bottomLeftRadius="25px"
-        android:bottomRightRadius="25px"
-        android:radius="20px"
-        android:topLeftRadius="25px"
-        android:topRightRadius="25px" />
-
-    <solid android:color="@android:color/" />
-
-    <stroke
-        android:width="0dp"
-        android:color="#000000" />
-
-    <padding
-        android:bottom="1dp"
-        android:left="1dp"
-        android:right="1dp" >
-    </padding>
- -->
-</shape>
