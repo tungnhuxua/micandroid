@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="SoNingboApp"
+  id="myeclipse.1333698725811"
+  context-root="/app"
+  j2ee-spec="5.0"
+  archive="SoNingboApp.war">
+  <attributes>
+    <attribute name="webrootdir" value="Web" />
+  </attributes>
+</project-module>
+
