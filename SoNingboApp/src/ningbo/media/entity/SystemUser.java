@@ -25,18 +25,18 @@ public class SystemUser extends BaseEntity implements Serializable {
 	private String email;
 
 	@Column(nullable = false)
-	private Boolean isAccountEnabled;
+	private Boolean isAccountEnabled = false;
 
 	@Column(nullable = false)
-	private Boolean isAccountLocked;
+	private Boolean isAccountLocked = false;
 
 	@Column(nullable = false)
-	private Integer loginFailureCount;
+	private Integer loginFailureCount = 0;
 
 	private Date lockedDate;
 
 	@Column(updatable = false,nullable = false)
-	private String registerIp;
+	private String registerIp = "0.0.0.0";
 
 	private String loginIp;
 
