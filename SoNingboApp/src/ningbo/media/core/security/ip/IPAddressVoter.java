@@ -18,7 +18,7 @@ import sun.net.util.IPAddressUtil;
  * @version 1.0
  * <p>Copyright (c) 2012 宁波商外文化传媒有限公司,Inc. All Rights Reserved.</p>
  */
-public class IPAddressVoter implements AccessDecisionVoter {
+public class IPAddressVoter implements AccessDecisionVoter<Object> {
 
 	private static Collection<String> ipAddressList = new ArrayList<String>();
 

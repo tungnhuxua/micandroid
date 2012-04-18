@@ -93,13 +93,14 @@ public class SecurityUtils {
 	 * @param roles
 	 * @return true or false
 	 */
+	@SuppressWarnings("unchecked")
 	public static boolean hasAnyRole(String[] roles) {
 		try {
 			Authentication auth = getAuthentication();
 			
-			// Collection authorities = auth.getAuthorities();
-			// Collection<GrantedAuthority> granteds = authorities;
-			Collection<GrantedAuthority> granteds = auth.getAuthorities();
+			Collection authorities = auth.getAuthorities();
+			Collection<GrantedAuthority> granteds = authorities;
+			//Collection<GrantedAuthority> granteds = auth.getAuthorities();
 			for (String role : roles) {
 				for (GrantedAuthority authority : granteds) {
 					if (role.equals(authority.getAuthority())) {
