@@ -5,4 +5,7 @@ import ningbo.media.entity.SystemUser;
 
 public interface SystemUserService extends BaseService<SystemUser, Long> {
 
+	public SystemUser getUserByLoginName(String loginName);
+
+
 }

@@ -16,22 +16,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/user")
 public class SystemUserController {
 
-	protected final static String REDIRCT_URL = "redirect:/rest/" ;
-	
+	protected final static String REDIRCT_URL = "redirect:/rest/";
+
 	@Resource
-	private SystemUserService systemUserService ;
-	
-	@RequestMapping(value="/{name}",method = RequestMethod.GET)
-	public String printUser(@PathVariable("name")String name,ModelMap model) {
+	private SystemUserService systemUserService;
+
+	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
+	public String printUser(@PathVariable("name")
+	String name, ModelMap model) {
 		model.put("message", "Devon.Ning,Welcome");
-		model.addAttribute("interest",name) ;
+		model.addAttribute("interest", name);
 		return "index";
 	}
-	
-	@RequestMapping(value="/add",method = RequestMethod.POST)
-	public String addUser(@ModelAttribute("systemUser")SystemUser u){
-		Long ids = systemUserService.save(u) ;
-		return "redirect:/success.jsp" ;
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String addUser(@ModelAttribute("systemUser")
+	SystemUser u) {
+		systemUserService.save(u);
+		return "redirect:/success.jsp";
 	}
-	
+
 }

@@ -1,7 +1,7 @@
 package ningbo.media.system.dao.impl;
 
-import org.springframework.stereotype.Repository;
 
+import org.springframework.stereotype.Repository;
 import ningbo.media.core.dao.impl.BaseDaoImpl;
 import ningbo.media.entity.SystemUser;
 import ningbo.media.system.dao.SystemUserDao;
@@ -12,4 +12,6 @@ public class SystemUserDaoImpl extends BaseDaoImpl<SystemUser, Long> implements
 	public SystemUserDaoImpl() {
 		super(SystemUser.class);
 	}
+
+	
 }
