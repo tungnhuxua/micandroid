@@ -54,4 +54,12 @@
 		<property name="maxUploadSize" value="10000000" />
 	</bean>
 	
+	<!-- Data Binding -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="webBindingInitializer">
+			<bean class="ningbo.media.core.web.bind.DefaultBindingInitializer" />
+		</property>
+	</bean>
+	
 </beans>
