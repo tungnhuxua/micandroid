@@ -1,5 +1,7 @@
 package ningbo.media.system.service.impl;
 
+import java.util.Collection;
+
 import ningbo.media.core.service.impl.BaseServiceImpl;
 import ningbo.media.entity.SystemRole;
 import ningbo.media.system.dao.SystemRoleDao;
@@ -14,5 +16,9 @@ public class SystemRoleServiceImpl extends BaseServiceImpl<SystemRole, Long> imp
 	@Autowired
 	public SystemRoleServiceImpl(@Qualifier("systemRoleDao")SystemRoleDao systemRoleDao){
 		super(systemRoleDao) ;
+	}
+
+	public Collection<SystemRole> getRolesByUserName(String username) {
+		return null;
 	}
 }

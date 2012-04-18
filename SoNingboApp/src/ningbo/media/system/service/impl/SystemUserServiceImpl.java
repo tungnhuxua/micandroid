@@ -1,5 +1,7 @@
 package ningbo.media.system.service.impl;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -29,6 +31,13 @@ public class SystemUserServiceImpl extends BaseServiceImpl<SystemUser, Long>
 	public SystemUser getUserByLoginName(String loginName) {
 		SystemUser u = systemUserDao.get("username", loginName) ;
 		return u;
+	}
+
+
+
+	public void updateLastLoginDate(Date lastDate, String username)
+			throws Exception {
+		
 	}
 
 
