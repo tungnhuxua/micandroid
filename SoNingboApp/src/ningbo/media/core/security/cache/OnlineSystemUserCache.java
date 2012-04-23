@@ -11,16 +11,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataRetrievalFailureException;
 
-
 /**
  * Description:Cache Current Login UserDetail
  * 
  * @author Devon.Ning
  * @2012-4-18下午12:03:31
- * @version 1.0
- *          <p>
- *          Copyright (c) 2012 宁波商外文化传媒有限公司,Inc. All Rights Reserved.
- *          </p>
+ * @version 1.0 Copyright (c) 2012 宁波商外文化传媒有限公司,Inc. All Rights Reserved.
  */
 public class OnlineSystemUserCache {
 
@@ -53,17 +49,16 @@ public class OnlineSystemUserCache {
 			return (SystemUser) element.getValue();
 		}
 	}
-	
-	
-	public static void remove(String username){
-		if(username != null){
-			cache.remove(username) ;
-			log.info("{} have login out.", username) ;
+
+	public static void remove(String username) {
+		if (username != null) {
+			cache.remove(username);
+			log.info("{} have login out.", username);
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public static List<SystemUser> getOnlineUsers(){
+	public static List<SystemUser> getOnlineUsers() {
 		List<String> usernames;
 		List<SystemUser> userlist = new ArrayList<SystemUser>();
 		try {
@@ -73,7 +68,7 @@ public class OnlineSystemUserCache {
 		} catch (CacheException e) {
 			throw new UnsupportedOperationException(e.getMessage(), e);
 		}
-		for (String username:usernames) {
+		for (String username : usernames) {
 			SystemUser user = get(username);
 			userlist.add(user);
 		}

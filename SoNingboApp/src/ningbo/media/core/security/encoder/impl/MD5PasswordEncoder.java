@@ -14,9 +14,9 @@ import ningbo.media.core.security.encoder.PasswordEncoder;
  * @author Devon.Ning
  * @2012-4-16下午04:53:33
  * @version 1.0
- *          <p>
- *          Copyright (c) 2012 宁波商外文化传媒有限公司,Inc. All Rights Reserved.
- *          </p>
+ * 
+ * Copyright (c) 2012 宁波商外文化传媒有限公司,Inc. All Rights Reserved.
+ * 
  */
 public class MD5PasswordEncoder implements PasswordEncoder {
 
