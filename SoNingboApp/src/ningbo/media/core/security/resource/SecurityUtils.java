@@ -12,6 +12,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
+/**
+ * Description:
+ * @author Devon.Ning
+ * @2012-4-23下午02:53:25
+ * @version 1.0
+ * <p>Copyright (c) 2012 宁波商外文化传媒有限公司,Inc. All Rights Reserved.</p>
+ */
 public class SecurityUtils {
 
 	/**
