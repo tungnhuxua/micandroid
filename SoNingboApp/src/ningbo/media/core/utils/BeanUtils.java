@@ -101,28 +101,22 @@ public class BeanUtils {
 				+ '.' + fieldName);
 	}
 
-	// =============
 
-	/**
-	 * 调用Getter方法.
-	 */
+
+	/**调用Getter方法.*/
 	public static Object invokeGetterMethod(Object target, String propertyName) {
 		String getterMethodName = "get" + StringUtils.capitalize(propertyName);
 		return invokeMethod(target, getterMethodName, new Class[] {},
 				new Object[] {});
 	}
 
-	/**
-	 * 调用Setter方法.使用value的Class来查找Setter方法.
-	 */
+	/**调用Setter方法.使用value的Class来查找Setter方法.*/
 	public static void invokeSetterMethod(Object target, String propertyName,
 			Object value) {
 		invokeSetterMethod(target, propertyName, value, null);
 	}
 
-	/**
-	 * 调用Setter方法.
-	 * 
+	/**调用Setter方法.
 	 * @param propertyType
 	 *            用于查找Setter方法,为空时使用value的Class替代.
 	 */
