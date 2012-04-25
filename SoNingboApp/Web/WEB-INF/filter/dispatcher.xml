@@ -10,9 +10,12 @@
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<!-- 注解探测器 -->
-	<context:component-scan base-package="ningbo.media.*.controller" />
+	<context:component-scan base-package="ningbo.media.*.controller">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
 
-	<mvc:annotation-driven/>
+	<mvc:annotation-driven />
 	<!--  annotation默认的方法映射适配器 -->
 	<bean id="handlerMapping"
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
@@ -46,20 +49,21 @@
 		<property name="ignoreAcceptHeader" value="true" />
 		<property name="defaultContentType" value="application/json" />
 	</bean>
-	
-	
+
+
 	<!-- Enables proper handling of multipart post requests such as file uploads -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="10000000" />
 	</bean>
-	
+
 	<!-- Data Binding -->
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="webBindingInitializer">
-			<bean class="ningbo.media.core.web.bind.DefaultBindingInitializer" />
+			<bean
+				class="ningbo.media.core.web.bind.DefaultBindingInitializer" />
 		</property>
 	</bean>
-	
+
 </beans>
