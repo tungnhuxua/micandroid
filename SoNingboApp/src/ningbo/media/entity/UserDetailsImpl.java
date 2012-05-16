@@ -54,7 +54,7 @@ public class UserDetailsImpl extends SystemUser implements UserDetails,
 	}
 
 
-	/** 用于清楚敏感数据 */
+	/** 用于清除敏感数据 */
 	public void eraseCredentials() {
 		setPassword(null);
 	}

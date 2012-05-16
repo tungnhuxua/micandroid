@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ServiceUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 00:00:00</StartTime>
+		<EndTime>2012-05-09 01:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 01:00:00</StartTime>
+		<EndTime>2012-05-09 02:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 02:00:00</StartTime>
+		<EndTime>2012-05-09 03:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 03:00:00</StartTime>
+		<EndTime>2012-05-09 04:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 04:00:00</StartTime>
+		<EndTime>2012-05-09 05:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 05:00:00</StartTime>
+		<EndTime>2012-05-09 06:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 06:00:00</StartTime>
+		<EndTime>2012-05-09 07:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 07:00:00</StartTime>
+		<EndTime>2012-05-09 08:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 08:00:00</StartTime>
+		<EndTime>2012-05-09 09:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 09:00:00</StartTime>
+		<EndTime>2012-05-09 10:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 10:00:00</StartTime>
+		<EndTime>2012-05-09 11:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 11:00:00</StartTime>
+		<EndTime>2012-05-09 12:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 12:00:00</StartTime>
+		<EndTime>2012-05-09 13:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 13:00:00</StartTime>
+		<EndTime>2012-05-09 14:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 14:00:00</StartTime>
+		<EndTime>2012-05-09 15:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 15:00:00</StartTime>
+		<EndTime>2012-05-09 16:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 16:00:00</StartTime>
+		<EndTime>2012-05-09 17:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 17:00:00</StartTime>
+		<EndTime>2012-05-09 18:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 18:00:00</StartTime>
+		<EndTime>2012-05-09 19:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 19:00:00</StartTime>
+		<EndTime>2012-05-09 20:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 20:00:00</StartTime>
+		<EndTime>2012-05-09 21:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 21:00:00</StartTime>
+		<EndTime>2012-05-09 22:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 22:00:00</StartTime>
+		<EndTime>2012-05-09 23:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-09 23:00:00</StartTime>
+		<EndTime>2012-05-10 00:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-10 00:00:00</StartTime>
+		<EndTime>2012-05-10 01:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-10 01:00:00</StartTime>
+		<EndTime>2012-05-10 02:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-10 02:00:00</StartTime>
+		<EndTime>2012-05-10 03:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-10 03:00:00</StartTime>
+		<EndTime>2012-05-10 04:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-10 04:00:00</StartTime>
+		<EndTime>2012-05-10 05:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-10 05:00:00</StartTime>
+		<EndTime>2012-05-10 06:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-10 06:00:00</StartTime>
+		<EndTime>2012-05-10 07:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-10 07:00:00</StartTime>
+		<EndTime>2012-05-10 08:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-10 08:00:00</StartTime>
+		<EndTime>2012-05-10 09:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>带宽:</UsageType>
+		<OperationName>带宽使用</OperationName>
+		<StartTime>2012-05-10 09:00:00</StartTime>
+		<EndTime>2012-05-10 10:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1300000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 00:00:00</StartTime>
+		<EndTime>2012-05-09 01:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 01:00:00</StartTime>
+		<EndTime>2012-05-09 02:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 02:00:00</StartTime>
+		<EndTime>2012-05-09 03:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 03:00:00</StartTime>
+		<EndTime>2012-05-09 04:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 04:00:00</StartTime>
+		<EndTime>2012-05-09 05:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 05:00:00</StartTime>
+		<EndTime>2012-05-09 06:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 06:00:00</StartTime>
+		<EndTime>2012-05-09 07:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 07:00:00</StartTime>
+		<EndTime>2012-05-09 08:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 08:00:00</StartTime>
+		<EndTime>2012-05-09 09:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 09:00:00</StartTime>
+		<EndTime>2012-05-09 10:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 10:00:00</StartTime>
+		<EndTime>2012-05-09 11:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 11:00:00</StartTime>
+		<EndTime>2012-05-09 12:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 12:00:00</StartTime>
+		<EndTime>2012-05-09 13:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 13:00:00</StartTime>
+		<EndTime>2012-05-09 14:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 14:00:00</StartTime>
+		<EndTime>2012-05-09 15:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 15:00:00</StartTime>
+		<EndTime>2012-05-09 16:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 16:00:00</StartTime>
+		<EndTime>2012-05-09 17:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 17:00:00</StartTime>
+		<EndTime>2012-05-09 18:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 18:00:00</StartTime>
+		<EndTime>2012-05-09 19:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 19:00:00</StartTime>
+		<EndTime>2012-05-09 20:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 20:00:00</StartTime>
+		<EndTime>2012-05-09 21:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 21:00:00</StartTime>
+		<EndTime>2012-05-09 22:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 22:00:00</StartTime>
+		<EndTime>2012-05-09 23:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 23:00:00</StartTime>
+		<EndTime>2012-05-10 00:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-10 00:00:00</StartTime>
+		<EndTime>2012-05-10 01:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-10 01:00:00</StartTime>
+		<EndTime>2012-05-10 02:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-10 02:00:00</StartTime>
+		<EndTime>2012-05-10 03:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-10 03:00:00</StartTime>
+		<EndTime>2012-05-10 04:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-10 04:00:00</StartTime>
+		<EndTime>2012-05-10 05:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-10 05:00:00</StartTime>
+		<EndTime>2012-05-10 06:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-10 06:00:00</StartTime>
+		<EndTime>2012-05-10 07:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMa8452c5e5932f0c00aeafe</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-10 07:00:00</StartTime>
+		<EndTime>2012-05-10 08:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.1000000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMdc7a846f597cbdf41550de</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 00:00:00</StartTime>
+		<EndTime>2012-05-09 01:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.0500000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMdc7a846f597cbdf41550de</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 01:00:00</StartTime>
+		<EndTime>2012-05-09 02:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.0500000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMdc7a846f597cbdf41550de</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 02:00:00</StartTime>
+		<EndTime>2012-05-09 03:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.0500000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMdc7a846f597cbdf41550de</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 03:00:00</StartTime>
+		<EndTime>2012-05-09 04:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.0500000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMdc7a846f597cbdf41550de</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 04:00:00</StartTime>
+		<EndTime>2012-05-09 05:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.0500000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMdc7a846f597cbdf41550de</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 05:00:00</StartTime>
+		<EndTime>2012-05-09 06:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.0500000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMdc7a846f597cbdf41550de</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 06:00:00</StartTime>
+		<EndTime>2012-05-09 07:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.0500000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMdc7a846f597cbdf41550de</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 07:00:00</StartTime>
+		<EndTime>2012-05-09 08:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.0500000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMdc7a846f597cbdf41550de</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 08:00:00</StartTime>
+		<EndTime>2012-05-09 09:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.0500000000</Amount>
+	</OperationUsage>
+	<OperationUsage>
+		<ServiceName>云主机</ServiceName>
+		<UsageType>云主机使用:VMdc7a846f597cbdf41550de</UsageType>
+		<OperationName>运行</OperationName>
+		<StartTime>2012-05-09 09:00:00</StartTime>
+		<EndTime>2012-05-09 10:00:00</EndTime>
+		<UsageValue>1</UsageValue>
+		<Amount>0.0500000000</Amount>
+	</OperationUsage>
+</ServiceUsage>
