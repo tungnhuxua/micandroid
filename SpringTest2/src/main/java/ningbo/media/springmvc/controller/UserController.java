@@ -24,6 +24,7 @@ import ningbo.media.springmvc.jsp.JspMessages;
 import ningbo.media.springmvc.service.UserService;
 
 @Controller
+@RequestMapping("/rest")
 public class UserController {
 
 	private final String FWD_SHOWALLUSERS = "user/showAllUsers";
@@ -117,7 +118,7 @@ public class UserController {
 			
 			forward = FWD_SHOWUSER;
 		} else {
-			forward = RDR_USER + userId;
+			forward = "redirect:/rest/user/" + userId;
 		}
 
 		logger.debug("Exit");
@@ -188,7 +189,7 @@ public class UserController {
 		if(bindingResult.hasErrors()) {
 			forward = FWD_NEWUSER;
 		} else {
-			forward = RDR_USER + userId;
+			forward = "redirect:/rest/user/" + userId;
 		}
 
 		logger.debug("Exit");
@@ -259,7 +260,7 @@ public class UserController {
 			}
 			
 		} else {
-			forward = RDR_ALLUSERS;
+			forward = "redirect:/rest/user";
 		}
 		
 		logger.debug("Exit");
