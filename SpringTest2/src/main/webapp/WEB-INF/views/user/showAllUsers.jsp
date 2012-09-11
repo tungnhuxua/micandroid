@@ -17,14 +17,14 @@
 	<ul>
 		<c:forEach var="user" items="${users}">
 			<li>
-				<spring:url var="userUrl" value="/user/${user.userId}" />
+				<spring:url var="userUrl" value="/rest/user/${user.userId}" />
 				<a href="${userUrl}">${user.username}</a>
 			</li>
 		</c:forEach>
 	</ul>
 	
 	<p>
-		<spring:url var="newUserUrl" value="/user/new" />
+		<spring:url var="newUserUrl" value="/rest/user/new" />
 		<a href="${newUserUrl}">Add a user</a>
 	</p>
 </body>

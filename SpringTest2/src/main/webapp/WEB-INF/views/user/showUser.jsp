@@ -30,11 +30,11 @@
 			<form:errors path="password" delimiter=";&nbsp;" element="span" cssClass="errors-span" />
 		</div>
 		<div>
-			<input name="submit" type="submit" value="Create New User" />
+			<input name="submit" type="submit" value="Edit User" />
 		</div>
 	</form:form>
 	<p>
-		<spring:url var="deleteUserUrl" value="/user/${user.userId}/delete" />
+		<spring:url var="deleteUserUrl" value="/rest/user/${user.userId}/delete" />
 		<a href="${deleteUserUrl}">Delete User</a>
 	</p>
 </body>
